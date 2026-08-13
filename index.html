@@ -214,7 +214,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Fix 1: Latest Edition Section & Understated Completed Status Metadata directly beneath description */
+        /* Latest Edition Section & Understated Completed Status Metadata */
         .spotlight {
             background: var(--darker-navy);
             padding: 5rem var(--side-padding);
@@ -251,7 +251,7 @@
         }
         .cinema-vid iframe { width: 100%; height: 100%; }
 
-        /* Fix 2: About Section & Clean Factual Copy */
+        /* About Section & Clean Factual Copy */
         .about {
             background: var(--cream);
             color: var(--navy);
@@ -299,7 +299,7 @@
             margin: 0;
         }
 
-        /* Fix 3: Clean 5-Year ("5 YEARS OF ASEDA PRAISE") & 100% Free Statistics */
+        /* Clean 5-Year ("5 YEARS OF ASEDA PRAISE") & 100% Free Statistics */
         .about-stats-grid {
             display: flex;
             flex-direction: column;
@@ -391,10 +391,15 @@
             font-style: italic;
         }
 
-        /* Gospel Ministers Section */
-        .ministers { background: var(--dark); padding: 5rem var(--side-padding); }
+        /* Gospel Ministers Section & Smooth Mobile Auto-Swipe */
+        .ministers { background: var(--dark); padding: 5rem var(--side-padding); position: relative; }
         .ministers h2 { font-size: var(--font-title); font-style: italic; margin-bottom: 2.2rem; color: white; }
-        .minister-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+        .minister-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1.8rem; 
+            scroll-behavior: smooth;
+        }
         .m-card { 
             position: relative; 
             aspect-ratio: 3/4; 
@@ -413,7 +418,27 @@
         .m-info h3 { font-size: 1.6rem; margin-bottom: 0.2rem; }
         .m-info p { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
         
-        /* Fix 4: Visionaries Section (Duplicate 100% Free Removed from Paragraph) */
+        /* Mobile Carousel Indicators & Swipe Hint */
+        .carousel-dots {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.4rem;
+        }
+        .c-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            transition: background 0.3s, transform 0.3s;
+        }
+        .c-dot.active {
+            background: var(--orange-red);
+            transform: scale(1.3);
+        }
+
+        /* Visionaries Section */
         .visionaries {
             background: #0b0e28;
             padding: 5.5rem var(--side-padding);
@@ -551,7 +576,7 @@
             color: rgba(255,255,255,0.9);
         }
 
-        /* Fix 5: Memories / Gallery Section (6 Curated Photos Directly Visible before Album Link) */
+        /* Memories / Gallery Section (6 Curated Photos Directly Visible BEFORE Full Album Link) */
         .gallery { background: var(--darkest); padding: 5rem var(--side-padding); }
         .gallery h2 { font-size: var(--font-title); color: white; }
         .gallery-header {
@@ -581,7 +606,7 @@
             color: var(--orange-red);
         }
 
-        /* Fix 6: Lightbox & Mobile Menu Close Button Fix — Strictly hidden when closed */
+        /* Lightbox & Mobile Menu Close Button Fix — Strictly hidden when closed */
         .lightbox {
             display: none; position: fixed; inset: 0; z-index: 9000;
             background: rgba(6,8,32,0.95); backdrop-filter: blur(20px);
@@ -693,6 +718,8 @@
                 height: 380px;
                 aspect-ratio: auto;
             }
+
+            .carousel-dots { display: flex; }
 
             /* Visionaries Mobile Frame */
             .vis-hero-frame { height: 250px; margin: 1.2rem 0; border-radius: 10px; }
@@ -822,7 +849,7 @@
         </div>
     </section>
 
-    <!-- Fix 1: Latest Edition & Understated Completed Status Metadata directly beneath description -->
+    <!-- Latest Edition & Understated Completed Status Metadata directly beneath description -->
     <section class="spotlight" id="latest-edition">
         <div class="spotlight-container">
             <div class="reveal">
@@ -839,7 +866,7 @@
         </div>
     </section>
 
-    <!-- Fix 2 & 3: About Section (Clean Copy, Fixed 5-Year Statistic) -->
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-header reveal">
@@ -897,14 +924,14 @@
         </div>
     </section>
 
-    <!-- Gospel Ministers Section -->
+    <!-- Gospel Ministers Section with Smooth Auto-Swipe & Indicator Dots -->
     <section class="ministers" id="ministers">
         <div class="reveal">
             <span class="chapter-badge">ANOINTED VOICES</span>
             <h2>Gospel Ministers</h2>
         </div>
 
-        <div class="minister-grid reveal">
+        <div class="minister-grid reveal" id="minister-carousel">
             <div class="m-card">
                 <img src="assets/images/aseda_gp_good_shot.jpg" alt="Obaapa Christy performing on stage at Aseda Praise" loading="lazy">
                 <div class="m-info">
@@ -927,9 +954,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- Carousel Indicators on Mobile -->
+        <div class="carousel-dots" id="carousel-dots">
+            <div class="c-dot active"></div>
+            <div class="c-dot"></div>
+            <div class="c-dot"></div>
+        </div>
     </section>
 
-    <!-- Fix 4: Visionaries Section (Duplicate Free Phrase Removed) -->
+    <!-- Visionaries Section -->
     <section class="visionaries" id="founders">
         <div class="vis-container reveal">
             <span class="chapter-badge">THE VISIONARIES</span>
@@ -1025,7 +1059,7 @@
         </div>
     </section>
 
-    <!-- Fix 5: Memories / Gallery Section (6 Curated Photos Directly Visible BEFORE Full Album Link) -->
+    <!-- Memories / Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="gallery-header">
             <div>
@@ -1043,7 +1077,7 @@
         </div>
     </section>
 
-    <!-- Fix 6: Lightbox & Mobile Menu Close Button Fix — Strictly hidden when closed -->
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Preview" onclick="closeLightbox()">
         <span class="lb-close" id="lb-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</span>
         <img id="lb-img" src="" alt="Aseda Praise celebration photograph">
@@ -1121,7 +1155,7 @@
             } else {
                 mobileMenu.classList.add('open');
                 hamburgerBtn.setAttribute('aria-expanded', 'true');
-                hamburgerBtn.innerHTML = '&times;'; // Changes to X when menu is open
+                hamburgerBtn.innerHTML = '&times;';
                 mobileMenu.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
             }
@@ -1130,7 +1164,7 @@
         function closeMobileMenu() {
             mobileMenu.classList.remove('open');
             hamburgerBtn.setAttribute('aria-expanded', 'false');
-            hamburgerBtn.innerHTML = '&#9776;'; // Reverts to hamburger when closed
+            hamburgerBtn.innerHTML = '&#9776;';
             mobileMenu.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         }
@@ -1200,6 +1234,77 @@
                     isMouseInside = false;
                 });
             }
+        }
+
+        // Gospel Ministers Smooth Auto-Swipe Carousel Engine
+        const ministerCarousel = document.getElementById('minister-carousel');
+        const dots = document.querySelectorAll('.c-dot');
+
+        if (ministerCarousel) {
+            let currentIndex = 0;
+            let autoSwipeTimer = null;
+
+            function scrollToMinister(index) {
+                const cards = ministerCarousel.querySelectorAll('.m-card');
+                if (!cards.length) return;
+
+                currentIndex = index % cards.length;
+                const targetCard = cards[currentIndex];
+                
+                ministerCarousel.scrollTo({
+                    left: targetCard.offsetLeft - 16,
+                    behavior: 'smooth'
+                });
+
+                // Update Dot Indicators
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === currentIndex);
+                });
+            }
+
+            function startAutoSwipe() {
+                if (!autoSwipeTimer && window.innerWidth <= 768) {
+                    autoSwipeTimer = setInterval(() => {
+                        scrollToMinister(currentIndex + 1);
+                    }, 3800);
+                }
+            }
+
+            function stopAutoSwipe() {
+                if (autoSwipeTimer) {
+                    clearInterval(autoSwipeTimer);
+                    autoSwipeTimer = null;
+                }
+            }
+
+            // Sync dots on user scroll
+            ministerCarousel.addEventListener('scroll', () => {
+                const cards = ministerCarousel.querySelectorAll('.m-card');
+                if (!cards.length) return;
+                const scrollLeft = ministerCarousel.scrollLeft;
+                
+                let activeIdx = 0;
+                cards.forEach((card, idx) => {
+                    if (scrollLeft >= card.offsetLeft - (card.offsetWidth / 2)) {
+                        activeIdx = idx;
+                    }
+                });
+                
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === activeIdx);
+                });
+            }, { passive: true });
+
+            // Interactive pause and resume on user touch
+            ministerCarousel.addEventListener('touchstart', stopAutoSwipe, { passive: true });
+            ministerCarousel.addEventListener('touchend', () => setTimeout(startAutoSwipe, 4500), { passive: true });
+            
+            // Initial Start for Mobile
+            startAutoSwipe();
+            window.addEventListener('resize', () => {
+                stopAutoSwipe();
+                startAutoSwipe();
+            });
         }
 
         // Intersection Observer Reveal Effect
