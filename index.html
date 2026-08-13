@@ -244,13 +244,16 @@
             display: block;
         }
 
+        /* Editorial Serif Italic Styling for Subtitle */
         .hero-subtitle {
-            font-size: var(--font-body);
-            color: rgba(255, 255, 255, 0.94);
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.92);
             font-weight: 400;
-            line-height: 1.55;
+            line-height: 1.45;
             margin: 0;
-            text-shadow: 0 4px 14px rgba(0,0,0,0.75);
+            text-shadow: 0 4px 14px rgba(0,0,0,0.85);
         }
 
         /* Reduced Opacity Floating Arrow Button */
@@ -822,7 +825,7 @@
 
             .hero-content { margin-top: -2.5rem; }
             .hero-bottom-bar { bottom: 1.4rem; gap: 1rem; }
-            .hero-subtitle { font-size: 0.95rem; }
+            .hero-subtitle { font-size: 1.05rem; }
 
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 240px; }
@@ -879,7 +882,7 @@
                 background-position: 57% center;
             }
             .hero h1 { font-size: 2.2rem; }
-            .hero-subtitle { font-size: 0.88rem; }
+            .hero-subtitle { font-size: 1rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
