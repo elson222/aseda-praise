@@ -269,89 +269,113 @@
             position: relative;
         }
         .vis-container { max-width: 1280px; margin: 0 auto; }
-        .vis-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-        .vis-img-frame {
+        
+        .vis-hero-frame {
             position: relative;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-            border: 1px solid rgba(201, 160, 80, 0.25);
-            aspect-ratio: 1.45 / 1;
+            height: 560px;
+            width: 100%;
+            margin: 3rem 0 3.5rem;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+            border: 1px solid rgba(201, 160, 80, 0.3);
         }
-        .vis-img-frame img {
+        .vis-hero-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center 15%;
             display: block;
-            transition: transform 0.6s ease;
+            transition: transform 0.8s ease;
         }
-        .vis-img-frame:hover img { transform: scale(1.04); }
-        .vis-img-overlay {
+        .vis-hero-frame:hover img { transform: scale(1.03); }
+        .vis-hero-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            padding: 3rem 2.5rem 2rem;
-            background: linear-gradient(to top, rgba(8, 9, 26, 0.95) 0%, transparent 100%);
+            padding: 4rem 3.5rem 3rem;
+            background: linear-gradient(to top, rgba(8, 9, 26, 0.98) 0%, rgba(8, 9, 26, 0.6) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
-        .vis-img-overlay h3 {
-            font-size: 1.8rem;
+        .vis-hero-overlay h3 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
             color: white;
-            margin-bottom: 0.3rem;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
         }
-        .vis-card {
+        .vis-hero-overlay p {
+            color: var(--bronze);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            margin: 0;
+        }
+
+        .vis-content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: stretch;
+        }
+        .vis-story-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 3.5rem 3rem;
+            border-radius: 20px;
+            padding: 3rem;
             display: flex;
             flex-direction: column;
-            gap: 1.8rem;
+            gap: 1.5rem;
         }
-        .vis-card h3 {
-            font-size: 2.4rem;
+        .vis-story-card h3 {
+            font-size: 2.2rem;
             color: white;
             line-height: 1.2;
+            margin: 0;
         }
-        .vis-card p {
-            font-size: 1.05rem;
-            line-height: 1.75;
-            color: rgba(255, 255, 255, 0.8);
+        .vis-story-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
         }
-        .vis-quote-box {
+        .vis-quote-card {
             background: rgba(229, 82, 42, 0.06);
-            border-left: 3px solid var(--orange-red);
-            border-radius: 0 12px 12px 0;
-            padding: 1.5rem 2rem;
+            border: 1px solid rgba(229, 82, 42, 0.2);
+            border-left: 4px solid var(--orange-red);
+            border-radius: 20px;
+            padding: 3rem;
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            justify-content: space-between;
+            gap: 2rem;
         }
-        .vis-quote-box p {
+        .vis-quote-card p {
             font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
+            font-size: 1.6rem;
             font-style: italic;
             color: var(--orange-red);
-            line-height: 1.4;
+            line-height: 1.5;
             margin: 0;
+        }
+        .vis-quote-author {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: var(--bronze);
+            margin-top: 0.5rem;
         }
         .vis-badges {
             display: flex;
             gap: 0.8rem;
             flex-wrap: wrap;
-            margin-top: 0.5rem;
         }
         .vis-badge {
             border: 1px solid rgba(201, 160, 80, 0.4);
             color: var(--bronze);
             padding: 0.4rem 1rem;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             font-family: 'Bebas Neue', sans-serif;
@@ -443,8 +467,11 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 3.5rem; }
 
-            .about-grid, .vis-content, .vid-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-grid, .vis-content-grid, .vid-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 280px; }
+            .vis-hero-frame { height: 320px; margin: 2rem 0; }
+            .vis-hero-overlay { padding: 2rem 1.5rem; }
+            .vis-story-card, .vis-quote-card { padding: 2rem 1.5rem; }
             .minister-grid { grid-template-columns: 1fr; }
             .masonry { column-count: 1; }
             .video-wrapper { width: 100%; padding-bottom: 56.25%; }
@@ -599,16 +626,18 @@
                 <h2 class="playfair" style="font-size: clamp(2.8rem, 5vw, 4rem); color: white;">The Visionaries Behind Aseda Praise</h2>
             </div>
 
-            <div class="vis-grid">
-                <div class="vis-img-frame reveal">
-                    <img src="assets/images/aseda_founders.jpg" alt="Mr. Evans Ghartey & Mr. Frederick Lomotey" loading="lazy">
-                    <div class="vis-img-overlay">
-                        <h3 class="playfair">Mr. Evans Ghartey &amp; Mr. Frederick Lomotey</h3>
-                        <p style="color:var(--bronze); font-family:'Bebas Neue',sans-serif; letter-spacing:2px; margin:0;">Founders &amp; Lead Sponsors</p>
-                    </div>
+            <!-- Full-Width Commanding Hero Feature Frame -->
+            <div class="vis-hero-frame reveal">
+                <img src="assets/images/aseda_founders.jpg" alt="Mr. Evans Ghartey & Mr. Frederick Lomotey" loading="lazy">
+                <div class="vis-hero-overlay">
+                    <h3 class="playfair">Mr. Evans Ghartey &amp; Mr. Frederick Lomotey</h3>
+                    <p>FOUNDERS &amp; LEAD SPONSORS</p>
                 </div>
+            </div>
 
-                <div class="vis-card reveal">
+            <!-- Twin Editorial Cards Below -->
+            <div class="vis-content-grid">
+                <div class="vis-story-card reveal">
                     <div>
                         <span style="color:var(--bronze); font-family:'Bebas Neue',sans-serif; letter-spacing:2px; font-size:0.95rem;">A VISION BORN OF GRATITUDE</span>
                         <h3 class="playfair" style="margin-top:0.4rem;">Driven by Faith &amp; Community Impact</h3>
@@ -617,9 +646,12 @@
                     <p>Driven by a shared vision to impact their community through faith and action, our founders established Aseda Praise as a beacon of hope and gratitude in the Western Region.</p>
                     
                     <p>Their dedication goes beyond the stage, ensuring that the event remains 100% free and accessible to all while actively contributing to local healthcare and community development.</p>
+                </div>
 
-                    <div class="vis-quote-box">
+                <div class="vis-quote-card reveal">
+                    <div>
                         <p>"Aseda Praise was never about a concert. It was always about saying thank you."</p>
+                        <div class="vis-quote-author">— EVANS GHARTEY &amp; FREDERICK LOMOTEY</div>
                     </div>
 
                     <div class="vis-badges">
