@@ -178,7 +178,7 @@
             z-index: 1;
         }
 
-        .hero-content { position: relative; z-index: 2; max-width: 850px; margin-top: 2rem; }
+        .hero-content { position: relative; z-index: 2; max-width: 850px; margin-top: -3rem; }
         
         .hero-badge-tag {
             display: inline-block;
@@ -197,7 +197,7 @@
             font-size: var(--font-eyebrow); 
             letter-spacing: 3.5px; 
             font-weight: 600; 
-            margin-bottom: 1rem; 
+            margin-bottom: 0.8rem; 
             line-height: 1.5;
             color: var(--bronze);
             text-transform: uppercase;
@@ -207,7 +207,7 @@
             font-size: var(--font-hero);
             line-height: 0.98;
             font-style: italic;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0;
             display: flex;
             flex-direction: column;
             text-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -215,28 +215,37 @@
         .stroke-text { -webkit-text-stroke: 1.2px white; color: transparent; display: block; }
         .orange { display: block; color: var(--orange-red); }
 
+        /* Clean Bottom Hero Bar with Subtitle + Pure Downward Bouncing Arrow */
+        .hero-bottom-bar {
+            position: absolute;
+            bottom: 1.8rem;
+            left: var(--side-padding);
+            right: var(--side-padding);
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1.5rem;
+        }
+
         .hero-subtitle {
             font-size: var(--font-body);
             color: rgba(255, 255, 255, 0.88);
             font-weight: 400;
-            max-width: 520px;
-            line-height: 1.6;
-            margin-top: 0.4rem;
+            max-width: 460px;
+            line-height: 1.55;
+            margin: 0;
             text-shadow: 0 4px 12px rgba(0,0,0,0.6);
         }
 
         .scroll-indicator {
-            position: absolute; bottom: 1.5rem; right: var(--side-padding); z-index: 2;
-            display: flex; align-items: center; gap: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             animation: bounce 2s infinite;
+            flex-shrink: 0;
         }
-        .scroll-hint-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: rgba(255,255,255,0.7);
-        }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-12px);} 60% {transform: translateY(-6px);} }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
         /* Eyebrow Badges */
         .chapter-badge {
@@ -752,6 +761,10 @@
                 background-position: 60% center;
             }
 
+            .hero-content { margin-top: -2rem; }
+            .hero-bottom-bar { bottom: 1.4rem; gap: 1rem; }
+            .hero-subtitle { font-size: 0.95rem; max-width: 80%; }
+
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 240px; }
             
@@ -795,7 +808,6 @@
                 background-position: 58% center;
             }
             .hero h1 { font-size: clamp(2.3rem, 8.5vw, 3.6rem); }
-            .hero-content { margin-top: 1.5rem; }
             .stat-card { padding: 1rem 1.2rem; flex-direction: row; gap: 1rem; }
             .stat-num { font-size: 2.4rem; min-width: 85px; }
             .vis-hero-frame { height: 220px; }
@@ -808,6 +820,7 @@
                 background-position: 57% center;
             }
             .hero h1 { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 0.88rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -901,12 +914,14 @@
                 <span class="orange">Hearts,</span>
                 <span>One Voice.</span>
             </h1>
-            <p class="hero-subtitle">Ghana's annual Easter gospel worship &amp; thanksgiving experience.</p>
         </div>
 
-        <div class="scroll-indicator" aria-hidden="true">
-            <span class="scroll-hint-text">SCROLL</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        <!-- Clean Hero Bottom Bar: Subtitle + Pure Downward Bouncing Arrow -->
+        <div class="hero-bottom-bar reveal">
+            <p class="hero-subtitle">Ghana's annual Easter gospel worship &amp; thanksgiving experience.</p>
+            <div class="scroll-indicator" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </div>
         </div>
     </section>
 
