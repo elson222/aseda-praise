@@ -6,9 +6,13 @@
 - Name: Aseda Praise
 - Frequency: Annual Easter Concert & Community Gathering
 - Location: Tarkwa, Western Region, Ghana
-- Admission: 100% Free Entry (Open to all worshipper and community members)
+- Admission: 100% Free Entry (Open to all worshippers and community members)
 - Founders & Lead Sponsors: Mr. Evans Ghartey and Mr. Frederick Lomotey
 - Motto: "Ten Thousand Hearts, One Voice"
+
+## Lead Sponsors & Partners
+- Evanex Foundation: https://evanexfoundation.org (Lead Community & Foundation Partner)
+- Evanex Pharmacy: https://evanexpharmacy.com (Lead Healthcare & Medical Outreach Partner)
 
 ## Featured Gospel Ministers
 - Obaapa Christy (Headline Minister)
@@ -23,6 +27,8 @@ Every year, Aseda Praise carries out tangible humanitarian outreach at Apinto Go
 
 ## Official Links & Resources
 - Website: https://elson222.github.io/aseda-praise/
+- Evanex Foundation: https://evanexfoundation.org
+- Evanex Pharmacy: https://evanexpharmacy.com
 - Official YouTube Channel: https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA
 - Instagram: https://www.instagram.com/aseda.praise/
 - Facebook: https://www.facebook.com/asedapraisetarkwa/

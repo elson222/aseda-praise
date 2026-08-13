@@ -6,8 +6,8 @@
     
     <!-- Search Engine & Primary SEO Meta -->
     <title>Aseda Praise | Annual Easter Gospel Concert in Tarkwa, Ghana</title>
-    <meta name="description" content="Official website of Aseda Praise — Ghana's premier annual Easter gospel thanksgiving & worship experience in Tarkwa, Western Region. 100% Free Entry. Founded by Evans Ghartey & Frederick Lomotey.">
-    <meta name="keywords" content="Aseda Praise, Tarkwa, Western Region, Ghana Gospel Concert, Obaapa Christy, Joe Mettle, ACP Kofi Sarpong, Apinto Government Hospital, Evans Ghartey, Frederick Lomotey, Easter Gospel Worship, Ghana Gospel Event">
+    <meta name="description" content="Official website of Aseda Praise — Ghana's premier annual Easter gospel thanksgiving & worship experience in Tarkwa, Western Region. 100% Free Entry. Sponsored by Evanex Foundation & Evanex Pharmacy.">
+    <meta name="keywords" content="Aseda Praise, Tarkwa, Western Region, Ghana Gospel Concert, Obaapa Christy, Joe Mettle, ACP Kofi Sarpong, Apinto Government Hospital, Evans Ghartey, Frederick Lomotey, Evanex Foundation, Evanex Pharmacy, Easter Gospel Worship">
     <meta name="author" content="Aseda Praise Secretariat">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
@@ -19,9 +19,10 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- Specialized AI Agent / LLM Metadata (ChatGPT, Google Gemini, Anthropic Claude, Perplexity) -->
-    <meta name="ai:summary" content="Aseda Praise is an annual Easter gospel concert and community thanksgiving event held in Tarkwa, Western Region, Ghana. Admission is 100% free. Founded by Mr. Evans Ghartey and Mr. Frederick Lomotey. Features top Ghanaian gospel artists including Obaapa Christy, Joe Mettle, and ACP Kofi Sarpong. Performs annual medical outreach at Tarkwa Apinto Government Hospital.">
-    <meta name="ai:topic" content="Gospel Music Event, Christian Thanksgiving, Community Healthcare Outreach, Tarkwa Ghana">
+    <meta name="ai:summary" content="Aseda Praise is an annual Easter gospel concert and community thanksgiving event held in Tarkwa, Western Region, Ghana. Admission is 100% free. Sponsored by Evanex Foundation and Evanex Pharmacy. Founded by Mr. Evans Ghartey and Mr. Frederick Lomotey. Features top Ghanaian gospel artists including Obaapa Christy, Joe Mettle, and ACP Kofi Sarpong. Performs annual medical outreach at Tarkwa Apinto Government Hospital.">
+    <meta name="ai:topic" content="Gospel Music Event, Christian Thanksgiving, Community Healthcare Outreach, Evanex Foundation, Evanex Pharmacy">
     <meta name="ai:event-status" content="Completed 5th Anniversary Edition. Annual Easter Gathering.">
+    <meta name="ai:sponsors" content="Evanex Foundation, Evanex Pharmacy">
     <meta name="ai:founders" content="Evans Ghartey, Frederick Lomotey">
     <meta name="ai:location" content="Tarkwa, Western Region, Ghana">
     <meta name="ai:admission" content="Free (No Ticket Required)">
@@ -30,7 +31,7 @@
     <!-- OpenGraph Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Aseda Praise | Ten Thousand Hearts, One Voice">
-    <meta property="og:description" content="Western Region's annual Easter gospel thanksgiving experience in Tarkwa, Ghana. 100% Free Entry.">
+    <meta property="og:description" content="Western Region's annual Easter gospel thanksgiving experience in Tarkwa, Ghana. 100% Free Entry. Sponsored by Evanex Foundation & Evanex Pharmacy.">
     <meta property="og:image" content="https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -42,7 +43,7 @@
     <!-- Twitter Metadata -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Aseda Praise | Ten Thousand Hearts, One Voice">
-    <meta name="twitter:description" content="Western Region's annual Easter gospel thanksgiving experience in Tarkwa, Ghana.">
+    <meta name="twitter:description" content="Western Region's annual Easter gospel thanksgiving experience in Tarkwa, Ghana. Sponsored by Evanex Foundation & Evanex Pharmacy.">
     <meta name="twitter:image" content="https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg">
 
     <link rel="canonical" href="https://elson222.github.io/aseda-praise/">
@@ -650,6 +651,100 @@
             margin-top: 0.6rem;
         }
 
+        /* Seamless Sponsors & Partners Section */
+        .sponsors {
+            background: var(--cream);
+            color: var(--navy);
+            padding: 5.5rem var(--side-padding);
+            position: relative;
+            z-index: 7.5;
+            border-radius: var(--section-radius) var(--section-radius) 0 0;
+            box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.25);
+        }
+        .sponsors-container { max-width: 1200px; margin: 0 auto; }
+        .sponsors-header h2 {
+            font-size: var(--font-title);
+            color: var(--navy);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.4rem;
+        }
+        .sponsors-desc {
+            max-width: 680px;
+            color: rgba(27, 32, 112, 0.82);
+            font-size: var(--font-body);
+            margin-bottom: 2.8rem;
+        }
+
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .sponsor-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(27, 32, 112, 0.12);
+            border-radius: 24px;
+            padding: 2.2rem 2.4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 14px 40px rgba(27, 32, 112, 0.06);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 50px rgba(27, 32, 112, 0.14);
+            border-color: var(--orange-red);
+        }
+
+        .sponsor-badge {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2.5px;
+            color: var(--orange-red);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .sponsor-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.6rem;
+        }
+
+        .sponsor-text {
+            font-size: 0.98rem;
+            color: rgba(27, 32, 112, 0.85);
+            line-height: 1.65;
+            margin-bottom: 1.8rem;
+        }
+
+        .sponsor-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--navy);
+            background: rgba(27, 32, 112, 0.06);
+            border: 1px solid rgba(27, 32, 112, 0.15);
+            padding: 0.7rem 1.4rem;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            width: fit-content;
+            transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+        }
+        .sponsor-link:hover {
+            background: var(--navy);
+            color: white;
+            border-color: var(--navy);
+            transform: translateX(4px);
+        }
+
         /* Seamless Outreach Section */
         .outreach { 
             background: linear-gradient(to bottom, var(--darker-navy) 0%, #0a0d33 100%);
@@ -990,6 +1085,7 @@
         }
 
         @media(max-width: 1024px) {
+            .sponsors-grid { grid-template-columns: 1fr; }
             .masonry { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
         }
 
@@ -1033,6 +1129,9 @@
 
             /* Visionaries Mobile Frame */
             .vis-hero-frame { height: 250px; margin: 1.2rem 0; border-radius: 18px; }
+
+            .sponsor-card { padding: 1.8rem 1.6rem; }
+            .sponsor-name { font-size: 1.55rem; }
 
             /* Gallery 2-Column Grid on Mobile */
             .masonry { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
@@ -1099,6 +1198,18 @@
               { "@type": "Person", "name": "Frederick Lomotey" }
             ]
           },
+          "sponsor": [
+            {
+              "@type": "Organization",
+              "name": "Evanex Foundation",
+              "url": "https://evanexfoundation.org"
+            },
+            {
+              "@type": "Organization",
+              "name": "Evanex Pharmacy",
+              "url": "https://evanexpharmacy.com"
+            }
+          ],
           "performer": [
             { "@type": "MusicGroup", "name": "Obaapa Christy" },
             { "@type": "MusicGroup", "name": "Joe Mettle" },
@@ -1147,6 +1258,7 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#ministers">Ministers</a>
+            <a href="#sponsors">Sponsors</a>
             <a href="#impact">Impact</a>
             <a href="#media">Media</a>
             <a href="#gallery">Gallery</a>
@@ -1162,6 +1274,7 @@
         <a href="#home" onclick="closeMobileMenu()">Home</a>
         <a href="#about" onclick="closeMobileMenu()">About</a>
         <a href="#ministers" onclick="closeMobileMenu()">Ministers</a>
+        <a href="#sponsors" onclick="closeMobileMenu()">Sponsors</a>
         <a href="#impact" onclick="closeMobileMenu()">Impact</a>
         <a href="#media" onclick="closeMobileMenu()">Media</a>
         <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
@@ -1332,6 +1445,37 @@
         </div>
     </section>
 
+    <!-- Sponsors & Partners Section -->
+    <section class="sponsors" id="sponsors">
+        <div class="sponsors-container">
+            <div class="sponsors-header">
+                <span class="chapter-badge">SPONSORS &amp; PARTNERS</span>
+                <h2>Empowered by Faith &amp; Community</h2>
+                <p class="sponsors-desc">Our deepest appreciation to our lead sponsoring organizations for their unwavering commitment to keeping Aseda Praise 100% free for thousands of worshippers every year.</p>
+            </div>
+
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <div>
+                        <span class="sponsor-badge">LEAD FOUNDATION PARTNER</span>
+                        <h3 class="sponsor-name">Evanex Foundation</h3>
+                        <p class="sponsor-text">Dedicated to healthcare outreach, youth empowerment, education, and holistic community development across Tarkwa and the Western Region.</p>
+                    </div>
+                    <a href="https://evanexfoundation.org" target="_blank" rel="noopener" class="sponsor-link">Visit Evanex Foundation &rarr;</a>
+                </div>
+
+                <div class="sponsor-card">
+                    <div>
+                        <span class="sponsor-badge">LEAD HEALTHCARE PARTNER</span>
+                        <h3 class="sponsor-name">Evanex Pharmacy</h3>
+                        <p class="sponsor-text">Providing essential pharmaceutical care, medical equipment donations, and sponsoring annual community health screenings at Apinto Government Hospital.</p>
+                    </div>
+                    <a href="https://evanexpharmacy.com" target="_blank" rel="noopener" class="sponsor-link">Visit Evanex Pharmacy &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Outreach Section with Curved Top Edge -->
     <section class="outreach" id="impact">
         <div>
@@ -1472,7 +1616,9 @@
             <a href="https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA" target="_blank" rel="noopener">YouTube</a> &bull;
             <a href="https://www.instagram.com/aseda.praise/" target="_blank" rel="noopener">Instagram</a> &bull;
             <a href="https://www.facebook.com/asedapraisetarkwa/" target="_blank" rel="noopener">Facebook</a> &bull;
-            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener">Google Album</a>
+            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener">Google Album</a> &bull;
+            <a href="https://evanexfoundation.org" target="_blank" rel="noopener">Evanex Foundation</a> &bull;
+            <a href="https://evanexpharmacy.com" target="_blank" rel="noopener">Evanex Pharmacy</a>
         </div>
 
         <div class="footer-copy">&copy; 2026 Aseda Praise. All rights reserved.</div>
