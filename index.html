@@ -214,7 +214,7 @@
         .stroke-text { -webkit-text-stroke: 1.3px white; color: transparent; display: block; }
         .orange { display: block; color: var(--orange-red); }
 
-        /* Clean Bottom Hero Bar: Location Tag + Subtitle at Bottom Left & Arrow at Bottom Right */
+        /* Clean Bottom Hero Bar: Location Tag + Single Line Subtitle */
         .hero-bottom-bar {
             position: absolute;
             bottom: 2.2rem;
@@ -222,9 +222,8 @@
             right: var(--side-padding);
             z-index: 3;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: flex-end;
-            gap: 1.5rem;
             pointer-events: none;
         }
 
@@ -232,7 +231,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.2rem;
-            max-width: 520px;
+            width: 100%;
             pointer-events: auto;
         }
 
@@ -244,39 +243,20 @@
             display: block;
         }
 
-        /* Editorial Serif Italic Styling for Subtitle */
+        /* Strict Single Line Subtitle Across Devices */
         .hero-subtitle {
             font-family: 'Playfair Display', Georgia, serif;
             font-style: italic;
-            font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-            color: rgba(255, 255, 255, 0.92);
+            font-size: clamp(0.68rem, 2.7vw, 1.18rem);
+            color: rgba(255, 255, 255, 0.94);
             font-weight: 400;
-            line-height: 1.45;
+            line-height: 1.2;
             margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             text-shadow: 0 4px 14px rgba(0,0,0,0.85);
         }
-
-        /* Reduced Opacity Floating Arrow Button */
-        .scroll-indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: bounce 2s infinite;
-            flex-shrink: 0;
-            pointer-events: auto;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            backdrop-filter: blur(8px);
-            opacity: 0.48;
-            transition: opacity 0.3s ease;
-        }
-        .scroll-indicator:hover {
-            opacity: 0.9;
-        }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-8px);} 60% {transform: translateY(-4px);} }
 
         /* Eyebrow Badges */
         .chapter-badge {
@@ -824,8 +804,7 @@
             }
 
             .hero-content { margin-top: -2.5rem; }
-            .hero-bottom-bar { bottom: 1.4rem; gap: 1rem; }
-            .hero-subtitle { font-size: 1.05rem; }
+            .hero-bottom-bar { bottom: 1.4rem; }
 
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 240px; }
@@ -882,13 +861,11 @@
                 background-position: 57% center;
             }
             .hero h1 { font-size: 2.2rem; }
-            .hero-subtitle { font-size: 1rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
             .hero-bg { transform: none !important; }
             .reveal { transition: none; opacity: 1; transform: none; }
-            .scroll-indicator { animation: none; }
         }
     </style>
     
@@ -975,14 +952,11 @@
             </h1>
         </div>
 
-        <!-- Clean Hero Bottom Bar: Location Tag + Subtitle at Bottom Left & Arrow at Bottom Right -->
+        <!-- Clean Hero Bottom Bar: Location Tag + Single Line Subtitle Across Devices -->
         <div class="hero-bottom-bar reveal">
             <div class="hero-bottom-info">
                 <span class="hero-bottom-location">TARKWA &bull; WESTERN REGION &bull; GHANA</span>
                 <p class="hero-subtitle">Ghana's annual Easter gospel worship &amp; thanksgiving experience.</p>
-            </div>
-            <div class="scroll-indicator" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
             </div>
         </div>
     </section>
