@@ -146,19 +146,39 @@
         }
         .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
-        /* Hero — Desktop focal position */
+        /* Hero Section & Fresh Visit Zoom + Smooth Gradient Blend */
         .hero {
             height: 88vh; height: 88dvh; min-height: 520px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
-            background: url('assets/images/aseda_stage_obaapa_christy.jpg') center center/cover no-repeat;
+            overflow: hidden;
+            background-color: var(--darker-navy);
         }
+
+        /* Separate BG container for smooth zoom animation & mouse parallax */
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: url('assets/images/aseda_stage_obaapa_christy.jpg') center center/cover no-repeat;
+            transform-origin: center center;
+            animation: heroZoomIn 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: transform 0.25s ease-out;
+            will-change: transform;
+        }
+
+        @keyframes heroZoomIn {
+            0% { transform: scale(1.12); filter: brightness(0.85); }
+            100% { transform: scale(1.0); filter: brightness(1); }
+        }
+
+        /* Seamless Gradient Blend into Latest Edition (#0d1040) */
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.92) 0%, transparent 72%),
-                        linear-gradient(to top right, rgba(8, 9, 26, 0.85) 0%, rgba(229, 82, 42, 0.08) 100%),
-                        linear-gradient(to top, rgba(8, 9, 26, 1) 0%, transparent 35%);
+            background: 
+                radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.92) 0%, transparent 72%),
+                linear-gradient(to top right, rgba(8, 9, 26, 0.85) 0%, rgba(229, 82, 42, 0.08) 100%),
+                linear-gradient(to bottom, transparent 40%, rgba(13, 16, 64, 0.6) 75%, #0d1040 100%);
             z-index: 1;
         }
+
         .hero-content { position: relative; z-index: 2; max-width: 850px; margin-top: 1.8rem; }
         .hero-overline { 
             font-size: var(--font-eyebrow); 
@@ -201,7 +221,7 @@
             background: var(--darker-navy);
             padding: 5rem var(--side-padding);
             position: relative;
-            border-bottom: 1px solid var(--border-color);
+            margin-top: -1px; /* Prevents sub-pixel rendering gap */
         }
         .spotlight-container { max-width: 1200px; margin: 0 auto; }
         .spotlight h2 { font-size: var(--font-title); color: white; margin-bottom: 0.3rem; }
@@ -589,8 +609,7 @@
             .nav-links { display: none; }
             .hamburger { display: flex; }
 
-            /* Mobile Focal Position: Position singer (at ~60% X of source photo) to the right third of the mobile screen */
-            .hero {
+            .hero-bg {
                 background-position: 60% center;
             }
 
@@ -635,7 +654,7 @@
         }
 
         @media(max-width: 480px) {
-            .hero {
+            .hero-bg {
                 background-position: 58% center;
             }
             .hero h1 { font-size: clamp(2.3rem, 8.5vw, 3.6rem); }
@@ -648,13 +667,14 @@
         }
 
         @media(max-width: 375px) {
-            .hero {
+            .hero-bg {
                 background-position: 57% center;
             }
             .hero h1 { font-size: 2.2rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
+            .hero-bg { animation: none; transform: none !important; }
             .reveal { transition: none; opacity: 1; transform: none; }
             .scroll-indicator { animation: none; }
         }
@@ -728,9 +748,11 @@
         <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
     </div>
 
-    <!-- Art-Directed Poster Hero -->
+    <!-- Art-Directed Poster Hero with Animated BG & Seamless Color Blend -->
     <section class="hero" id="home">
+        <div class="hero-bg" id="hero-bg"></div>
         <div class="hero-overlay"></div>
+        
         <div class="hero-content reveal">
             <div class="hero-overline">
                 <span>TARKWA &bull; WESTERN REGION &bull; GHANA</span>
@@ -1066,6 +1088,26 @@
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
+
+        // Interactive Hero Mouse Parallax Effect (Desktop/Pointer Devices)
+        const hero = document.getElementById('home');
+        const heroBg = document.getElementById('hero-bg');
+        if (hero && heroBg && matchMedia('(pointer: fine)').matches) {
+            let rafId = null;
+            hero.addEventListener('mousemove', (e) => {
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(() => {
+                    const rect = hero.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 16;
+                    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 12;
+                    heroBg.style.transform = `scale(1.04) translate(${x}px, ${y}px)`;
+                });
+            });
+            hero.addEventListener('mouseleave', () => {
+                if (rafId) cancelAnimationFrame(rafId);
+                heroBg.style.transform = 'scale(1.0) translate(0px, 0px)';
+            });
+        }
 
         // Intersection Observer Reveal Effect
         const observer = new IntersectionObserver((entries) => {
