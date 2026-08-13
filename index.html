@@ -3,50 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aseda Praise | Ten Thousand Hearts, One Voice</title>
-    <meta name="description" content="Ghana's most powerful annual gospel concert in Tarkwa, Western Region. Free entry. Open to all.">
-    <meta property="og:title" content="Aseda Praise">
-    <meta property="og:description" content="Ten Thousand Hearts, One Voice. Ghana's most powerful annual gospel concert.">
-    <meta property="og:image" content="assets/images/aseda_stage_obaapa_christy.jpg">
+    <title>Aseda Praise | Annual Easter Thanksgiving in Tarkwa, Ghana</title>
+    <meta name="description" content="The official digital home of Aseda Praise — Ghana's annual Easter thanksgiving & gospel worship experience in Tarkwa, Western Region. 100% free admission.">
+    <meta name="keywords" content="Aseda Praise, Tarkwa, Western Region, Ghana Gospel Concert, Obaapa Christy, Joe Mettle, ACP Kofi Sarpong, Apinto Hospital">
+    
+    <!-- OpenGraph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aseda Praise | Annual Easter Thanksgiving Experience">
+    <meta property="og:description" content="Ten Thousand Hearts, One Voice. Western Region's most powerful annual gospel concert. Free entry for all.">
+    <meta property="og:image" content="https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg">
     <meta property="og:url" content="https://elson222.github.io/aseda-praise/">
+    <meta property="og:site_name" content="Aseda Praise">
+    
+    <!-- Twitter Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aseda Praise | Annual Easter Thanksgiving Experience">
+    <meta name="twitter:description" content="Ten Thousand Hearts, One Voice. Western Region's most powerful annual gospel concert in Tarkwa, Ghana.">
+    <meta name="twitter:image" content="https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg">
+
     <link rel="canonical" href="https://elson222.github.io/aseda-praise/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --navy: #1B2070;
             --orange-red: #E5522A;
             --bronze: #C9A050;
-            --cream: #fdf8f3;
+            --cream: #FAF6F0;
             --dark: #08091a;
             --darker-navy: #0d1040;
             --darkest: #060820;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --border-color: rgba(255, 255, 255, 0.1);
             --side-padding: 5vw;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--dark);
             color: #ffffff;
             overflow-x: hidden;
-
+            line-height: 1.6;
         }
 
         h1, h2, h3, .playfair { font-family: 'Playfair Display', serif; }
         .bebas { font-family: 'Bebas Neue', sans-serif; }
         .bronze { color: var(--bronze); }
         .orange { color: var(--orange-red); }
-
-
         
+        /* Focus Rings for Accessibility */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--bronze);
+            outline-offset: 4px;
+        }
+
         /* Scroll Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .reveal.active {
             opacity: 1;
@@ -56,63 +77,130 @@
         /* Nav */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            padding: 2rem var(--side-padding);
+            padding: 1.8rem var(--side-padding);
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 100;
+            z-index: 1000;
             transition: background 0.3s, padding 0.3s, backdrop-filter 0.3s;
         }
         nav.scrolled {
-            background: rgba(27, 32, 112, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 1rem var(--side-padding);
+            background: rgba(27, 32, 112, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 1.1rem var(--side-padding);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .logo-area { display: flex; align-items: center; gap: 1rem; font-weight: 600; font-size: 1.2rem; color: white; text-decoration: none; cursor: pointer; }
         .logo-area img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { color: white; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .nav-links { display: flex; gap: 1.8rem; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--bronze); }
+        
+        .nav-cta {
+            background: var(--orange-red);
+            color: white !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem !important;
+            letter-spacing: 1.5px !important;
+            transition: transform 0.2s, background 0.2s !important;
+        }
+        .nav-cta:hover {
+            background: #d4431c !important;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Hamburger */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.5rem;
+        }
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 9, 26, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .mobile-menu-overlay.open { display: flex; }
+        .mobile-menu-overlay a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            transition: color 0.2s;
+        }
+        .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
         /* Hero */
         .hero {
-            height: 100vh; position: relative;
+            height: 100vh; min-height: 700px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
             background: url('assets/images/aseda_stage_obaapa_christy.jpg') center/cover no-repeat;
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.9) 0%, transparent 60%),
-                        linear-gradient(to top right, rgba(8, 9, 26, 0.9) 0%, rgba(229, 82, 42, 0.2) 100%),
-                        linear-gradient(to top, rgba(8, 9, 26, 1) 0%, transparent 30%);
+            background: radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.92) 0%, transparent 65%),
+                        linear-gradient(to top right, rgba(8, 9, 26, 0.92) 0%, rgba(229, 82, 42, 0.2) 100%),
+                        linear-gradient(to top, rgba(8, 9, 26, 1) 0%, transparent 35%);
             z-index: 1;
         }
-        .hero-content { position: relative; z-index: 2; max-width: 1200px; }
-        .hero-overline { font-size: 0.8rem; letter-spacing: 3px; font-weight: 600; margin-bottom: 1rem; }
+        .hero-content { position: relative; z-index: 2; max-width: 1100px; margin-top: 3rem; }
+        .hero-overline { font-size: 0.85rem; letter-spacing: 3px; font-weight: 600; margin-bottom: 1.2rem; }
+        
+        .edition-badge {
+            display: inline-block;
+            background: rgba(229, 82, 42, 0.15);
+            border: 1px solid var(--orange-red);
+            color: var(--orange-red);
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
         .hero h1 {
-            font-size: clamp(5rem, 10vw, 9.5rem);
-            line-height: 0.9;
+            font-size: clamp(4rem, 8vw, 8.5rem);
+            line-height: 0.92;
             font-style: italic;
             margin-bottom: 1.5rem;
         }
         .stroke-text { -webkit-text-stroke: 1.5px white; color: transparent; display: block; }
-        .hero-subtitle { font-size: 1.5rem; font-style: italic; max-width: 600px; }
+        .hero-subtitle { font-size: 1.35rem; font-style: italic; max-width: 620px; color: rgba(255,255,255,0.9); margin-bottom: 2rem; }
         
-
+        .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 2px;
+            transition: all 0.3s ease; cursor: pointer; border: none;
+        }
+        .btn-primary { background: var(--orange-red); color: white; }
+        .btn-primary:hover { background: #d4431c; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(229,82,42,0.4); }
+        .btn-secondary { background: rgba(255,255,255,0.08); color: white; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); border-color: white; transform: translateY(-3px); }
 
         .scroll-indicator {
-            position: absolute; bottom: 3rem; right: var(--side-padding); z-index: 2;
+            position: absolute; bottom: 2.5rem; right: var(--side-padding); z-index: 2;
             animation: bounce 2s infinite;
         }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-20px);} 60% {transform: translateY(-10px);} }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-16px);} 60% {transform: translateY(-8px);} }
 
-
-
-        /* About Section */
-        .about {
-            background: #FAF6F0;
-            color: var(--navy);
-            padding: 7rem var(--side-padding);
-            position: relative;
-        }
-        .about-container { max-width: 1280px; margin: 0 auto; }
+        /* Section Components */
         .chapter-badge {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.1rem;
@@ -124,6 +212,92 @@
             display: inline-block;
             margin-bottom: 1rem;
         }
+
+        /* Latest Edition Spotlight */
+        .spotlight {
+            background: var(--darker-navy);
+            padding: 7rem var(--side-padding);
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .spotlight-container { max-width: 1280px; margin: 0 auto; }
+        .spotlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+        .exp-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+        .exp-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--orange-red);
+            box-shadow: 0 15px 35px rgba(229,82,42,0.15);
+        }
+        .exp-icon { font-size: 2.5rem; }
+        .exp-card h3 { font-size: 1.6rem; color: white; }
+        .exp-card p { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+        .exp-link { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; color: var(--bronze); }
+
+        /* Editions Archive */
+        .editions-archive {
+            background: var(--dark);
+            padding: 7rem var(--side-padding);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .archive-container { max-width: 1280px; margin: 0 auto; }
+        .tabs-row {
+            display: flex; gap: 1rem; flex-wrap: wrap; margin: 2.5rem 0 3.5rem;
+        }
+        .tab-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--orange-red);
+            border-color: var(--orange-red);
+            color: white;
+        }
+        .edition-display-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3.5rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+        .ed-title { font-size: 3rem; margin-bottom: 0.5rem; }
+        .ed-meta { color: var(--bronze); font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 1.5rem; }
+
+        /* About Section */
+        .about {
+            background: var(--cream);
+            color: var(--navy);
+            padding: 7rem var(--side-padding);
+            position: relative;
+        }
+        .about-container { max-width: 1280px; margin: 0 auto; }
         .about-header h2 {
             font-size: clamp(2.8rem, 5vw, 4.2rem);
             color: var(--navy);
@@ -249,7 +423,7 @@
         .ministers { background: var(--dark); padding: 8rem var(--side-padding); }
         .ministers h2 { font-size: 4rem; font-style: italic; margin-bottom: 4rem; }
         .minister-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .m-card { position: relative; aspect-ratio: 3/4; overflow: hidden; background: #111; cursor: pointer; }
+        .m-card { position: relative; aspect-ratio: 3/4; overflow: hidden; background: #111; cursor: pointer; border-radius: 12px; }
         .m-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .m-card:hover img { transform: scale(1.06); }
         .m-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); transition: opacity 0.3s; }
@@ -261,7 +435,7 @@
         .m-info p { font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
         .card-headliner { grid-column: 1 / -1; aspect-ratio: auto; height: 70vh; }
 
-        /* Visionaries Refinement */
+        /* Visionaries */
         .visionaries {
             background: #0b0e28;
             padding: 8rem var(--side-padding);
@@ -381,43 +555,43 @@
             font-family: 'Bebas Neue', sans-serif;
         }
 
-        /* Outreach */
+        /* Outreach / Impact */
         .outreach { background: var(--darker-navy); padding: 8rem var(--side-padding); text-align: center; }
         .outreach h2 { font-size: 4rem; margin-bottom: 2rem; }
-        .outreach-desc { max-width: 600px; margin: 0 auto 4rem; font-size: 1.1rem; line-height: 1.6; color: rgba(255,255,255,0.8); }
-        .video-wrapper { width: 80%; margin: 0 auto 4rem; position: relative; padding-bottom: 45%; height: 0; box-shadow: 0 0 30px rgba(229,82,42,0.2); border: 1px solid rgba(229,82,42,0.3); }
+        .outreach-desc { max-width: 650px; margin: 0 auto 4rem; font-size: 1.15rem; line-height: 1.7; color: rgba(255,255,255,0.85); }
+        .video-wrapper { width: 80%; margin: 0 auto 4rem; position: relative; padding-bottom: 45%; height: 0; box-shadow: 0 0 40px rgba(229,82,42,0.25); border: 1px solid rgba(229,82,42,0.3); border-radius: 12px; overflow: hidden; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .impact-pills { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-        .pill { border: 1px solid var(--bronze); padding: 0.8rem 1.5rem; border-radius: 50px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--bronze); }
+        .pill { border: 1px solid var(--bronze); padding: 0.8rem 1.6rem; border-radius: 50px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--bronze); background: rgba(201, 160, 80, 0.05); }
 
-        /* Main Video */
+        /* Media Hub */
         .main-video { background: var(--dark); padding: 8rem var(--side-padding); }
-        .badge { display: inline-block; background: var(--orange-red); padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 2rem; border-radius: 4px; }
-        .cinema-vid { width: 100%; aspect-ratio: 16/9; box-shadow: 0 0 50px rgba(0,0,0,0.8); margin-bottom: 3rem; position: relative; }
+        .badge { display: inline-block; background: var(--orange-red); padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 2rem; border-radius: 4px; }
+        .cinema-vid { width: 100%; aspect-ratio: 16/9; box-shadow: 0 0 50px rgba(0,0,0,0.8); margin-bottom: 3.5rem; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); }
         .cinema-vid iframe { width: 100%; height: 100%; }
-        .vid-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-        .vid-grid .v-item { aspect-ratio: 16/9; position: relative; }
+        .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .vid-grid .v-item { aspect-ratio: 16/9; position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
         .vid-grid iframe { width: 100%; height: 100%; }
 
         /* Gallery */
         .gallery { background: var(--darkest); padding: 8rem var(--side-padding); }
         .masonry { column-count: 3; column-gap: 1.5rem; }
-        .gal-item { break-inside: avoid; margin-bottom: 1.5rem; position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+        .gal-item { break-inside: avoid; margin-bottom: 1.5rem; position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; }
         .gal-item img { width: 100%; display: block; transition: transform 0.5s; }
         .gal-item:hover img { transform: scale(1.07); }
 
         /* Lightbox */
         .lightbox {
             display: none; position: fixed; inset: 0; z-index: 9000;
-            background: rgba(6,8,32,0.92); backdrop-filter: blur(18px) saturate(0.5);
+            background: rgba(6,8,32,0.94); backdrop-filter: blur(20px);
             align-items: center; justify-content: center;
             cursor: zoom-out;
         }
         .lightbox.open { display: flex; }
         .lightbox img {
             max-width: 90vw; max-height: 88vh;
-            object-fit: contain; border-radius: 4px;
-            box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+            object-fit: contain; border-radius: 8px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.9);
             animation: lbPop 0.25s cubic-bezier(0.22,1,0.36,1);
         }
         @keyframes lbPop {
@@ -426,8 +600,8 @@
         }
         .lb-close {
             position: fixed; top: 1.5rem; right: 2rem;
-            font-size: 2rem; color: white; cursor: pointer;
-            line-height: 1; z-index: 9001; opacity: 0.7;
+            font-size: 2.2rem; color: white; cursor: pointer;
+            line-height: 1; z-index: 9001; opacity: 0.8;
             transition: opacity 0.2s;
         }
         .lb-close:hover { opacity: 1; }
@@ -447,7 +621,6 @@
             letter-spacing: 2px;
             text-decoration: none;
             transition: all 0.3s ease;
-            margin-bottom: 3rem;
         }
         .gallery-album-btn:hover {
             background: var(--bronze);
@@ -456,16 +629,45 @@
             box-shadow: 0 10px 25px rgba(201, 160, 80, 0.2);
         }
 
-        /* Footer */
-        .social-strip { background: var(--navy); display: flex; justify-content: center; gap: 4rem; padding: 4rem 0; }
-        .social-strip a { color: white; text-decoration: none; font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 2px; transition: color 0.3s; }
+        /* Contact & Connect */
+        .contact-section {
+            background: var(--darker-navy);
+            padding: 6rem var(--side-padding);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .contact-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        /* Social & Footer */
+        .social-strip { background: var(--navy); display: flex; justify-content: center; gap: 3.5rem; padding: 4rem 0; flex-wrap: wrap; }
+        .social-strip a { color: white; text-decoration: none; font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 2px; transition: color 0.3s; }
         .social-strip a:hover { color: var(--bronze); }
-        footer { background: var(--dark); padding: 4rem var(--side-padding); text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
-        footer img { width: 50px; margin-bottom: 1rem; border-radius: 50%; }
+        
+        footer { background: var(--dark); padding: 4rem var(--side-padding); text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; border-top: 1px solid var(--border-color); }
+        footer img { width: 55px; margin-bottom: 1.2rem; border-radius: 50%; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links a:hover { color: white; }
+
+        /* Media Queries */
+        @media(max-width: 1024px) {
+            .hero h1 { font-size: 5rem; }
+            .edition-display-card { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem; }
+        }
 
         @media(max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 3.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .hero h1 { font-size: 3.6rem; }
+            .hero-actions { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
 
             .about-grid, .vis-content-grid, .vid-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 280px; }
@@ -473,22 +675,34 @@
             .vis-hero-overlay { padding: 2rem 1.5rem; }
             .vis-story-card, .vis-quote-card { padding: 2rem 1.5rem; }
             .minister-grid { grid-template-columns: 1fr; }
+            .card-headliner { height: 50vh; }
             .masonry { column-count: 1; }
             .video-wrapper { width: 100%; padding-bottom: 56.25%; }
-            .social-strip { gap: 2rem; flex-direction: column; align-items: center; }
+            .social-strip { gap: 1.8rem; flex-direction: column; align-items: center; }
+            .social-strip a { font-size: 1.8rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { transition: none; opacity: 1; transform: none; }
+            .scroll-indicator { animation: none; }
         }
     </style>
+    
+    <!-- JSON-LD Event Schema for 2026 Completed Edition -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MusicEvent",
-      "name": "Aseda Praise",
-      "description": "Ghana's most powerful annual gospel concert.",
+      "name": "Aseda Praise 2026",
+      "description": "Ghana's annual Easter thanksgiving & gospel worship experience in Tarkwa, Western Region.",
       "image": "https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg",
-      "startDate": "2026-11-20T17:00",
+      "startDate": "2026-04-03T17:00",
+      "endDate": "2026-04-03T23:00",
+      "eventStatus": "https://schema.org/EventCompleted",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "location": {
         "@type": "Place",
-        "name": "Tarkwa, Western Region, Ghana",
+        "name": "Tarkwa, Western Region",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Tarkwa",
@@ -496,62 +710,146 @@
           "addressCountry": "GH"
         }
       },
+      "performer": [
+        { "@type": "MusicGroup", "name": "Obaapa Christy" },
+        { "@type": "MusicGroup", "name": "Joe Mettle" },
+        { "@type": "MusicGroup", "name": "ACP Kofi Sarpong" }
+      ],
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "GHS"
+        "priceCurrency": "GHS",
+        "availability": "https://schema.org/InStock"
       }
     }
     </script>
 </head>
 <body>
 
-
-
-    <nav id="navbar">
-        <a href="#" class="logo-area">
-            <img src="assets/images/aseda_official_logo.png" alt="Aseda Praise Logo" loading="lazy">
+    <!-- Header Navigation -->
+    <nav id="navbar" aria-label="Main Navigation">
+        <a href="#" class="logo-area" aria-label="Aseda Praise Home">
+            <img src="assets/images/aseda_official_logo.png" alt="Aseda Praise Official Logo" loading="lazy">
             <span>ASEDA PRAISE</span>
         </a>
+        
         <div class="nav-links">
-            <a href="#about" class="hover-target">About</a>
-            <a href="#ministers" class="hover-target">Ministers</a>
-            <a href="#outreach" class="hover-target">Outreach</a>
-            <a href="#videos" class="hover-target">Videos</a>
-            <a href="#gallery" class="hover-target">Gallery</a>
+            <a href="#home">Home</a>
+            <a href="#latest-edition">2026 Edition</a>
+            <a href="#about">About</a>
+            <a href="#editions">Editions</a>
+            <a href="#ministers">Ministers</a>
+            <a href="#impact">Impact</a>
+            <a href="#media">Media</a>
+            <a href="#gallery">Gallery</a>
         </div>
+
+        <a href="#media" class="nav-cta">WATCH 2026</a>
+
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+            &#9776;
+        </button>
     </nav>
 
-    <section class="hero">
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+        <a href="#home" onclick="closeMobileMenu()">Home</a>
+        <a href="#latest-edition" onclick="closeMobileMenu()">2026 Edition</a>
+        <a href="#about" onclick="closeMobileMenu()">About Story</a>
+        <a href="#editions" onclick="closeMobileMenu()">Editions Archive</a>
+        <a href="#ministers" onclick="closeMobileMenu()">Ministers</a>
+        <a href="#impact" onclick="closeMobileMenu()">Community Impact</a>
+        <a href="#media" onclick="closeMobileMenu()">Media Hub</a>
+        <a href="#gallery" onclick="closeMobileMenu()">Photo Gallery</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
-            <div class="hero-overline bronze">TARKWA · WESTERN REGION · GHANA</div>
+            <div class="hero-overline bronze">TARKWA · WESTERN REGION · GHANA | AN ANNUAL EASTER THANKSGIVING EXPERIENCE</div>
+            <span class="edition-badge">LATEST EDITION &bull; 2026 (COMPLETED)</span>
             <h1 class="playfair">
                 <span class="stroke-text">Ten Thousand</span>
                 <span class="orange">Hearts,</span><br>
                 <span>One Voice.</span>
             </h1>
-            <p class="hero-subtitle">Western Region's most powerful concert, free entry. Open to all.</p>
+            <p class="hero-subtitle">Western Region's most powerful annual gospel concert. Free entry. Open to all.</p>
+
+            <div class="hero-actions">
+                <a href="#media" class="btn btn-primary">WATCH 2026 BROADCAST</a>
+                <a href="#latest-edition" class="btn btn-secondary">EXPLORE 2026 EDITION</a>
+            </div>
         </div>
 
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
         </div>
     </section>
 
+    <!-- Latest Edition Spotlight (2026) -->
+    <section class="spotlight" id="latest-edition">
+        <div class="spotlight-container">
+            <div class="reveal">
+                <span class="chapter-badge">01 &bull; LATEST EDITION</span>
+                <h2 class="playfair" style="font-size: clamp(2.5rem, 4vw, 3.8rem); color: white;">Aseda Praise 2026 Celebration</h2>
+                <p style="max-width: 720px; color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 0.8rem;">
+                    The 2026 Easter celebration gathered over 10,000 worshippers in Tarkwa for an unforgettable night of divine worship, spiritual renewal, and philanthropic community impact.
+                </p>
+            </div>
 
+            <div class="spotlight-grid">
+                <a href="#media" class="exp-card reveal">
+                    <div>
+                        <div class="exp-icon">📺</div>
+                        <h3 class="playfair" style="margin-top: 0.8rem;">Watch Broadcast</h3>
+                        <p>Stream the complete 2026 official broadcast live from event grounds in Tarkwa.</p>
+                    </div>
+                    <span class="exp-link">WATCH FULL PROGRAMME &rarr;</span>
+                </a>
 
+                <a href="#ministers" class="exp-card reveal">
+                    <div>
+                        <div class="exp-icon">🎙️</div>
+                        <h3 class="playfair" style="margin-top: 0.8rem;">Anointed Voices</h3>
+                        <p>Experience the anointed worship led by Obaapa Christy, Joe Mettle & ACP Kofi Sarpong.</p>
+                    </div>
+                    <span class="exp-link">EXPLORE MINISTERS &rarr;</span>
+                </a>
+
+                <a href="#gallery" class="exp-card reveal">
+                    <div>
+                        <div class="exp-icon">📸</div>
+                        <h3 class="playfair" style="margin-top: 0.8rem;">Moments & Gallery</h3>
+                        <p>Browse official high-resolution photo highlights & full Google Album.</p>
+                    </div>
+                    <span class="exp-link">VIEW PHOTO GALLERY &rarr;</span>
+                </a>
+
+                <a href="#impact" class="exp-card reveal">
+                    <div>
+                        <div class="exp-icon">🏥</div>
+                        <h3 class="playfair" style="margin-top: 0.8rem;">Faith in Action</h3>
+                        <p>Discover our ongoing outreach at the Tarkwa Apinto Government Hospital.</p>
+                    </div>
+                    <span class="exp-link">SEE COMMUNITY IMPACT &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-header reveal">
-                <span class="chapter-badge">01 &bull; OUR STORY</span>
+                <span class="chapter-badge">02 &bull; OUR STORY</span>
                 <h2>Five Years of Gratitude</h2>
             </div>
             
             <div class="about-grid">
                 <div class="about-main reveal">
                     <p class="lead-p">
-                        What started as a simple gathering of gratitude has grown into the Western Region's most anticipated spiritual event. For five incredible years, Aseda Praise has brought together thousands to lift one unified voice in worship.
+                        What started as a simple gathering of gratitude has grown into the Western Region's most anticipated annual spiritual event. For five incredible years, Aseda Praise has brought together thousands to lift one unified voice in worship.
                     </p>
 
                     <div class="styled-quote">
@@ -559,7 +857,7 @@
                     </div>
 
                     <p class="body-p">
-                        We believe that access to powerful, life-changing worship should not have a price tag. That is why Aseda Praise remains 100% free and open to everyone, drawing people from all walks of life into the presence of God.
+                        We believe that access to powerful, life-changing worship should not have a price tag. That is why Aseda Praise remains 100% free and open to everyone, drawing people from all walks of life into the presence of God every Easter.
                     </p>
                 </div>
 
@@ -580,7 +878,7 @@
             </div>
 
             <div class="about-banner reveal">
-                <img src="assets/images/aseda_gp_dancing.jpg" alt="Aseda Praise Worshippers" loading="lazy">
+                <img src="assets/images/aseda_gp_dancing.jpg" alt="Aseda Praise Worshippers in Tarkwa" loading="lazy">
                 <div class="banner-caption">
                     <span class="caption-tag">TARKWA, WESTERN REGION</span>
                     <span class="caption-title">Uniting Hearts in Praise &amp; Worship</span>
@@ -589,46 +887,91 @@
         </div>
     </section>
 
+    <!-- Annual Editions Archive -->
+    <section class="editions-archive" id="editions">
+        <div class="archive-container">
+            <div class="reveal">
+                <span class="chapter-badge">03 &bull; ANNUAL ARCHIVE</span>
+                <h2 class="playfair" style="font-size: clamp(2.5rem, 4vw, 3.8rem); color: white;">Our Easter Journey Through the Years</h2>
+                <p style="color: rgba(255,255,255,0.7); max-width: 650px; margin-top: 0.5rem;">
+                    Aseda Praise is built as a year-round digital home. Explore annual editions, minister lineups, and milestones.
+                </p>
+            </div>
+
+            <div class="tabs-row reveal" id="edition-tabs">
+                <button class="tab-btn active" onclick="switchEdition(2026)">2026 (LATEST)</button>
+                <button class="tab-btn" onclick="switchEdition(2025)">2025 EDITION</button>
+                <button class="tab-btn" onclick="switchEdition(2024)">2024 EDITION</button>
+                <button class="tab-btn" onclick="switchEdition(2023)">2023 EDITION</button>
+                <button class="tab-btn" onclick="switchEdition(2022)">2022 EDITION</button>
+            </div>
+
+            <div class="edition-display-card reveal" id="edition-card-body">
+                <div>
+                    <span class="chapter-badge" id="ed-status-badge">LATEST COMPLETED EDITION</span>
+                    <h3 class="playfair ed-title" id="ed-title">Aseda Praise 2026</h3>
+                    <div class="ed-meta" id="ed-meta">APRIL 2026 &bull; TARKWA, WESTERN REGION</div>
+                    <p id="ed-desc" style="color: rgba(255,255,255,0.85); line-height: 1.8; font-size: 1.05rem;">
+                        The 5th Anniversary Edition featuring Obaapa Christy, Joe Mettle, and ACP Kofi Sarpong. A historic gathering celebrating five years of God's faithfulness in Tarkwa.
+                    </p>
+                </div>
+                <div>
+                    <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem;">
+                        <h4 class="playfair" style="color: var(--bronze); font-size: 1.4rem; margin-bottom: 1rem;">Edition Highlights</h4>
+                        <ul id="ed-highlights" style="list-style-type: square; padding-left: 1.2rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
+                            <li>Headline performance by Obaapa Christy</li>
+                            <li>Tarkwa Apinto Hospital Children's Ward Renovation</li>
+                            <li>Full Broadcast & 30+ High Res Photos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministers Section -->
     <section class="ministers" id="ministers">
-        <span class="section-overline bronze reveal">Gospel Ministers</span>
-        <h2 class="reveal">Anointed Voices</h2>
+        <div class="reveal">
+            <span class="chapter-badge">04 &bull; GOSPEL MINISTERS</span>
+            <h2 class="playfair" style="color: white;">Anointed Voices</h2>
+        </div>
 
         <div class="minister-grid reveal">
-            <div class="m-card card-headliner hover-target">
-                <img src="assets/images/aseda_gp_good_shot.jpg" alt="Obaapa Christy" loading="lazy">
+            <div class="m-card card-headliner">
+                <img src="assets/images/aseda_gp_good_shot.jpg" alt="Obaapa Christy performing on stage at Aseda Praise" loading="lazy">
                 <div class="m-info">
                     <h3 class="playfair">Obaapa Christy</h3>
                     <p>Headline Minister</p>
                 </div>
             </div>
-            <div class="m-card hover-target">
-                <img src="assets/images/aseda_joe_mettle.jpg" alt="Joe Mettle" loading="lazy">
+            <div class="m-card">
+                <img src="assets/images/aseda_joe_mettle.jpg" alt="Joe Mettle in worship at Aseda Praise" loading="lazy">
                 <div class="m-info">
                     <h3 class="playfair">Joe Mettle</h3>
                     <p>Worship Leader</p>
                 </div>
             </div>
-            <div class="m-card hover-target">
-                <img src="assets/images/aseda_acp_kofi_sarpong.jpg" alt="ACP Kofi Sarpong" loading="lazy">
+            <div class="m-card">
+                <img src="assets/images/aseda_acp_kofi_sarpong.jpg" alt="ACP Kofi Sarpong ministering at Aseda Praise" loading="lazy">
                 <div class="m-info">
                     <h3 class="playfair">ACP Kofi Sarpong</h3>
                     <p>Gospel Minister</p>
                 </div>
             </div>
-
         </div>
     </section>
 
+    <!-- Leadership / Visionaries Section -->
     <section class="visionaries" id="founders">
         <div class="vis-container">
             <div class="reveal">
-                <span class="chapter-badge">02 &bull; LEADERSHIP</span>
+                <span class="chapter-badge">05 &bull; LEADERSHIP</span>
                 <h2 class="playfair" style="font-size: clamp(2.8rem, 5vw, 4rem); color: white;">The Visionaries Behind Aseda Praise</h2>
             </div>
 
-            <!-- Full-Width Commanding Hero Feature Frame -->
+            <!-- Full-Width Feature Frame -->
             <div class="vis-hero-frame reveal">
-                <img src="assets/images/aseda_founders.jpg" alt="Mr. Evans Ghartey & Mr. Frederick Lomotey" loading="lazy">
+                <img src="assets/images/aseda_founders.jpg" alt="Mr. Evans Ghartey and Mr. Frederick Lomotey" loading="lazy">
                 <div class="vis-hero-overlay">
                     <h3 class="playfair">Mr. Evans Ghartey &amp; Mr. Frederick Lomotey</h3>
                     <p>FOUNDERS &amp; LEAD SPONSORS</p>
@@ -664,112 +1007,283 @@
         </div>
     </section>
 
-    <section class="outreach" id="outreach">
-        <span class="section-overline bronze reveal">Community Impact</span>
-        <h2 class="playfair reveal" style="color:white;">Faith in Action.</h2>
-        <p class="outreach-desc reveal">Our worship extends beyond the concert grounds. Every year, Aseda Praise partners with local institutions like the Apinto Government Hospital to bring tangible healing and hope to the community.</p>
+    <!-- Outreach Section -->
+    <section class="outreach" id="impact">
+        <div class="reveal">
+            <span class="chapter-badge">06 &bull; COMMUNITY IMPACT</span>
+            <h2 class="playfair" style="color:white;">Faith in Action.</h2>
+            <p class="outreach-desc">Our worship extends beyond the concert grounds. Every year, Aseda Praise partners with local institutions like the Apinto Government Hospital to bring tangible healing and hope to the community.</p>
+        </div>
         
         <div class="video-wrapper reveal">
-            <iframe src="https://www.youtube.com/embed/GGSFWt3NRoU" title="Outreach Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/GGSFWt3NRoU" title="Dedication of Tarkwa Apinto Children's Ward" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
 
         <div class="impact-pills reveal">
             <div class="pill">Children's Ward Renovation</div>
             <div class="pill">Medical Equipment Donation</div>
             <div class="pill">Free Senior Health Screening</div>
+            <div class="pill">Apinto Government Hospital</div>
         </div>
     </section>
 
-    <section class="main-video" id="videos">
-        <div class="badge reveal">OFFICIAL 2026 BROADCAST</div>
+    <!-- Media Hub Section -->
+    <section class="main-video" id="media">
+        <div class="reveal">
+            <span class="chapter-badge">07 &bull; MEDIA HUB</span>
+            <span class="badge">OFFICIAL 2026 BROADCAST</span>
+            <h2 class="playfair" style="font-size: clamp(2.5rem, 4vw, 3.8rem); color: white; margin-bottom: 2rem;">Watch Aseda Praise 2026</h2>
+        </div>
+
         <div class="cinema-vid reveal">
-            <iframe src="https://www.youtube.com/embed/8Lu8u8ZSbog" title="Main Event Broadcast" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.youtube.com/embed/8Lu8u8ZSbog" title="Aseda Praise 2026 Official Full Program Broadcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
+
+        <div class="reveal" style="margin-bottom: 1.5rem;">
+            <h3 class="playfair" style="font-size: 1.8rem; color: white;">More Highlights & Clips</h3>
+        </div>
+
         <div class="vid-grid reveal">
-            <div class="v-item hover-target"><iframe src="https://www.youtube.com/embed/1W4pLw93xqI" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-            <div class="v-item hover-target"><iframe src="https://www.youtube.com/embed/fMbN4ejx-QA" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-            <div class="v-item hover-target"><iframe src="https://www.youtube.com/embed/2KjBHujXc70" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-            <div class="v-item hover-target"><iframe src="https://www.youtube.com/embed/WXVQr9k0ixU" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+            <div class="v-item"><iframe src="https://www.youtube.com/embed/1W4pLw93xqI" title="Massive Crowd at Aseda Praise 2026" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+            <div class="v-item"><iframe src="https://www.youtube.com/embed/fMbN4ejx-QA" title="Arrival of Ministers for Aseda Praise 2026" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+            <div class="v-item"><iframe src="https://www.youtube.com/embed/2KjBHujXc70" title="Ten Thousand Hearts One Voice Clip" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+            <div class="v-item"><iframe src="https://www.youtube.com/embed/WXVQr9k0ixU" title="The Stage is Set for Aseda Praise 2026" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
         </div>
     </section>
 
+    <!-- Gallery Section -->
     <section class="gallery" id="gallery">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;">
             <div>
-                <span class="section-overline bronze reveal">Memories</span>
-                <h2 class="playfair reveal" style="margin: 0;">Ten Thousand Hearts</h2>
+                <span class="chapter-badge">08 &bull; MEMORIES</span>
+                <h2 class="playfair reveal" style="margin: 0; font-size: clamp(2.5rem, 4vw, 3.8rem); color: white;">Ten Thousand Hearts</h2>
             </div>
-            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-btn reveal">View Full Google Album &rarr;</a>
+            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-btn reveal">View Full 2026 Google Album &rarr;</a>
         </div>
         
-        <div class="masonry reveal">
-            <!-- Gallery images injected here by script for brevity or hardcoded if needed. I will list a representative set to meet requirements while keeping code clean. -->
-            <script>
-                const imgs = [
-                    'aseda_gp_obaapa_crowd.jpg', 'aseda_gp_engagement.jpg', 'aseda_gp_yvonne.jpg',
-                    'aseda_gp_extra_1.jpg', 'aseda_gp_extra_2.jpg', 'aseda_gp_extra_3.jpg',
-                    'aseda_gp_extra_4.jpg', 'aseda_gp_extra_5.jpg', 'aseda_gp_extra_6.jpg',
-                    'aseda_gp_extra_7.jpg', 'aseda_gp_extra_8.jpg', 'aseda_gp_extra_9.jpg',
-                    'aseda_gp_extra_10.jpg',
-                    'aseda_official_photo_1.jpg', 'aseda_official_photo_2.jpg', 'aseda_official_photo_3.jpg',
-                    'aseda_official_photo_4.jpg', 'aseda_official_photo_5.jpg', 'aseda_official_photo_6.jpg',
-                    'aseda_official_photo_7.jpg', 'aseda_official_photo_8.jpg', 'aseda_official_photo_9.jpg',
-                    'aseda_official_photo_10.jpg', 'aseda_official_photo_11.jpg', 'aseda_official_photo_12.jpg',
-                    'aseda_official_photo_13.jpg', 'aseda_official_photo_14.jpg', 'aseda_official_photo_15.jpg',
-                    'aseda_official_photo_16.jpg', 'aseda_official_photo_17.jpg', 'aseda_official_photo_18.jpg',
-                    'aseda_official_photo_19.jpg', 'aseda_official_photo_20.jpg'
-                ];
-                imgs.forEach(img => {
-                    const div = document.createElement('div');
-                    div.className = 'gal-item';
-                    div.innerHTML = `<img src="assets/images/${img}" alt="Aseda Praise" loading="lazy">`;
-                    div.addEventListener('click', () => openLightbox(`assets/images/${img}`));
-                    document.querySelector('.masonry').appendChild(div);
-                });
-            </script>
+        <div class="masonry reveal" id="gallery-grid">
+            <!-- Injected via JavaScript -->
         </div>
     </section>
 
-    <!-- Lightbox overlay -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lb-close" onclick="closeLightbox()">&times;</span>
-        <img id="lb-img" src="" alt="Aseda Praise">
+    <!-- Lightbox Overlay -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Preview" onclick="closeLightbox()">
+        <span class="lb-close" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</span>
+        <img id="lb-img" src="" alt="Aseda Praise celebration photograph">
     </div>
 
+    <!-- Contact & Connect Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-box reveal">
+            <span class="chapter-badge">CONNECT WITH US</span>
+            <h2 class="playfair" style="color: white; font-size: 2.4rem; margin-bottom: 1rem;">Aseda Praise Official</h2>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">
+                Tarkwa &bull; Western Region &bull; Ghana
+            </p>
+            <p style="color: var(--bronze); font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px;">
+                ANNUAL EASTER GOSPEL THANKSGIVING PROGRAMME
+            </p>
+        </div>
+    </section>
+
+    <!-- Social Links Strip -->
     <div class="social-strip">
-        <a href="https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA" target="_blank" rel="noopener">YOUTUBE</a>
-        <a href="https://www.instagram.com/aseda.praise/" target="_blank" rel="noopener">INSTAGRAM</a>
-        <a href="https://www.facebook.com/asedapraisetarkwa/" target="_blank" rel="noopener">FACEBOOK</a>
-        <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener">GOOGLE ALBUM</a>
+        <a href="https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA" target="_blank" rel="noopener" aria-label="Official YouTube Channel">YOUTUBE</a>
+        <a href="https://www.instagram.com/aseda.praise/" target="_blank" rel="noopener" aria-label="Official Instagram">INSTAGRAM</a>
+        <a href="https://www.facebook.com/asedapraisetarkwa/" target="_blank" rel="noopener" aria-label="Official Facebook Page">FACEBOOK</a>
+        <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" aria-label="Official Google Photos Album">GOOGLE ALBUM</a>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <img src="assets/images/aseda_official_logo.png" alt="Logo" loading="lazy"><br>
-        &copy; 2026 Aseda Praise. All rights reserved.<br>
-        Tarkwa, Western Region, Ghana
+        <img src="assets/images/aseda_official_logo.png" alt="Aseda Praise Logo" loading="lazy"><br>
+        <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Aseda Praise</div>
+        <p style="color: var(--bronze); font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; margin-bottom: 1rem;">TEN THOUSAND HEARTS, ONE VOICE</p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#editions">Editions</a>
+            <a href="#ministers">Ministers</a>
+            <a href="#impact">Impact</a>
+            <a href="#media">Media</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+
+        <div style="margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.4);">
+            &copy; 2026 Aseda Praise. All rights reserved. &bull; Tarkwa, Western Region, Ghana
+        </div>
     </footer>
 
+    <!-- JavaScript Data Engine & Logic -->
     <script>
-        // Lightbox
+        // System Data Architecture
+        const ASEDA_CONFIG = {
+            editions: {
+                2026: {
+                    title: "Aseda Praise 2026",
+                    meta: "APRIL 2026 • TARKWA, WESTERN REGION",
+                    status: "LATEST COMPLETED EDITION",
+                    desc: "The 5th Anniversary Edition featuring Obaapa Christy, Joe Mettle, and ACP Kofi Sarpong. A historic gathering celebrating five years of God's faithfulness in Tarkwa.",
+                    highlights: [
+                        "Headline performance by Obaapa Christy",
+                        "Tarkwa Apinto Hospital Children's Ward Renovation",
+                        "Full Broadcast & 30+ High Res Photos"
+                    ]
+                },
+                2025: {
+                    title: "Aseda Praise 2025",
+                    meta: "EASTER 2025 • TARKWA, WESTERN REGION",
+                    status: "PREVIOUS EDITION ARCHIVE",
+                    desc: "The 4th Edition of Aseda Praise, uniting thousands of worshippers across Tarkwa and surrounding communities in worship.",
+                    highlights: [
+                        "Massive crowd worshipping in unity",
+                        "Community healthcare screening outreach",
+                        "Regional gospel ministers representation"
+                    ]
+                },
+                2024: {
+                    title: "Aseda Praise 2024",
+                    meta: "EASTER 2024 • TARKWA, WESTERN REGION",
+                    status: "PREVIOUS EDITION ARCHIVE",
+                    desc: "The 3rd Edition of Aseda Praise establishing the annual Easter thanksgiving tradition in the Western Region.",
+                    highlights: [
+                        "Expanded worship grounds & stage production",
+                        "Free health screening for seniors",
+                        "Unforgettable moments of praise"
+                    ]
+                },
+                2023: {
+                    title: "Aseda Praise 2023",
+                    meta: "EASTER 2023 • TARKWA, WESTERN REGION",
+                    status: "PREVIOUS EDITION ARCHIVE",
+                    desc: "The 2nd Edition of Aseda Praise growing the altar of thanksgiving in Tarkwa.",
+                    highlights: [
+                        "100% Free admission for all attendees",
+                        "Local charity donations & hospital support",
+                        "Anointed gospel music ministerings"
+                    ]
+                },
+                2022: {
+                    title: "Aseda Praise 2022",
+                    meta: "EASTER 2022 • INAUGURAL EDITION",
+                    status: "INAUGURAL EDITION ARCHIVE",
+                    desc: "The maiden edition of Aseda Praise founded by Mr. Evans Ghartey and Mr. Frederick Lomotey as a gift of thanksgiving to Tarkwa.",
+                    highlights: [
+                        "Inaugural gathering of worshippers",
+                        "Foundation of the annual Easter tradition",
+                        "Launch of community outreach initiatives"
+                    ]
+                }
+            },
+            galleryImages: [
+                'aseda_gp_obaapa_crowd.jpg', 'aseda_gp_engagement.jpg', 'aseda_gp_yvonne.jpg',
+                'aseda_gp_extra_1.jpg', 'aseda_gp_extra_2.jpg', 'aseda_gp_extra_3.jpg',
+                'aseda_gp_extra_4.jpg', 'aseda_gp_extra_5.jpg', 'aseda_gp_extra_6.jpg',
+                'aseda_gp_extra_7.jpg', 'aseda_gp_extra_8.jpg', 'aseda_gp_extra_9.jpg',
+                'aseda_gp_extra_10.jpg',
+                'aseda_official_photo_1.jpg', 'aseda_official_photo_2.jpg', 'aseda_official_photo_3.jpg',
+                'aseda_official_photo_4.jpg', 'aseda_official_photo_5.jpg', 'aseda_official_photo_6.jpg',
+                'aseda_official_photo_7.jpg', 'aseda_official_photo_8.jpg', 'aseda_official_photo_9.jpg',
+                'aseda_official_photo_10.jpg', 'aseda_official_photo_11.jpg', 'aseda_official_photo_12.jpg',
+                'aseda_official_photo_13.jpg', 'aseda_official_photo_14.jpg', 'aseda_official_photo_15.jpg',
+                'aseda_official_photo_16.jpg', 'aseda_official_photo_17.jpg', 'aseda_official_photo_18.jpg',
+                'aseda_official_photo_19.jpg', 'aseda_official_photo_20.jpg'
+            ]
+        };
+
+        // Render Gallery Grid
+        const grid = document.getElementById('gallery-grid');
+        if (grid) {
+            ASEDA_CONFIG.galleryImages.forEach(img => {
+                const div = document.createElement('div');
+                div.className = 'gal-item';
+                div.innerHTML = `<img src="assets/images/${img}" alt="Aseda Praise celebration moment" loading="lazy">`;
+                div.addEventListener('click', () => openLightbox(`assets/images/${img}`));
+                grid.appendChild(div);
+            });
+        }
+
+        // Switch Edition Tab Logic
+        function switchEdition(year) {
+            const data = ASEDA_CONFIG.editions[year];
+            if (!data) return;
+
+            document.getElementById('ed-title').innerText = data.title;
+            document.getElementById('ed-meta').innerText = data.meta;
+            document.getElementById('ed-status-badge').innerText = data.status;
+            document.getElementById('ed-desc').innerText = data.desc;
+
+            const list = document.getElementById('ed-highlights');
+            list.innerHTML = '';
+            data.highlights.forEach(h => {
+                const li = document.createElement('li');
+                li.innerText = h;
+                list.appendChild(li);
+            });
+
+            // Update Tab UI
+            const buttons = document.querySelectorAll('#edition-tabs .tab-btn');
+            buttons.forEach(btn => {
+                if (btn.innerText.includes(year.toString())) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Lightbox Functions
         function openLightbox(src) {
             document.getElementById('lb-img').src = src;
-            document.getElementById('lightbox').classList.add('open');
+            const lb = document.getElementById('lightbox');
+            lb.classList.add('open');
+            lb.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
         }
         function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('open');
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('open');
+            lb.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         }
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+        document.addEventListener('keydown', e => { 
+            if (e.key === 'Escape') closeLightbox(); 
+        });
 
-        // Navbar scroll
+        // Mobile Menu Drawer Logic
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            const isOpen = mobileMenu.classList.contains('open');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                mobileMenu.classList.add('open');
+                hamburgerBtn.setAttribute('aria-expanded', 'true');
+                mobileMenu.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMobileMenu);
+
+        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
-        // Intersection Observer
+        // Intersection Observer Reveal Effect
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -777,9 +1291,8 @@
                 }
             });
         }, { threshold: 0.1 });
+
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-
     </script>
 </body>
 </html>
