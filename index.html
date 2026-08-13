@@ -197,19 +197,9 @@
             border: 1px solid rgba(229, 82, 42, 0.35);
             padding: 0.3rem 0.9rem;
             border-radius: 6px;
-            margin-bottom: 0.9rem;
+            margin-bottom: 1.1rem;
             backdrop-filter: blur(8px);
             box-shadow: 0 4px 20px rgba(229, 82, 42, 0.15);
-        }
-
-        .hero-overline { 
-            font-size: var(--font-eyebrow); 
-            letter-spacing: 3.8px; 
-            font-weight: 600; 
-            margin-bottom: 0.9rem; 
-            line-height: 1.5;
-            color: var(--bronze);
-            text-transform: uppercase;
         }
 
         .hero h1 {
@@ -224,7 +214,7 @@
         .stroke-text { -webkit-text-stroke: 1.3px white; color: transparent; display: block; }
         .orange { display: block; color: var(--orange-red); }
 
-        /* Clean Bottom Hero Bar: Subtitle at Bottom Left & Arrow at Bottom Right */
+        /* Clean Bottom Hero Bar: Location Tag + Subtitle at Bottom Left & Arrow at Bottom Right */
         .hero-bottom-bar {
             position: absolute;
             bottom: 2.2rem;
@@ -238,17 +228,32 @@
             pointer-events: none;
         }
 
+        .hero-bottom-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            max-width: 520px;
+            pointer-events: auto;
+        }
+
+        .hero-bottom-location {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            color: var(--bronze);
+            display: block;
+        }
+
         .hero-subtitle {
             font-size: var(--font-body);
             color: rgba(255, 255, 255, 0.94);
             font-weight: 400;
-            max-width: 480px;
             line-height: 1.55;
             margin: 0;
             text-shadow: 0 4px 14px rgba(0,0,0,0.75);
-            pointer-events: auto;
         }
 
+        /* Reduced Opacity Floating Arrow Button */
         .scroll-indicator {
             display: flex;
             align-items: center;
@@ -256,12 +261,17 @@
             animation: bounce 2s infinite;
             flex-shrink: 0;
             pointer-events: auto;
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
             backdrop-filter: blur(8px);
+            opacity: 0.48;
+            transition: opacity 0.3s ease;
+        }
+        .scroll-indicator:hover {
+            opacity: 0.9;
         }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-8px);} 60% {transform: translateY(-4px);} }
 
@@ -774,10 +784,6 @@
 
         /* Responsive Breakpoints across devices */
         @media(min-width: 769px) {
-            .hero-overline {
-                flex-direction: row;
-                gap: 0.5rem;
-            }
             .hero h1 {
                 display: block;
             }
@@ -799,7 +805,7 @@
 
             .hero-content { margin-top: -2.5rem; }
             .hero-bottom-bar { bottom: 1.4rem; gap: 1rem; }
-            .hero-subtitle { font-size: 0.95rem; max-width: 78%; }
+            .hero-subtitle { font-size: 0.95rem; }
 
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 240px; }
@@ -941,9 +947,6 @@
         
         <div class="hero-content reveal">
             <span class="hero-badge-tag">5TH ANNIVERSARY EDITION</span>
-            <div class="hero-overline">
-                <span>TARKWA &bull; WESTERN REGION &bull; GHANA</span>
-            </div>
             <h1 class="playfair">
                 <span class="stroke-text">Ten</span>
                 <span class="stroke-text">Thousand</span>
@@ -952,9 +955,12 @@
             </h1>
         </div>
 
-        <!-- Clean Hero Bottom Bar: Subtitle at Bottom Left & Arrow at Bottom Right -->
+        <!-- Clean Hero Bottom Bar: Location Tag + Subtitle at Bottom Left & Arrow at Bottom Right -->
         <div class="hero-bottom-bar reveal">
-            <p class="hero-subtitle">Ghana's annual Easter gospel worship &amp; thanksgiving experience.</p>
+            <div class="hero-bottom-info">
+                <span class="hero-bottom-location">TARKWA &bull; WESTERN REGION &bull; GHANA</span>
+                <p class="hero-subtitle">Ghana's annual Easter gospel worship &amp; thanksgiving experience.</p>
+            </div>
             <div class="scroll-indicator" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
             </div>
