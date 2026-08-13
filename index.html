@@ -591,7 +591,7 @@
             color: white;
         }
 
-        /* Media Hub */
+        /* Media Hub & Glassmorphic Play Icon Overlay */
         .main-video { background: var(--dark); padding: 5rem var(--side-padding); }
         .main-video h2 { font-size: var(--font-title); color: white; margin-bottom: 2rem; }
         .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.8rem; }
@@ -613,26 +613,40 @@
         .play-btn-overlay {
             position: absolute; inset: 0;
             display: flex; align-items: center; justify-content: center;
-            background: rgba(8, 9, 26, 0.4);
+            background: rgba(8, 9, 26, 0.35);
             transition: background 0.3s;
         }
-        .thumb-card:hover .play-btn-overlay { background: rgba(8, 9, 26, 0.2); }
+        .thumb-card:hover .play-btn-overlay { background: rgba(8, 9, 26, 0.15); }
+        
+        /* Glassmorphic Play Icon Button */
         .play-icon {
-            width: 46px; height: 46px;
-            background: var(--orange-red);
+            width: 52px; height: 52px;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 8px 20px rgba(229,82,42,0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: background 0.3s, transform 0.3s, border-color 0.3s;
+        }
+        .thumb-card:hover .play-icon {
+            background: rgba(229, 82, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.08);
         }
         .play-icon::after {
             content: '';
             display: block;
             width: 0; height: 0;
             border-style: solid;
-            border-width: 7px 0 7px 13px;
+            border-width: 8px 0 8px 14px;
             border-color: transparent transparent transparent #ffffff;
             margin-left: 3px;
         }
+
         .thumb-caption {
             margin-top: 0.6rem;
             font-size: var(--font-support);
