@@ -589,7 +589,6 @@
             .nav-links { display: none; }
             .hamburger { display: flex; }
 
-            /* Mobile Focal Crop Fix: Position singer (on the left of the original photo) to the RIGHT side of the mobile viewport, leaving the left dark space clear for headline typography */
             .hero {
                 background-position: 18% center;
             }
@@ -597,7 +596,7 @@
             .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
             .about-banner { height: 240px; }
             
-            /* Ministers Mobile Horizontal Swipe Carousel */
+            /* Ministers Mobile Horizontal Carousel & Hidden Scrollbar */
             .minister-grid {
                 display: flex;
                 overflow-x: auto;
@@ -605,7 +604,13 @@
                 gap: 1rem;
                 padding-bottom: 1rem;
                 -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
             }
+            .minister-grid::-webkit-scrollbar {
+                display: none;
+            }
+
             .m-card {
                 flex: 0 0 82vw;
                 scroll-snap-align: start;
@@ -722,7 +727,7 @@
         <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
     </div>
 
-    <!-- Art-Directed Poster Hero (88dvh peak, right-third focal composition) -->
+    <!-- Art-Directed Poster Hero -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
