@@ -42,6 +42,7 @@
             --darkest: #060820;
             --border-color: rgba(255, 255, 255, 0.09);
             --side-padding: clamp(1.2rem, 7vw, 5rem);
+            --section-radius: clamp(24px, 5vw, 48px);
 
             /* Editorial Typography Scale */
             --font-hero: clamp(2.6rem, 8.5vw, 6.2rem);
@@ -99,8 +100,8 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             padding: 0.95rem var(--side-padding);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         .logo-area { display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.05rem; color: white; text-decoration: none; cursor: pointer; }
         .logo-area img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 12px rgba(229, 82, 42, 0.3); }
@@ -214,7 +215,7 @@
         .stroke-text { -webkit-text-stroke: 1.3px white; color: transparent; display: block; }
         .orange { display: block; color: var(--orange-red); }
 
-        /* Clean Bottom Hero Bar: Location Tag + Single Line Subtitle */
+        /* Clean Bottom Hero Bar: Location Tag + Single Line Subtitle Across Devices */
         .hero-bottom-bar {
             position: absolute;
             bottom: 2.2rem;
@@ -268,14 +269,24 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Seamless Bleed Transition Utility */
+        .section-blend-top {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 140px;
+            background: linear-gradient(to bottom, rgba(13, 16, 64, 0.95) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
         /* Latest Edition Section & Glassmorphic Cinema Player */
         .spotlight {
-            background: var(--darker-navy);
-            padding: 5.5rem var(--side-padding);
+            background: linear-gradient(to bottom, var(--darker-navy) 0%, #0a0d33 100%);
+            padding: 5.5rem var(--side-padding) 6.5rem;
             position: relative;
-            margin-top: -1px;
+            z-index: 2;
         }
-        .spotlight-container { max-width: 1200px; margin: 0 auto; }
+        .spotlight-container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
         .spotlight h2 { font-size: var(--font-title); color: white; margin-bottom: 0.1rem; }
         .spotlight-desc {
             max-width: 600px;
@@ -327,12 +338,16 @@
             margin-left: 4px;
         }
 
-        /* About Section */
+        /* Curved About Section Overlapping Dark Section Above */
         .about {
             background: var(--cream);
             color: var(--navy);
-            padding: 6rem var(--side-padding);
+            padding: 6.5rem var(--side-padding);
             position: relative;
+            z-index: 5;
+            margin-top: -45px;
+            border-radius: var(--section-radius) var(--section-radius) 0 0;
+            box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.35);
         }
         .about-container { max-width: 1200px; margin: 0 auto; }
         .about-header h2 {
@@ -472,8 +487,16 @@
             font-style: italic;
         }
 
-        /* Gospel Ministers Section & Clickable Cards */
-        .ministers { background: var(--dark); padding: 5.5rem var(--side-padding); position: relative; }
+        /* Curved Gospel Ministers Section Overlapping Light Cream Section */
+        .ministers { 
+            background: linear-gradient(to bottom, var(--dark) 0%, #060714 100%);
+            padding: 6.5rem var(--side-padding) 6rem;
+            position: relative;
+            z-index: 6;
+            margin-top: -45px;
+            border-radius: var(--section-radius) var(--section-radius) 0 0;
+            box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.45);
+        }
         .ministers h2 { font-size: var(--font-title); font-style: italic; margin-bottom: 2.4rem; color: white; }
         .minister-grid { 
             display: grid; 
@@ -528,14 +551,18 @@
             transform: scale(1.35);
         }
 
-        /* Visionaries Section & Clickable Founders Frame */
+        /* Seamless Curved Visionaries Section */
         .visionaries {
-            background: #0b0e28;
-            padding: 6rem var(--side-padding);
+            background: linear-gradient(to bottom, #0b0e28 0%, #0d1033 100%);
+            padding: 6.5rem var(--side-padding) 6rem;
             color: white;
             position: relative;
+            z-index: 7;
+            margin-top: -35px;
+            border-radius: var(--section-radius) var(--section-radius) 0 0;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.4);
         }
-        .vis-container { max-width: 920px; margin: 0 auto; }
+        .vis-container { max-width: 920px; margin: 0 auto; position: relative; z-index: 2; }
         .vis-container h2 { font-size: var(--font-title); color: white; margin-bottom: 0.2rem; }
         .vis-subtitle { color: var(--bronze); font-family:'Bebas Neue',sans-serif; letter-spacing:2.5px; font-size:1.1rem; margin-bottom: 1.8rem; }
         
@@ -590,8 +617,17 @@
             margin-top: 0.6rem;
         }
 
-        /* Outreach Section */
-        .outreach { background: var(--darker-navy); padding: 5.5rem var(--side-padding); text-align: center; }
+        /* Seamless Curved Outreach Section */
+        .outreach { 
+            background: linear-gradient(to bottom, var(--darker-navy) 0%, #0a0d33 100%);
+            padding: 6.5rem var(--side-padding) 6rem;
+            text-align: center;
+            position: relative;
+            z-index: 8;
+            margin-top: -35px;
+            border-radius: var(--section-radius) var(--section-radius) 0 0;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.4);
+        }
         .outreach h2 { font-size: var(--font-title); color: white; margin-bottom: 1rem; }
         .outreach-desc { max-width: 680px; margin: 0 auto 2.4rem; font-size: var(--font-body); line-height: 1.75; color: rgba(255,255,255,0.9); }
         .video-wrapper { width: 80%; margin: 0 auto 2.5rem; position: relative; padding-bottom: 45%; height: 0; box-shadow: 0 0 40px rgba(229,82,42,0.22); border: 1px solid rgba(229,82,42,0.3); border-radius: 20px; overflow: hidden; }
@@ -625,8 +661,16 @@
             color: white;
         }
 
-        /* Media Hub & Glassmorphic Play Icon Overlay */
-        .main-video { background: var(--dark); padding: 5.5rem var(--side-padding); }
+        /* Seamless Curved Media Hub Section */
+        .main-video { 
+            background: linear-gradient(to bottom, var(--dark) 0%, #060714 100%);
+            padding: 6.5rem var(--side-padding) 6rem;
+            position: relative;
+            z-index: 9;
+            margin-top: -35px;
+            border-radius: var(--section-radius) var(--section-radius) 0 0;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.45);
+        }
         .main-video h2 { font-size: var(--font-title); color: white; margin-bottom: 2.2rem; }
         .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.8rem; }
         
@@ -667,8 +711,8 @@
         }
         .thumb-card:hover .play-icon {
             background: rgba(229, 82, 42, 0.85);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-color: rgba(255, 255, 255, 0.6);
             transform: scale(1.08);
         }
@@ -689,8 +733,16 @@
             color: rgba(255,255,255,0.92);
         }
 
-        /* Memories / Gallery Section */
-        .gallery { background: var(--darkest); padding: 5.5rem var(--side-padding); }
+        /* Seamless Curved Memories / Gallery Section */
+        .gallery { 
+            background: linear-gradient(to bottom, var(--darkest) 0%, #040517 100%);
+            padding: 6.5rem var(--side-padding) 6rem;
+            position: relative;
+            z-index: 10;
+            margin-top: -35px;
+            border-radius: var(--section-radius) var(--section-radius) 0 0;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.5);
+        }
         .gallery h2 { font-size: var(--font-title); color: white; }
         .gallery-header {
             display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2.2rem;
@@ -751,13 +803,15 @@
         /* Compact Minimal Footer without Tagline Repeat */
         footer {
             background: var(--dark);
-            padding: 3.8rem var(--side-padding) 2.5rem;
+            padding: 4rem var(--side-padding) 2.5rem;
             text-align: center;
             color: rgba(255,255,255,0.6);
             font-size: 0.88rem;
             border-top: 1px solid var(--border-color);
             position: relative;
-            z-index: 10;
+            z-index: 11;
+            margin-top: -30px;
+            border-radius: var(--section-radius) var(--section-radius) 0 0;
         }
         footer img { width: 44px; margin-bottom: 0.8rem; border-radius: 50%; }
         .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: white; margin-bottom: 0.3rem; }
@@ -981,7 +1035,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section with Curved Top Edge Overlapping Spotlight Section -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-header reveal">
@@ -1039,7 +1093,7 @@
         </div>
     </section>
 
-    <!-- Gospel Ministers Section with Clickable Photo Cards -->
+    <!-- Gospel Ministers Section with Curved Top Edge & Smooth Color Bleed -->
     <section class="ministers" id="ministers">
         <div class="reveal">
             <span class="chapter-badge">ANOINTED VOICES</span>
@@ -1078,7 +1132,7 @@
         </div>
     </section>
 
-    <!-- Visionaries Section with Interactive Clickable Founders Photo Frame -->
+    <!-- Visionaries Section with Curved Top Edge -->
     <section class="visionaries" id="founders">
         <div class="vis-container reveal">
             <span class="chapter-badge">THE VISIONARIES</span>
@@ -1100,7 +1154,7 @@
         </div>
     </section>
 
-    <!-- Outreach Section -->
+    <!-- Outreach Section with Curved Top Edge -->
     <section class="outreach" id="impact">
         <div class="reveal">
             <span class="chapter-badge">FAITH IN ACTION</span>
@@ -1128,7 +1182,7 @@
         </div>
     </section>
 
-    <!-- Media Hub -->
+    <!-- Media Hub with Curved Top Edge -->
     <section class="main-video" id="media">
         <div class="reveal">
             <span class="chapter-badge">MEDIA HUB</span>
@@ -1170,7 +1224,7 @@
         </div>
     </section>
 
-    <!-- Memories / Gallery Section -->
+    <!-- Memories / Gallery Section with Curved Top Edge -->
     <section class="gallery" id="gallery">
         <div class="gallery-header">
             <div>
@@ -1194,7 +1248,7 @@
         <img id="lb-img" src="" alt="Aseda Praise celebration photograph">
     </div>
 
-    <!-- Compact Minimal Footer without Tagline Repeat -->
+    <!-- Compact Minimal Footer with Curved Top Edge -->
     <footer>
         <div class="footer-brand">Aseda Praise</div>
         <div class="footer-location">Tarkwa &bull; Western Region &bull; Ghana</div>
