@@ -67,7 +67,7 @@
         /* Scroll Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(24px);
+            transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .reveal.active {
@@ -75,7 +75,7 @@
             transform: translateY(0);
         }
 
-        /* Mobile-First Floating Navigation */
+        /* Point 4: Tiny, Floating Mobile Header (Transparent initially, subtle blur on scroll) */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
             padding: 1.2rem var(--side-padding);
@@ -84,31 +84,30 @@
             transition: background 0.3s, padding 0.3s, backdrop-filter 0.3s;
         }
         nav.scrolled {
-            background: rgba(8, 9, 26, 0.94);
-            backdrop-filter: blur(14px);
-            padding: 0.9rem var(--side-padding);
+            background: rgba(8, 9, 26, 0.88);
+            backdrop-filter: blur(12px);
+            padding: 0.8rem var(--side-padding);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .logo-area { display: flex; align-items: center; gap: 0.7rem; font-weight: 600; font-size: 1.1rem; color: white; text-decoration: none; cursor: pointer; }
-        .logo-area img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+        .logo-area { display: flex; align-items: center; gap: 0.7rem; font-weight: 600; font-size: 1.05rem; color: white; text-decoration: none; cursor: pointer; }
+        .logo-area img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
         
-        .nav-links { display: flex; gap: 2.2rem; align-items: center; }
-        .nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; transition: color 0.2s; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--bronze); }
 
-        /* Mobile Touch Hamburger & Menu Drawer */
+        /* Point 4 & 5: Quiet Hamburger & Elegant Mobile Menu */
         .hamburger {
             display: none;
             background: none;
             border: none;
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             cursor: pointer;
             z-index: 1001;
             padding: 0.4rem;
             min-width: 44px;
             min-height: 44px;
-            display: flex;
             align-items: center;
             justify-content: center;
         }
@@ -122,47 +121,48 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1.8rem;
+            gap: 1.4rem;
         }
         .mobile-menu-overlay.open { display: flex; }
         .mobile-menu-overlay a {
             color: white;
             text-decoration: none;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            padding: 0.6rem 1.2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 0.5rem 1.5rem;
             transition: color 0.2s;
         }
         .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
-        /* Art-Directed Mobile-First Poster Hero */
+        /* Points 1, 2, 3: Pure Mobile Hero (88dvh peak, 68% focal crop, poster typography) */
         .hero {
-            height: 100vh; height: 100dvh; min-height: 560px; position: relative;
+            height: 88vh; height: 88dvh; min-height: 540px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
-            background: url('assets/images/aseda_stage_obaapa_christy.jpg') 72% center/cover no-repeat;
+            background: url('assets/images/aseda_stage_obaapa_christy.jpg') 68% center/cover no-repeat;
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.92) 0%, transparent 68%),
-                        linear-gradient(to top right, rgba(8, 9, 26, 0.88) 0%, rgba(229, 82, 42, 0.1) 100%),
+            background: radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.9) 0%, transparent 70%),
+                        linear-gradient(to top right, rgba(8, 9, 26, 0.85) 0%, rgba(229, 82, 42, 0.08) 100%),
                         linear-gradient(to top, rgba(8, 9, 26, 1) 0%, transparent 35%);
             z-index: 1;
         }
-        .hero-content { position: relative; z-index: 2; max-width: 1000px; margin-top: 3rem; }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; margin-top: 2rem; }
         .hero-overline { 
             font-size: 0.8rem; 
             letter-spacing: 3.5px; 
             font-weight: 600; 
-            margin-bottom: 1.8rem; 
+            margin-bottom: 1.5rem; 
             line-height: 1.5;
             display: flex;
             flex-direction: column;
-            gap: 0.2rem;
+            gap: 0.15rem;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8.5vw, 7rem);
+            font-size: clamp(2.8rem, 8.5vw, 6.8rem);
             line-height: 1.0;
             font-style: italic;
             margin-bottom: 0;
@@ -173,28 +173,28 @@
         .orange { display: block; }
 
         .scroll-indicator {
-            position: absolute; bottom: 2rem; right: var(--side-padding); z-index: 2;
+            position: absolute; bottom: 1.5rem; right: var(--side-padding); z-index: 2;
             animation: bounce 2s infinite;
         }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-14px);} 60% {transform: translateY(-7px);} }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-12px);} 60% {transform: translateY(-6px);} }
 
         /* Section Components */
         .chapter-badge {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             letter-spacing: 2.5px;
             color: var(--orange-red);
             background: rgba(229, 82, 42, 0.08);
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 0.9rem;
             border-radius: 50px;
             display: inline-block;
             margin-bottom: 0.8rem;
         }
 
-        /* Latest Edition Spotlight & Main Broadcast */
+        /* Points 7 & 8: Latest Edition & Quick Broadcast Section */
         .spotlight {
             background: var(--darker-navy);
-            padding: 4.5rem var(--side-padding);
+            padding: 4rem var(--side-padding);
             position: relative;
             border-bottom: 1px solid var(--border-color);
         }
@@ -203,10 +203,10 @@
         .cinema-vid { 
             width: 100%; 
             aspect-ratio: 16/9; 
-            box-shadow: 0 0 40px rgba(0,0,0,0.8); 
-            margin: 2.2rem 0 0; 
+            box-shadow: 0 0 35px rgba(0,0,0,0.8); 
+            margin: 1.8rem 0 0; 
             position: relative; 
-            border-radius: 14px; 
+            border-radius: 12px; 
             overflow: hidden; 
             border: 1px solid var(--border-color); 
         }
@@ -221,10 +221,10 @@
         }
         .about-container { max-width: 1280px; margin: 0 auto; }
         .about-header h2 {
-            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-size: clamp(2.1rem, 5vw, 4rem);
             color: var(--navy);
             font-family: 'Playfair Display', serif;
-            margin-bottom: 2.2rem;
+            margin-bottom: 2rem;
             line-height: 1.1;
         }
         .about-grid {
@@ -232,31 +232,31 @@
             grid-template-columns: 1.3fr 0.9fr;
             gap: 3rem;
             align-items: start;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
         .lead-p {
-            font-size: 1.18rem;
+            font-size: 1.15rem;
             line-height: 1.65;
             font-weight: 500;
             color: var(--navy);
             margin-bottom: 1.2rem;
         }
         .body-p {
-            font-size: 1rem;
+            font-size: 0.98rem;
             line-height: 1.65;
             color: rgba(27, 32, 112, 0.85);
         }
         .styled-quote {
             border-left: 4px solid var(--orange-red);
             background: #FFFFFF;
-            padding: 1.2rem 1.6rem;
+            padding: 1.2rem 1.5rem;
             border-radius: 0 12px 12px 0;
-            margin: 1.5rem 0;
+            margin: 1.4rem 0;
             box-shadow: 0 8px 24px rgba(27, 32, 112, 0.05);
         }
         .styled-quote p {
             font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-style: italic;
             color: var(--orange-red);
             line-height: 1.4;
@@ -265,17 +265,17 @@
         .about-stats-grid {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.9rem;
         }
         .stat-card {
             background: #FFFFFF;
             border: 1px solid rgba(27, 32, 112, 0.1);
-            padding: 1.2rem 1.5rem;
-            border-radius: 16px;
+            padding: 1.1rem 1.4rem;
+            border-radius: 14px;
             box-shadow: 0 8px 24px rgba(27, 32, 112, 0.04);
             display: flex;
             align-items: center;
-            gap: 1.4rem;
+            gap: 1.2rem;
         }
         .stat-card.highlight-card {
             background: var(--navy);
@@ -284,15 +284,15 @@
         }
         .stat-num {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             line-height: 1;
             color: var(--bronze);
-            min-width: 110px;
+            min-width: 100px;
         }
         .highlight-card .stat-num { color: var(--orange-red); }
         .stat-label {
             font-family: 'Inter', sans-serif;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -303,7 +303,7 @@
             position: relative;
             border-radius: 14px;
             overflow: hidden;
-            height: 400px;
+            height: 380px;
             box-shadow: 0 20px 50px rgba(27, 32, 112, 0.12);
         }
         .about-banner img {
@@ -315,7 +315,7 @@
         .banner-caption {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            padding: 1.8rem 2rem;
+            padding: 1.5rem 1.8rem;
             background: linear-gradient(to top, rgba(8, 9, 26, 0.95) 0%, transparent 100%);
             color: white;
             display: flex;
@@ -324,29 +324,29 @@
         }
         .caption-tag {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             letter-spacing: 2px;
             color: var(--bronze);
         }
         .caption-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-style: italic;
         }
 
-        /* Ministers Section */
+        /* Point 10: Gospel Ministers Section (Desktop Grid, Mobile Horizontal Carousel) */
         .ministers { background: var(--dark); padding: 4.5rem var(--side-padding); }
-        .ministers h2 { font-size: clamp(2.2rem, 5vw, 4rem); font-style: italic; margin-bottom: 2.5rem; }
+        .ministers h2 { font-size: clamp(2.1rem, 5vw, 4rem); font-style: italic; margin-bottom: 2rem; }
         .minister-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
         .m-card { position: relative; aspect-ratio: 3/4; overflow: hidden; background: #111; border-radius: 12px; }
         .m-card img { width: 100%; height: 100%; object-fit: cover; }
         .m-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); }
-        .m-info { position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 2; }
-        .m-info h3 { font-size: 1.6rem; margin-bottom: 0.3rem; }
-        .m-info p { font-family: 'Inter', sans-serif; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
-        .card-headliner { grid-column: 1 / -1; aspect-ratio: auto; height: 60vh; max-height: 480px; }
+        .m-info { position: absolute; bottom: 1.4rem; left: 1.4rem; z-index: 2; }
+        .m-info h3 { font-size: 1.5rem; margin-bottom: 0.3rem; }
+        .m-info p { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
+        .card-headliner { grid-column: 1 / -1; aspect-ratio: auto; height: 55vh; max-height: 460px; }
 
-        /* Visionaries Section — Mobile-Optimized Frame & Clean Bottom Card */
+        /* Points 11 & 12: Visionaries Section (Pill-Free, Clean & Editorial) */
         .visionaries {
             background: #0b0e28;
             padding: 4.5rem var(--side-padding);
@@ -359,9 +359,9 @@
             position: relative;
             border-radius: 16px;
             overflow: hidden;
-            height: 480px;
+            height: 440px;
             width: 100%;
-            margin: 2rem 0 2.5rem;
+            margin: 1.8rem 0 2.2rem;
             box-shadow: 0 25px 70px rgba(0,0,0,0.7);
             border: 1px solid rgba(201, 160, 80, 0.3);
         }
@@ -375,14 +375,14 @@
         .vis-hero-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            padding: 2.5rem 2rem 1.8rem;
+            padding: 2.2rem 1.8rem 1.5rem;
             background: linear-gradient(to top, rgba(8, 9, 26, 0.98) 0%, rgba(8, 9, 26, 0.75) 60%, transparent 100%);
             display: flex;
             flex-direction: column;
             gap: 0.3rem;
         }
         .vis-hero-overlay h3 {
-            font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+            font-size: clamp(1.3rem, 3.5vw, 2.6rem);
             color: white;
             margin: 0;
             line-height: 1.2;
@@ -391,31 +391,17 @@
         .vis-hero-overlay p {
             color: var(--bronze);
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 2px;
             margin: 0;
         }
 
-        .vis-content-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 2rem;
-            align-items: stretch;
-        }
         .vis-story-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 2.2rem 1.8rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        .vis-story-card h3 {
-            font-size: 1.8rem;
-            color: white;
-            line-height: 1.25;
-            margin: 0;
+            border-radius: 14px;
+            padding: 1.8rem 1.6rem;
+            margin-bottom: 1.5rem;
         }
         .vis-story-card p {
             font-size: 1rem;
@@ -425,18 +411,13 @@
         }
         .vis-quote-card {
             background: rgba(229, 82, 42, 0.06);
-            border: 1px solid rgba(229, 82, 42, 0.2);
             border-left: 4px solid var(--orange-red);
-            border-radius: 16px;
-            padding: 2.2rem 1.8rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 1.5rem;
+            border-radius: 0 14px 14px 0;
+            padding: 1.6rem 1.8rem;
         }
         .vis-quote-card p {
             font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-style: italic;
             color: var(--orange-red);
             line-height: 1.45;
@@ -447,40 +428,95 @@
             font-size: 0.9rem;
             letter-spacing: 2px;
             color: var(--bronze);
-            margin-top: 0.4rem;
-        }
-        .vis-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .vis-badge {
-            border: 1px solid rgba(201, 160, 80, 0.4);
-            color: var(--bronze);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.78rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-family: 'Bebas Neue', sans-serif;
+            margin-top: 0.5rem;
         }
 
-        /* Outreach / Impact */
+        /* Point 13: Outreach / Impact Section (Pill-Free Editorial Numbered List) */
         .outreach { background: var(--darker-navy); padding: 4.5rem var(--side-padding); text-align: center; }
-        .outreach h2 { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 1.5rem; }
-        .outreach-desc { max-width: 650px; margin: 0 auto 2.5rem; font-size: 1.05rem; line-height: 1.65; color: rgba(255,255,255,0.85); }
+        .outreach h2 { font-size: clamp(2.1rem, 5vw, 4rem); margin-bottom: 1.2rem; }
+        .outreach-desc { max-width: 620px; margin: 0 auto 2rem; font-size: 1.02rem; line-height: 1.65; color: rgba(255,255,255,0.85); }
         .video-wrapper { width: 80%; margin: 0 auto 2.5rem; position: relative; padding-bottom: 45%; height: 0; box-shadow: 0 0 35px rgba(229,82,42,0.25); border: 1px solid rgba(229,82,42,0.3); border-radius: 12px; overflow: hidden; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .impact-pills { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
-        .pill { border: 1px solid var(--bronze); padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--bronze); background: rgba(201, 160, 80, 0.05); }
+        
+        .impact-list {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            text-align: left;
+        }
+        .impact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 0.8rem 1.2rem;
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid var(--bronze);
+            border-radius: 0 8px 8px 0;
+        }
+        .impact-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            color: var(--bronze);
+            min-width: 25px;
+        }
+        .impact-text {
+            font-size: 0.92rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: white;
+        }
 
-        /* Media Hub */
+        /* Point 9: Media Hub with Interactive Thumbnail Cards */
         .main-video { background: var(--dark); padding: 4.5rem var(--side-padding); }
-        .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
-        .vid-grid .v-item { aspect-ratio: 16/9; position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
-        .vid-grid iframe { width: 100%; height: 100%; }
+        .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .thumb-card {
+            aspect-ratio: 16/9;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #111;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+        .thumb-card img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;
+        }
+        .thumb-card:hover img { transform: scale(1.05); }
+        .play-btn-overlay {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(8, 9, 26, 0.4);
+            transition: background 0.3s;
+        }
+        .thumb-card:hover .play-btn-overlay { background: rgba(8, 9, 26, 0.2); }
+        .play-icon {
+            width: 46px; height: 46px;
+            background: var(--orange-red);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 20px rgba(229,82,42,0.4);
+        }
+        .play-icon::after {
+            content: '';
+            display: block;
+            width: 0; height: 0;
+            border-style: solid;
+            border-width: 7px 0 7px 13px;
+            border-color: transparent transparent transparent #ffffff;
+            margin-left: 3px;
+        }
+        .thumb-caption {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.9);
+        }
 
-        /* Gallery */
+        /* Point 14: Gallery (2-column compact grid on mobile) */
         .gallery { background: var(--darkest); padding: 4.5rem var(--side-padding); }
         .masonry { column-count: 3; column-gap: 1.2rem; }
         .gal-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; }
@@ -588,7 +624,7 @@
         .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; padding: 0.4rem; }
         .footer-links a:hover { color: white; }
 
-        /* Media Queries for Desktop & Tablet Sizing */
+        /* Media Queries for Desktop & Mobile Sizing */
         @media(min-width: 769px) {
             .hero-overline {
                 flex-direction: row;
@@ -609,38 +645,57 @@
         @media(max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
-            .hero h1 { font-size: clamp(2.8rem, 10vw, 4.2rem); line-height: 1.02; }
+            .hero h1 { font-size: clamp(2.5rem, 9.5vw, 4rem); line-height: 1.02; }
 
-            .about-grid, .vis-content-grid, .vid-grid { grid-template-columns: 1fr; gap: 1.8rem; }
-            .about-banner { height: 250px; }
+            .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+            .about-banner { height: 240px; }
             
-            /* Visionaries Mobile Art-Direction */
-            .vis-hero-frame { height: 280px; margin: 1.5rem 0; border-radius: 14px; }
-            .vis-hero-overlay { padding: 1.4rem 1.2rem 1rem; background: linear-gradient(to top, rgba(8, 9, 26, 0.98) 0%, rgba(8, 9, 26, 0.7) 60%, transparent 100%); }
-            .vis-hero-overlay h3 { font-size: 1.3rem; line-height: 1.25; }
-            .vis-hero-overlay p { font-size: 0.8rem; letter-spacing: 2px; }
+            /* Point 10: Ministers Mobile Horizontal Carousel */
+            .minister-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 1rem;
+                padding-bottom: 1rem;
+                -webkit-overflow-scrolling: touch;
+            }
+            .m-card {
+                flex: 0 0 82vw;
+                scroll-snap-align: start;
+                height: 400px;
+                aspect-ratio: auto;
+            }
+            .card-headliner {
+                flex: 0 0 82vw;
+                height: 400px;
+            }
 
-            .vis-story-card, .vis-quote-card { padding: 1.6rem 1.2rem; border-radius: 14px; }
-            .minister-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-            .card-headliner { height: 420px; }
-            .m-card { height: 340px; }
-            .masonry { column-count: 1; }
+            /* Visionaries Mobile Frame */
+            .vis-hero-frame { height: 260px; margin: 1.4rem 0; border-radius: 14px; }
+            .vis-hero-overlay { padding: 1.2rem 1rem 0.8rem; }
+            .vis-hero-overlay h3 { font-size: 1.25rem; line-height: 1.25; }
+            .vis-hero-overlay p { font-size: 0.78rem; letter-spacing: 2px; }
+
+            /* Point 14: Gallery 2-Column Grid on Mobile */
+            .masonry { column-count: 2; column-gap: 0.8rem; }
+            .gal-item { margin-bottom: 0.8rem; }
+
             .video-wrapper { width: 100%; padding-bottom: 56.25%; margin-bottom: 1.8rem; }
-            .gallery-album-btn { width: 100%; justify-content: center; padding: 0.9rem 1.2rem; text-align: center; }
+            .gallery-album-btn { width: 100%; justify-content: center; padding: 0.85rem 1.2rem; text-align: center; }
             
             .social-strip { gap: 1.4rem; flex-direction: column; align-items: center; padding: 2.8rem var(--side-padding); }
-            .social-link-item { font-size: 1.7rem; }
+            .social-link-item { font-size: 1.65rem; }
             .social-link-item svg { width: 26px; height: 26px; }
         }
 
         @media(max-width: 480px) {
-            .hero h1 { font-size: 2.6rem; }
-            .hero-content { margin-top: 1.8rem; }
-            .stat-card { padding: 1rem 1.2rem; flex-direction: row; gap: 1rem; }
-            .stat-num { font-size: 2.4rem; min-width: 80px; }
-            .vis-hero-frame { height: 250px; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero-content { margin-top: 1.5rem; }
+            .stat-card { padding: 1rem; flex-direction: row; gap: 0.9rem; }
+            .stat-num { font-size: 2.3rem; min-width: 75px; }
+            .vis-hero-frame { height: 240px; }
             .banner-caption { padding: 1rem 1.2rem; }
-            .banner-caption .caption-title { font-size: 1.2rem; }
+            .banner-caption .caption-title { font-size: 1.15rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -687,7 +742,7 @@
 </head>
 <body>
 
-    <!-- Header Navigation — Quiet, Floating, Mobile-Optimized -->
+    <!-- Header Navigation — Tiny, Floating, Quiet -->
     <nav id="navbar" aria-label="Main Navigation">
         <a href="#" class="logo-area" aria-label="Aseda Praise Home">
             <img src="assets/images/aseda_official_logo.png" alt="Aseda Praise Official Logo" loading="lazy">
@@ -707,17 +762,17 @@
         </button>
     </nav>
 
-    <!-- Mobile Drawer Overlay -->
+    <!-- Mobile Drawer Overlay (Quiet & Elegant Typography) -->
     <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
         <a href="#home" onclick="closeMobileMenu()">Home</a>
-        <a href="#about" onclick="closeMobileMenu()">Our Story</a>
+        <a href="#about" onclick="closeMobileMenu()">About</a>
         <a href="#ministers" onclick="closeMobileMenu()">Ministers</a>
-        <a href="#impact" onclick="closeMobileMenu()">Community Impact</a>
-        <a href="#media" onclick="closeMobileMenu()">Media Hub</a>
-        <a href="#gallery" onclick="closeMobileMenu()">Photo Gallery</a>
+        <a href="#impact" onclick="closeMobileMenu()">Impact</a>
+        <a href="#media" onclick="closeMobileMenu()">Media</a>
+        <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
     </div>
 
-    <!-- Art-Directed Mobile Poster Hero -->
+    <!-- Points 1-3: Art-Directed Mobile Hero (88dvh peak, 68% crop, pure poster) -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
@@ -738,18 +793,18 @@
         </div>
     </section>
 
-    <!-- Latest Edition & Official Broadcast Section -->
+    <!-- Points 7 & 8: Latest Edition & Featured Broadcast -->
     <section class="spotlight" id="latest-edition">
         <div class="spotlight-container">
             <div class="reveal">
-                <span class="chapter-badge">01 &bull; LATEST EDITION &bull; 2026 (COMPLETED)</span>
-                <h2 class="playfair" style="font-size: clamp(2.1rem, 4vw, 3.6rem); color: white;">Aseda Praise 2026 Celebration</h2>
-                <p style="max-width: 720px; color: rgba(255,255,255,0.8); font-size: 1.02rem; margin-top: 0.6rem;">
-                    The 2026 Easter celebration gathered over 10,000 worshippers in Tarkwa for an unforgettable night of divine worship, spiritual renewal, and philanthropic community impact.
+                <span class="chapter-badge">LATEST EDITION</span>
+                <h2 class="playfair" style="font-size: clamp(2rem, 4vw, 3.5rem); color: white;">Aseda Praise 2026</h2>
+                <p style="max-width: 600px; color: rgba(255,255,255,0.8); font-size: 1.02rem; margin-top: 0.4rem;">
+                    Five years of gratitude, worship and community.
                 </p>
             </div>
 
-            <!-- Featured 2026 Broadcast Video Player -->
+            <!-- 16:9 Featured Official Broadcast -->
             <div class="cinema-vid reveal">
                 <iframe src="https://www.youtube.com/embed/8Lu8u8ZSbog" title="Aseda Praise 2026 Official Full Program Broadcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
@@ -760,7 +815,7 @@
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-header reveal">
-                <span class="chapter-badge">02 &bull; OUR STORY</span>
+                <span class="chapter-badge">OUR STORY</span>
                 <h2>Five Years of Gratitude</h2>
             </div>
             
@@ -805,10 +860,10 @@
         </div>
     </section>
 
-    <!-- Ministers Section -->
+    <!-- Point 10: Ministers Section (Horizontal Swipe Carousel on Mobile) -->
     <section class="ministers" id="ministers">
         <div class="reveal">
-            <span class="chapter-badge">03 &bull; GOSPEL MINISTERS</span>
+            <span class="chapter-badge">GOSPEL MINISTERS</span>
             <h2 class="playfair" style="color: white;">Anointed Voices</h2>
         </div>
 
@@ -837,57 +892,41 @@
         </div>
     </section>
 
-    <!-- Leadership / Visionaries Section -->
+    <!-- Points 11 & 12: Visionaries Section (Clean, Pill-Free Editorial) -->
     <section class="visionaries" id="founders">
         <div class="vis-container">
             <div class="reveal">
-                <span class="chapter-badge">04 &bull; LEADERSHIP</span>
-                <h2 class="playfair" style="font-size: clamp(2.2rem, 5vw, 4rem); color: white;">The Visionaries Behind Aseda Praise</h2>
+                <span class="chapter-badge">THE VISIONARIES</span>
+                <h2 class="playfair" style="font-size: clamp(2.1rem, 5vw, 4rem); color: white;">Evans Ghartey &amp; Frederick Lomotey</h2>
+                <p style="color: var(--bronze); font-family:'Bebas Neue',sans-serif; letter-spacing:2px; font-size:1.1rem; margin-top:0.2rem;">FOUNDERS &amp; LEAD SPONSORS</p>
             </div>
 
             <!-- Full-Width Feature Frame -->
             <div class="vis-hero-frame reveal">
                 <img src="assets/images/aseda_founders.jpg" alt="Mr. Evans Ghartey and Mr. Frederick Lomotey" loading="lazy">
                 <div class="vis-hero-overlay">
-                    <h3 class="playfair">Mr. Evans Ghartey &amp; Mr. Frederick Lomotey</h3>
+                    <h3 class="playfair">Evans Ghartey &amp; Frederick Lomotey</h3>
                     <p>FOUNDERS &amp; LEAD SPONSORS</p>
                 </div>
             </div>
 
-            <!-- Twin Editorial Cards Below -->
-            <div class="vis-content-grid">
-                <div class="vis-story-card reveal">
-                    <div>
-                        <span style="color:var(--bronze); font-family:'Bebas Neue',sans-serif; letter-spacing:2px; font-size:0.92rem;">A VISION BORN OF GRATITUDE</span>
-                        <h3 class="playfair" style="margin-top:0.4rem;">Driven by Faith &amp; Community Impact</h3>
-                    </div>
+            <!-- Streamlined Editorial Story & Quote -->
+            <div class="vis-story-card reveal">
+                <p>Driven by a shared vision to impact their community through faith and action, our founders established Aseda Praise as a beacon of hope and gratitude in the Western Region, ensuring that the annual experience remains 100% free for all.</p>
+            </div>
 
-                    <p>Driven by a shared vision to impact their community through faith and action, our founders established Aseda Praise as a beacon of hope and gratitude in the Western Region.</p>
-                    
-                    <p>Their dedication goes beyond the stage, ensuring that the event remains 100% free and accessible to all while actively contributing to local healthcare and community development.</p>
-                </div>
-
-                <div class="vis-quote-card reveal">
-                    <div>
-                        <p>"Aseda Praise was never about a concert. It was always about saying thank you."</p>
-                        <div class="vis-quote-author">— EVANS GHARTEY &amp; FREDERICK LOMOTEY</div>
-                    </div>
-
-                    <div class="vis-badges">
-                        <span class="vis-badge">100% Philanthropic</span>
-                        <span class="vis-badge">Community First</span>
-                        <span class="vis-badge">Western Region</span>
-                    </div>
-                </div>
+            <div class="vis-quote-card reveal">
+                <p>"Aseda Praise was never about a concert. It was always about saying thank you."</p>
+                <div class="vis-quote-author">— EVANS GHARTEY &amp; FREDERICK LOMOTEY</div>
             </div>
         </div>
     </section>
 
-    <!-- Outreach Section -->
+    <!-- Point 13: Outreach Section (Visual Editorial Numbered List, Pill-Free) -->
     <section class="outreach" id="impact">
         <div class="reveal">
-            <span class="chapter-badge">05 &bull; COMMUNITY IMPACT</span>
-            <h2 class="playfair" style="color:white;">Faith in Action.</h2>
+            <span class="chapter-badge">FAITH IN ACTION</span>
+            <h2 class="playfair" style="color:white;">Community Outreach</h2>
             <p class="outreach-desc">Our worship extends beyond the concert grounds. Every year, Aseda Praise partners with local institutions like the Apinto Government Hospital to bring tangible healing and hope to the community.</p>
         </div>
         
@@ -895,35 +934,74 @@
             <iframe src="https://www.youtube.com/embed/GGSFWt3NRoU" title="Dedication of Tarkwa Apinto Children's Ward" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
 
-        <div class="impact-pills reveal">
-            <div class="pill">Children's Ward Renovation</div>
-            <div class="pill">Medical Equipment Donation</div>
-            <div class="pill">Free Senior Health Screening</div>
-            <div class="pill">Apinto Government Hospital</div>
+        <div class="impact-list reveal">
+            <div class="impact-item">
+                <span class="impact-num">01</span>
+                <span class="impact-text">Children's Ward Renovation</span>
+            </div>
+            <div class="impact-item">
+                <span class="impact-num">02</span>
+                <span class="impact-text">Medical Equipment Donation</span>
+            </div>
+            <div class="impact-item">
+                <span class="impact-num">03</span>
+                <span class="impact-text">Free Senior Health Screening</span>
+            </div>
+            <div class="impact-item">
+                <span class="impact-num">04</span>
+                <span class="impact-text">Apinto Government Hospital Partnership</span>
+            </div>
         </div>
     </section>
 
-    <!-- Media Hub Section -->
+    <!-- Point 9: Media Hub (YouTube Thumbnail Cards for High Performance) -->
     <section class="main-video" id="media">
         <div class="reveal">
-            <span class="chapter-badge">06 &bull; MEDIA HUB</span>
-            <h2 class="playfair" style="font-size: clamp(2.2rem, 4vw, 3.8rem); color: white; margin-bottom: 2rem;">Highlights & Video Clips</h2>
+            <span class="chapter-badge">MEDIA HUB</span>
+            <h2 class="playfair" style="font-size: clamp(2.1rem, 4vw, 3.8rem); color: white; margin-bottom: 1.8rem;">Highlights & Video Clips</h2>
         </div>
 
         <div class="vid-grid reveal">
-            <div class="v-item"><iframe src="https://www.youtube.com/embed/1W4pLw93xqI" title="Massive Crowd at Aseda Praise 2026" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-            <div class="v-item"><iframe src="https://www.youtube.com/embed/fMbN4ejx-QA" title="Arrival of Ministers for Aseda Praise 2026" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-            <div class="v-item"><iframe src="https://www.youtube.com/embed/2KjBHujXc70" title="Ten Thousand Hearts One Voice Clip" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-            <div class="v-item"><iframe src="https://www.youtube.com/embed/WXVQr9k0ixU" title="The Stage is Set for Aseda Praise 2026" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+            <div>
+                <a href="https://www.youtube.com/watch?v=1W4pLw93xqI" target="_blank" rel="noopener" class="thumb-card" aria-label="Watch Massive Crowd Video">
+                    <img src="https://img.youtube.com/vi/1W4pLw93xqI/hqdefault.jpg" alt="Massive Crowd at Aseda Praise 2026" loading="lazy">
+                    <div class="play-btn-overlay"><div class="play-icon"></div></div>
+                </a>
+                <div class="thumb-caption">Massive Crowd at Aseda Praise</div>
+            </div>
+
+            <div>
+                <a href="https://www.youtube.com/watch?v=fMbN4ejx-QA" target="_blank" rel="noopener" class="thumb-card" aria-label="Watch Arrival of Ministers Video">
+                    <img src="https://img.youtube.com/vi/fMbN4ejx-QA/hqdefault.jpg" alt="Arrival of Ministers for Aseda Praise 2026" loading="lazy">
+                    <div class="play-btn-overlay"><div class="play-icon"></div></div>
+                </a>
+                <div class="thumb-caption">Arrival of Ministers</div>
+            </div>
+
+            <div>
+                <a href="https://www.youtube.com/watch?v=2KjBHujXc70" target="_blank" rel="noopener" class="thumb-card" aria-label="Watch Ten Thousand Hearts Video Clip">
+                    <img src="https://img.youtube.com/vi/2KjBHujXc70/hqdefault.jpg" alt="Ten Thousand Hearts One Voice Clip" loading="lazy">
+                    <div class="play-btn-overlay"><div class="play-icon"></div></div>
+                </a>
+                <div class="thumb-caption">Ten Thousand Hearts, One Voice</div>
+            </div>
+
+            <div>
+                <a href="https://www.youtube.com/watch?v=WXVQr9k0ixU" target="_blank" rel="noopener" class="thumb-card" aria-label="Watch Stage Set Video Clip">
+                    <img src="https://img.youtube.com/vi/WXVQr9k0ixU/hqdefault.jpg" alt="The Stage is Set for Aseda Praise 2026" loading="lazy">
+                    <div class="play-btn-overlay"><div class="play-icon"></div></div>
+                </a>
+                <div class="thumb-caption">The Stage is Set</div>
+            </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Point 14: Gallery Section (2-Column Compact Mobile Grid) -->
     <section class="gallery" id="gallery">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2rem;">
             <div>
-                <span class="chapter-badge">07 &bull; MEMORIES</span>
-                <h2 class="playfair reveal" style="margin: 0; font-size: clamp(2.2rem, 4vw, 3.8rem); color: white;">Ten Thousand Hearts</h2>
+                <span class="chapter-badge">MEMORIES</span>
+                <h2 class="playfair reveal" style="margin: 0; font-size: clamp(2.1rem, 4vw, 3.8rem); color: white;">Ten Thousand Hearts</h2>
             </div>
             <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-btn reveal">View Full 2026 Google Album &rarr;</a>
         </div>
@@ -943,11 +1021,11 @@
     <section class="contact-section" id="contact">
         <div class="contact-box reveal">
             <span class="chapter-badge">CONNECT WITH US</span>
-            <h2 class="playfair" style="color: white; font-size: 2.1rem; margin-bottom: 0.8rem;">Aseda Praise Official</h2>
+            <h2 class="playfair" style="color: white; font-size: 2rem; margin-bottom: 0.8rem;">Aseda Praise Official</h2>
             <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.2rem;">
                 Tarkwa &bull; Western Region &bull; Ghana
             </p>
-            <p style="color: var(--bronze); font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 2px;">
+            <p style="color: var(--bronze); font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px;">
                 ANNUAL EASTER GOSPEL THANKSGIVING PROGRAMME
             </p>
         </div>
