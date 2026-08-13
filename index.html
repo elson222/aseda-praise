@@ -10,7 +10,7 @@
     <!-- OpenGraph Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Aseda Praise | Ten Thousand Hearts, One Voice">
-    <meta property="og:description" content="Western Region's most powerful annual gospel concert in Tarkwa, Ghana. Free entry for all.">
+    <meta property="og:description" content="Western Region's annual Easter gospel thanksgiving experience in Tarkwa, Ghana.">
     <meta property="og:image" content="https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg">
     <meta property="og:url" content="https://elson222.github.io/aseda-praise/">
     <meta property="og:site_name" content="Aseda Praise">
@@ -18,7 +18,7 @@
     <!-- Twitter Metadata -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Aseda Praise | Ten Thousand Hearts, One Voice">
-    <meta name="twitter:description" content="Western Region's most powerful annual gospel concert in Tarkwa, Ghana.">
+    <meta name="twitter:description" content="Western Region's annual Easter gospel thanksgiving experience in Tarkwa, Ghana.">
     <meta name="twitter:image" content="https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg">
 
     <link rel="canonical" href="https://elson222.github.io/aseda-praise/">
@@ -74,10 +74,10 @@
             transform: translateY(0);
         }
 
-        /* Nav Header — Clean, Minimal, Light */
+        /* Nav Header — Quiet, Minimal, Floating */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            padding: 2rem var(--side-padding);
+            padding: 2.2rem var(--side-padding);
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
             transition: background 0.3s, padding 0.3s, backdrop-filter 0.3s;
@@ -91,8 +91,8 @@
         .logo-area { display: flex; align-items: center; gap: 1rem; font-weight: 600; font-size: 1.2rem; color: white; text-decoration: none; cursor: pointer; }
         .logo-area img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
         
-        .nav-links { display: flex; gap: 2.2rem; align-items: center; }
-        .nav-links a { color: white; text-decoration: none; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; transition: color 0.2s; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--bronze); }
 
         /* Mobile Hamburger */
@@ -129,7 +129,7 @@
         }
         .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
-        /* Restrained Cinematic Hero */
+        /* Pure Cinematic Poster Hero */
         .hero {
             height: 100vh; min-height: 700px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
@@ -137,31 +137,23 @@
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.92) 0%, transparent 65%),
-                        linear-gradient(to top right, rgba(8, 9, 26, 0.88) 0%, rgba(229, 82, 42, 0.15) 100%),
+            background: radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.9) 0%, transparent 65%),
+                        linear-gradient(to top right, rgba(8, 9, 26, 0.85) 0%, rgba(229, 82, 42, 0.12) 100%),
                         linear-gradient(to top, rgba(8, 9, 26, 1) 0%, transparent 35%);
             z-index: 1;
         }
-        .hero-content { position: relative; z-index: 2; max-width: 1050px; margin-top: 2rem; }
-        .hero-overline { font-size: 0.85rem; letter-spacing: 3.5px; font-weight: 600; margin-bottom: 1.5rem; }
+        .hero-content { position: relative; z-index: 2; max-width: 1000px; margin-top: 4rem; }
+        .hero-overline { font-size: 0.85rem; letter-spacing: 4px; font-weight: 600; margin-bottom: 2rem; }
 
+        /* Headline sized down ~12% for optimal breathing room */
         .hero h1 {
-            font-size: clamp(4.5rem, 8.5vw, 9rem);
-            line-height: 0.92;
+            font-size: clamp(3.8rem, 7vw, 7.5rem);
+            line-height: 0.95;
             font-style: italic;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
         }
-        .stroke-text { -webkit-text-stroke: 1.5px white; color: transparent; display: block; }
-        .hero-subtitle { font-size: 1.4rem; font-style: italic; max-width: 600px; color: rgba(255,255,255,0.9); margin-bottom: 2.2rem; }
-        
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 0.95rem 2.2rem; border-radius: 50px; text-decoration: none;
-            font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px;
-            transition: all 0.3s ease; cursor: pointer; border: none;
-        }
-        .btn-primary { background: var(--orange-red); color: white; }
-        .btn-primary:hover { background: #d4431c; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(229,82,42,0.4); }
+        .stroke-text { -webkit-text-stroke: 1.5px white; color: transparent; display: block; margin-bottom: 0.4rem; }
+        .orange { display: block; margin-bottom: 0.4rem; }
 
         .scroll-indicator {
             position: absolute; bottom: 2.5rem; right: var(--side-padding); z-index: 2;
@@ -182,7 +174,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Latest Edition Spotlight (Clean, Uncluttered) */
+        /* Latest Edition Spotlight */
         .spotlight {
             background: var(--darker-navy);
             padding: 7rem var(--side-padding);
@@ -190,11 +182,23 @@
             border-bottom: 1px solid var(--border-color);
         }
         .spotlight-container { max-width: 1280px; margin: 0 auto; }
+        
+        .cinema-vid { 
+            width: 100%; 
+            aspect-ratio: 16/9; 
+            box-shadow: 0 0 50px rgba(0,0,0,0.8); 
+            margin: 3rem 0 3.5rem; 
+            position: relative; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            border: 1px solid var(--border-color); 
+        }
+        .cinema-vid iframe { width: 100%; height: 100%; }
+
         .spotlight-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 3.5rem;
         }
         .exp-card {
             background: var(--card-bg);
@@ -496,8 +500,6 @@
         /* Media Hub */
         .main-video { background: var(--dark); padding: 8rem var(--side-padding); }
         .badge { display: inline-block; background: var(--orange-red); padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 2rem; border-radius: 4px; }
-        .cinema-vid { width: 100%; aspect-ratio: 16/9; box-shadow: 0 0 50px rgba(0,0,0,0.8); margin-bottom: 3.5rem; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); }
-        .cinema-vid iframe { width: 100%; height: 100%; }
         .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
         .vid-grid .v-item { aspect-ratio: 16/9; position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
         .vid-grid iframe { width: 100%; height: 100%; }
@@ -587,14 +589,13 @@
 
         /* Media Queries */
         @media(max-width: 1024px) {
-            .hero h1 { font-size: 5rem; }
+            .hero h1 { font-size: 4.2rem; }
         }
 
         @media(max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: block; }
-            .hero h1 { font-size: 3.6rem; }
-            .btn { width: 100%; text-align: center; }
+            .hero h1 { font-size: 3.4rem; }
 
             .about-grid, .vis-content-grid, .vid-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 280px; }
@@ -653,7 +654,7 @@
 </head>
 <body>
 
-    <!-- Header Navigation — Clean, Floating, Light -->
+    <!-- Header Navigation — Quiet, Minimal, Floating -->
     <nav id="navbar" aria-label="Main Navigation">
         <a href="#" class="logo-area" aria-label="Aseda Praise Home">
             <img src="assets/images/aseda_official_logo.png" alt="Aseda Praise Official Logo" loading="lazy">
@@ -661,7 +662,6 @@
         </a>
         
         <div class="nav-links">
-            <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#ministers">Ministers</a>
             <a href="#impact">Impact</a>
@@ -677,7 +677,6 @@
     <!-- Mobile Drawer Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
         <a href="#home" onclick="closeMobileMenu()">Home</a>
-        <a href="#latest-edition" onclick="closeMobileMenu()">2026 Celebration</a>
         <a href="#about" onclick="closeMobileMenu()">Our Story</a>
         <a href="#ministers" onclick="closeMobileMenu()">Ministers</a>
         <a href="#impact" onclick="closeMobileMenu()">Community Impact</a>
@@ -685,21 +684,16 @@
         <a href="#gallery" onclick="closeMobileMenu()">Photo Gallery</a>
     </div>
 
-    <!-- Restrained Cinematic Hero -->
+    <!-- Pure Cinematic Poster Hero -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
             <div class="hero-overline bronze">TARKWA · WESTERN REGION · GHANA</div>
             <h1 class="playfair">
                 <span class="stroke-text">Ten Thousand</span>
-                <span class="orange">Hearts,</span><br>
+                <span class="orange">Hearts,</span>
                 <span>One Voice.</span>
             </h1>
-            <p class="hero-subtitle">Western Region's most powerful annual gospel concert. Free entry. Open to all.</p>
-
-            <div class="hero-actions">
-                <a href="#media" class="btn btn-primary">WATCH 2026 BROADCAST</a>
-            </div>
         </div>
 
         <div class="scroll-indicator" aria-hidden="true">
@@ -707,7 +701,7 @@
         </div>
     </section>
 
-    <!-- Latest Edition Section (Calm, Uncluttered 2026 Summary) -->
+    <!-- Latest Edition & Official Broadcast Section -->
     <section class="spotlight" id="latest-edition">
         <div class="spotlight-container">
             <div class="reveal">
@@ -718,14 +712,19 @@
                 </p>
             </div>
 
+            <!-- Featured 2026 Broadcast Video Player -->
+            <div class="cinema-vid reveal">
+                <iframe src="https://www.youtube.com/embed/8Lu8u8ZSbog" title="Aseda Praise 2026 Official Full Program Broadcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+
             <div class="spotlight-grid">
                 <a href="#media" class="exp-card reveal">
                     <div>
                         <div class="exp-icon">📺</div>
-                        <h3 class="playfair" style="margin-top: 0.8rem;">Watch Broadcast</h3>
-                        <p>Stream the complete 2026 official broadcast live from event grounds in Tarkwa.</p>
+                        <h3 class="playfair" style="margin-top: 0.8rem;">Media Broadcast</h3>
+                        <p>Stream highlights and clips from event grounds in Tarkwa.</p>
                     </div>
-                    <span class="exp-link">WATCH FULL PROGRAMME &rarr;</span>
+                    <span class="exp-link">WATCH CLIPS &rarr;</span>
                 </a>
 
                 <a href="#ministers" class="exp-card reveal">
@@ -909,16 +908,7 @@
     <section class="main-video" id="media">
         <div class="reveal">
             <span class="chapter-badge">06 &bull; MEDIA HUB</span>
-            <span class="badge">OFFICIAL 2026 BROADCAST</span>
-            <h2 class="playfair" style="font-size: clamp(2.5rem, 4vw, 3.8rem); color: white; margin-bottom: 2rem;">Watch Aseda Praise 2026</h2>
-        </div>
-
-        <div class="cinema-vid reveal">
-            <iframe src="https://www.youtube.com/embed/8Lu8u8ZSbog" title="Aseda Praise 2026 Official Full Program Broadcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-
-        <div class="reveal" style="margin-bottom: 1.5rem;">
-            <h3 class="playfair" style="font-size: 1.8rem; color: white;">More Highlights & Clips</h3>
+            <h2 class="playfair" style="font-size: clamp(2.5rem, 4vw, 3.8rem); color: white; margin-bottom: 2rem;">Highlights & Video Clips</h2>
         </div>
 
         <div class="vid-grid reveal">
