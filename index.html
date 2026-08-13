@@ -261,14 +261,101 @@
         .m-info p { font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
         .card-headliner { grid-column: 1 / -1; aspect-ratio: auto; height: 70vh; }
 
-        /* Visionaries */
-        .visionaries { background: var(--cream); position: relative; }
-        .vis-img { width: 100%; height: 65vh; object-fit: cover; object-position: top; display: block; }
-        .vis-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: linear-gradient(to top, rgba(27,32,112,0.9), transparent); display: flex; align-items: flex-end; padding: 3rem var(--side-padding); }
-        .vis-info h3 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .vis-info p { color: var(--bronze); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
-        .vis-content { padding: 5rem var(--side-padding); color: var(--navy); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-        .vis-quote { grid-column: 1 / -1; text-align: center; font-size: 2.5rem; font-style: italic; color: var(--orange-red); margin-top: 2rem; max-width: 800px; margin-inline: auto; }
+        /* Visionaries Refinement */
+        .visionaries {
+            background: #0b0e28;
+            padding: 8rem var(--side-padding);
+            color: white;
+            position: relative;
+        }
+        .vis-container { max-width: 1280px; margin: 0 auto; }
+        .vis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        .vis-img-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            border: 1px solid rgba(201, 160, 80, 0.25);
+            aspect-ratio: 4/5;
+        }
+        .vis-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .vis-img-frame:hover img { transform: scale(1.04); }
+        .vis-img-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 3rem 2.5rem 2rem;
+            background: linear-gradient(to top, rgba(8, 9, 26, 0.95) 0%, transparent 100%);
+        }
+        .vis-img-overlay h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+        .vis-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 3.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+        .vis-card h3 {
+            font-size: 2.4rem;
+            color: white;
+            line-height: 1.2;
+        }
+        .vis-card p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .vis-quote-box {
+            background: rgba(229, 82, 42, 0.06);
+            border-left: 3px solid var(--orange-red);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .vis-quote-box p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--orange-red);
+            line-height: 1.4;
+            margin: 0;
+        }
+        .vis-badges {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .vis-badge {
+            border: 1px solid rgba(201, 160, 80, 0.4);
+            color: var(--bronze);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Bebas Neue', sans-serif;
+        }
 
         /* Outreach */
         .outreach { background: var(--darker-navy); padding: 8rem var(--side-padding); text-align: center; }
@@ -320,6 +407,30 @@
             transition: opacity 0.2s;
         }
         .lb-close:hover { opacity: 1; }
+
+        /* Gallery Album Button */
+        .gallery-album-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(201, 160, 80, 0.12);
+            color: var(--bronze);
+            border: 1px solid var(--bronze);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 3rem;
+        }
+        .gallery-album-btn:hover {
+            background: var(--bronze);
+            color: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 160, 80, 0.2);
+        }
 
         /* Footer */
         .social-strip { background: var(--navy); display: flex; justify-content: center; gap: 4rem; padding: 4rem 0; }
@@ -481,25 +592,42 @@
         </div>
     </section>
 
-    <section class="visionaries reveal">
-        <div style="position:relative;">
-            <img src="assets/images/aseda_founders.jpg" alt="Founders" class="vis-img" loading="lazy">
-            <div class="vis-overlay">
-                <div class="vis-info text-white">
-                    <h3 class="playfair" style="color:white;">Mr. Evans Ghartey & Mr. Frederick Lomotey</h3>
-                    <p style="color:var(--bronze)">Founders & Lead Sponsors</p>
+    <section class="visionaries" id="founders">
+        <div class="vis-container">
+            <div class="reveal">
+                <span class="chapter-badge">02 &bull; LEADERSHIP</span>
+                <h2 class="playfair" style="font-size: clamp(2.8rem, 5vw, 4rem); color: white;">The Visionaries Behind Aseda Praise</h2>
+            </div>
+
+            <div class="vis-grid">
+                <div class="vis-img-frame reveal">
+                    <img src="assets/images/aseda_founders.jpg" alt="Mr. Evans Ghartey & Mr. Frederick Lomotey" loading="lazy">
+                    <div class="vis-img-overlay">
+                        <h3 class="playfair">Mr. Evans Ghartey &amp; Mr. Frederick Lomotey</h3>
+                        <p style="color:var(--bronze); font-family:'Bebas Neue',sans-serif; letter-spacing:2px; margin:0;">Founders &amp; Lead Sponsors</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="vis-content">
-            <div>
-                <p style="line-height:1.8;">Driven by a shared vision to impact their community through faith and action, our founders established Aseda Praise as a beacon of hope and gratitude in the Western Region.</p>
-            </div>
-            <div>
-                <p style="line-height:1.8;">Their dedication goes beyond the stage, ensuring that the event remains accessible to all while actively contributing to local healthcare and community development.</p>
-            </div>
-            <div class="vis-quote">
-                "Aseda Praise was never about a concert. It was always about saying thank you."
+
+                <div class="vis-card reveal">
+                    <div>
+                        <span style="color:var(--bronze); font-family:'Bebas Neue',sans-serif; letter-spacing:2px; font-size:0.95rem;">A VISION BORN OF GRATITUDE</span>
+                        <h3 class="playfair" style="margin-top:0.4rem;">Driven by Faith &amp; Community Impact</h3>
+                    </div>
+
+                    <p>Driven by a shared vision to impact their community through faith and action, our founders established Aseda Praise as a beacon of hope and gratitude in the Western Region.</p>
+                    
+                    <p>Their dedication goes beyond the stage, ensuring that the event remains 100% free and accessible to all while actively contributing to local healthcare and community development.</p>
+
+                    <div class="vis-quote-box">
+                        <p>"Aseda Praise was never about a concert. It was always about saying thank you."</p>
+                    </div>
+
+                    <div class="vis-badges">
+                        <span class="vis-badge">100% Philanthropic</span>
+                        <span class="vis-badge">Community First</span>
+                        <span class="vis-badge">Western Region</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -534,8 +662,13 @@
     </section>
 
     <section class="gallery" id="gallery">
-        <span class="section-overline bronze reveal">Memories</span>
-        <h2 class="playfair reveal" style="margin-bottom: 3rem;">Ten Thousand Hearts</h2>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem;">
+            <div>
+                <span class="section-overline bronze reveal">Memories</span>
+                <h2 class="playfair reveal" style="margin: 0;">Ten Thousand Hearts</h2>
+            </div>
+            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-btn reveal">View Full Google Album &rarr;</a>
+        </div>
         
         <div class="masonry reveal">
             <!-- Gallery images injected here by script for brevity or hardcoded if needed. I will list a representative set to meet requirements while keeping code clean. -->
@@ -545,7 +678,7 @@
                     'aseda_gp_extra_1.jpg', 'aseda_gp_extra_2.jpg', 'aseda_gp_extra_3.jpg',
                     'aseda_gp_extra_4.jpg', 'aseda_gp_extra_5.jpg', 'aseda_gp_extra_6.jpg',
                     'aseda_gp_extra_7.jpg', 'aseda_gp_extra_8.jpg', 'aseda_gp_extra_9.jpg',
-                    'aseda_gp_extra_10.jpg', 'aseda_gp_extra_11.jpg',
+                    'aseda_gp_extra_10.jpg',
                     'aseda_official_photo_1.jpg', 'aseda_official_photo_2.jpg', 'aseda_official_photo_3.jpg',
                     'aseda_official_photo_4.jpg', 'aseda_official_photo_5.jpg', 'aseda_official_photo_6.jpg',
                     'aseda_official_photo_7.jpg', 'aseda_official_photo_8.jpg', 'aseda_official_photo_9.jpg',
@@ -575,6 +708,7 @@
         <a href="https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA" target="_blank" rel="noopener">YOUTUBE</a>
         <a href="https://www.instagram.com/aseda.praise/" target="_blank" rel="noopener">INSTAGRAM</a>
         <a href="https://www.facebook.com/asedapraisetarkwa/" target="_blank" rel="noopener">FACEBOOK</a>
+        <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener">GOOGLE ALBUM</a>
     </div>
 
     <footer>
