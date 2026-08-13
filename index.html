@@ -113,18 +113,145 @@
         @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
         @keyframes marquee-reverse { 0% { transform: translate(-100%, 0); } 100% { transform: translate(0, 0); } }
 
-        /* About */
-        .about { background: var(--cream); color: var(--navy); padding: 8rem var(--side-padding); position: relative; }
-        .watermark { position: absolute; top: 0; left: var(--side-padding); font-size: 15rem; color: rgba(27,32,112,0.06); line-height: 1; pointer-events: none; }
-        .section-overline { font-size: 0.9rem; letter-spacing: 3px; font-weight: 600; text-transform: uppercase; margin-bottom: 1rem; display: block; }
-        .about h2 { font-size: 4rem; margin-bottom: 3rem; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
-        .about-text { font-size: 1.1rem; line-height: 1.8; }
-        .pull-quote { font-size: 2rem; font-style: italic; color: var(--orange-red); line-height: 1.4; }
-        .stat-bar { display: flex; gap: 2rem; justify-content: space-between; border-top: 1px solid rgba(27,32,112,0.2); border-bottom: 1px solid rgba(27,32,112,0.2); padding: 2rem 0; margin-bottom: 4rem; }
-        .stat { flex: 1; text-align: center; font-size: 1.2rem; font-weight: 600; border-right: 1px solid rgba(27,32,112,0.2); }
-        .stat:last-child { border-right: none; }
-        .breakout-img { width: 100vw; margin-left: calc(-1 * var(--side-padding)); height: 40vh; object-fit: cover; display: block; }
+        /* About Section */
+        .about {
+            background: #FAF6F0;
+            color: var(--navy);
+            padding: 7rem var(--side-padding);
+            position: relative;
+        }
+        .about-container { max-width: 1280px; margin: 0 auto; }
+        .chapter-badge {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            color: var(--orange-red);
+            background: rgba(229, 82, 42, 0.08);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .about-header h2 {
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            color: var(--navy);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 3.5rem;
+            line-height: 1.1;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+        .lead-p {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+        .body-p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(27, 32, 112, 0.85);
+        }
+        .styled-quote {
+            border-left: 4px solid var(--orange-red);
+            background: #FFFFFF;
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(27, 32, 112, 0.05);
+        }
+        .styled-quote p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--orange-red);
+            line-height: 1.4;
+            margin: 0;
+        }
+        .about-stats-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .stat-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(27, 32, 112, 0.1);
+            padding: 1.6rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(27, 32, 112, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(27, 32, 112, 0.08);
+        }
+        .stat-card.highlight-card {
+            background: var(--navy);
+            color: white;
+            border: none;
+        }
+        .stat-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.4rem;
+            line-height: 1;
+            color: var(--bronze);
+            min-width: 130px;
+        }
+        .highlight-card .stat-num { color: var(--orange-red); }
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--navy);
+        }
+        .highlight-card .stat-label { color: white; }
+        .about-banner {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 460px;
+            box-shadow: 0 20px 50px rgba(27, 32, 112, 0.12);
+        }
+        .about-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .about-banner:hover img { transform: scale(1.03); }
+        .banner-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 2.5rem 3rem;
+            background: linear-gradient(to top, rgba(8, 9, 26, 0.95) 0%, transparent 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .caption-tag {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            color: var(--bronze);
+        }
+        .caption-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+        }
 
         /* Ministers */
         .ministers { background: var(--dark); padding: 8rem var(--side-padding); }
@@ -213,9 +340,8 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 3.5rem; }
 
-            .about-grid, .vis-content, .vid-grid { grid-template-columns: 1fr; }
-            .stat-bar { flex-direction: column; gap: 1.5rem; border: none; }
-            .stat { border-right: none; border-bottom: 1px solid rgba(27,32,112,0.2); padding-bottom: 1.5rem; }
+            .about-grid, .vis-content, .vid-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-banner { height: 280px; }
             .minister-grid { grid-template-columns: 1fr; }
             .masonry { column-count: 1; }
             .video-wrapper { width: 100%; padding-bottom: 56.25%; }
@@ -290,28 +416,51 @@
     </div>
 
     <section class="about" id="about">
-        <div class="watermark bebas reveal">01</div>
-        <span class="section-overline bronze reveal">Our Story</span>
-        <h2 class="reveal">Five Years of Gratitude</h2>
-        
-        <div class="about-grid reveal">
-            <div class="about-text">
-                <p>What started as a simple gathering of gratitude has grown into the Western Region's most anticipated spiritual event. For five incredible years, Aseda Praise has brought together thousands to lift one unified voice in worship.</p>
-                <br>
-                <p>We believe that access to powerful, life-changing worship should not have a price tag. That is why Aseda Praise remains 100% free and open to everyone, drawing people from all walks of life into the presence of God.</p>
+        <div class="about-container">
+            <div class="about-header reveal">
+                <span class="chapter-badge">01 &bull; OUR STORY</span>
+                <h2>Five Years of Gratitude</h2>
             </div>
-            <div class="pull-quote">
-                "Not just an event, but an altar of thanksgiving raised for the entire region."
+            
+            <div class="about-grid">
+                <div class="about-main reveal">
+                    <p class="lead-p">
+                        What started as a simple gathering of gratitude has grown into the Western Region's most anticipated spiritual event. For five incredible years, Aseda Praise has brought together thousands to lift one unified voice in worship.
+                    </p>
+
+                    <div class="styled-quote">
+                        <p>"Not just an event, but an altar of thanksgiving raised for the entire region."</p>
+                    </div>
+
+                    <p class="body-p">
+                        We believe that access to powerful, life-changing worship should not have a price tag. That is why Aseda Praise remains 100% free and open to everyone, drawing people from all walks of life into the presence of God.
+                    </p>
+                </div>
+
+                <div class="about-stats-grid reveal">
+                    <div class="stat-card">
+                        <span class="stat-num">10,000+</span>
+                        <span class="stat-label">Worshippers Gathered</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">5 YEARS</span>
+                        <span class="stat-label">Anniversary Editions</span>
+                    </div>
+                    <div class="stat-card highlight-card">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-label">Free Admission For All</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-banner reveal">
+                <img src="assets/images/aseda_gp_dancing.jpg" alt="Aseda Praise Worshippers" loading="lazy">
+                <div class="banner-caption">
+                    <span class="caption-tag">TARKWA, WESTERN REGION</span>
+                    <span class="caption-title">Uniting Hearts in Praise &amp; Worship</span>
+                </div>
             </div>
         </div>
-
-        <div class="stat-bar reveal">
-            <div class="stat">10,000+ Worshippers</div>
-            <div class="stat">5 Anniversary Editions</div>
-            <div class="stat">100% Free Entry</div>
-        </div>
-
-        <img src="assets/images/aseda_gp_dancing.jpg" alt="Crowd Dancing" class="breakout-img reveal" loading="lazy">
     </section>
 
     <section class="ministers" id="ministers">
