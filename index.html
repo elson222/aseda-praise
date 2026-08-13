@@ -44,7 +44,7 @@
             --side-padding: 7vw;
 
             /* Editorial Typography Scale */
-            --font-hero: clamp(2.4rem, 8vw, 6.2rem);
+            --font-hero: clamp(2.5rem, 8.5vw, 6.2rem);
             --font-title: clamp(1.8rem, 4.5vw, 3.4rem);
             --font-body: 1.05rem;
             --font-eyebrow: 0.75rem;
@@ -146,9 +146,9 @@
         }
         .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
-        /* Hero Section & Fresh Visit Zoom + Parallax */
+        /* Hero Section & Atmospheric Stage Glow */
         .hero {
-            height: 88vh; height: 88dvh; min-height: 520px; position: relative;
+            height: 88vh; height: 88dvh; min-height: 540px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
             overflow: hidden;
             background-color: var(--darker-navy);
@@ -167,40 +167,74 @@
             100% { transform: scale(1.0); filter: brightness(1); }
         }
 
-        /* Seamless Gradient Blend into Latest Edition (#0d1040) */
+        /* Multi-layered Cinematic Gradient & Stage Glow Overlay */
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: 
-                radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.92) 0%, transparent 72%),
-                linear-gradient(to top right, rgba(8, 9, 26, 0.85) 0%, rgba(229, 82, 42, 0.08) 100%),
-                linear-gradient(to bottom, transparent 40%, rgba(13, 16, 64, 0.75) 75%, #0d1040 100%);
+                radial-gradient(circle at 18% 45%, rgba(229, 82, 42, 0.22) 0%, transparent 55%),
+                radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.94) 0%, transparent 75%),
+                linear-gradient(to top right, rgba(8, 9, 26, 0.88) 0%, rgba(229, 82, 42, 0.1) 100%),
+                linear-gradient(to bottom, transparent 35%, rgba(13, 16, 64, 0.75) 75%, #0d1040 100%);
             z-index: 1;
         }
 
-        .hero-content { position: relative; z-index: 2; max-width: 850px; margin-top: 1.8rem; }
+        .hero-content { position: relative; z-index: 2; max-width: 850px; margin-top: 2rem; }
+        
+        .hero-badge-tag {
+            display: inline-block;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 3px;
+            color: var(--orange-red);
+            background: rgba(229, 82, 42, 0.12);
+            border: 1px solid rgba(229, 82, 42, 0.3);
+            padding: 0.25rem 0.8rem;
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+        }
+
         .hero-overline { 
             font-size: var(--font-eyebrow); 
             letter-spacing: 3.5px; 
             font-weight: 600; 
-            margin-bottom: 1.2rem; 
+            margin-bottom: 1rem; 
             line-height: 1.5;
             color: var(--bronze);
+            text-transform: uppercase;
         }
 
         .hero h1 {
             font-size: var(--font-hero);
-            line-height: 1.0;
+            line-height: 0.98;
             font-style: italic;
-            margin-bottom: 0;
+            margin-bottom: 0.8rem;
             display: flex;
             flex-direction: column;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .stroke-text { -webkit-text-stroke: 1.2px white; color: transparent; display: block; }
-        .orange { display: block; }
+        .orange { display: block; color: var(--orange-red); }
+
+        .hero-subtitle {
+            font-size: var(--font-body);
+            color: rgba(255, 255, 255, 0.88);
+            font-weight: 400;
+            max-width: 520px;
+            line-height: 1.6;
+            margin-top: 0.4rem;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
 
         .scroll-indicator {
             position: absolute; bottom: 1.5rem; right: var(--side-padding); z-index: 2;
+            display: flex; align-items: center; gap: 0.5rem;
             animation: bounce 2s infinite;
+        }
+        .scroll-hint-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.7);
         }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-12px);} 60% {transform: translateY(-6px);} }
 
@@ -214,7 +248,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Latest Edition Section & Understated Completed Status Metadata */
+        /* Latest Edition Section */
         .spotlight {
             background: var(--darker-navy);
             padding: 5rem var(--side-padding);
@@ -251,7 +285,7 @@
         }
         .cinema-vid iframe { width: 100%; height: 100%; }
 
-        /* About Section & Clean Factual Copy */
+        /* About Section */
         .about {
             background: var(--cream);
             color: var(--navy);
@@ -299,7 +333,7 @@
             margin: 0;
         }
 
-        /* Clean 5-Year ("5 YEARS OF ASEDA PRAISE") & 100% Free Statistics */
+        /* Editorial Stats Cards Component */
         .about-stats-grid {
             display: flex;
             flex-direction: column;
@@ -576,7 +610,7 @@
             color: rgba(255,255,255,0.9);
         }
 
-        /* Memories / Gallery Section (6 Curated Photos Directly Visible BEFORE Full Album Link) */
+        /* Memories / Gallery Section */
         .gallery { background: var(--darkest); padding: 5rem var(--side-padding); }
         .gallery h2 { font-size: var(--font-title); color: white; }
         .gallery-header {
@@ -606,7 +640,7 @@
             color: var(--orange-red);
         }
 
-        /* Lightbox & Mobile Menu Close Button Fix — Strictly hidden when closed */
+        /* Lightbox */
         .lightbox {
             display: none; position: fixed; inset: 0; z-index: 9000;
             background: rgba(6,8,32,0.95); backdrop-filter: blur(20px);
@@ -827,12 +861,13 @@
         <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
     </div>
 
-    <!-- Art-Directed Poster Hero with Animated BG & Scroll Parallax -->
+    <!-- Art-Directed Poster Hero with Animated Stage Atmosphere & Parallax -->
     <section class="hero" id="home">
         <div class="hero-bg" id="hero-bg"></div>
         <div class="hero-overlay"></div>
         
         <div class="hero-content reveal">
+            <span class="hero-badge-tag">5TH ANNIVERSARY EDITION</span>
             <div class="hero-overline">
                 <span>TARKWA &bull; WESTERN REGION &bull; GHANA</span>
             </div>
@@ -842,10 +877,12 @@
                 <span class="orange">Hearts,</span>
                 <span>One Voice.</span>
             </h1>
+            <p class="hero-subtitle">Ghana's annual Easter gospel worship &amp; thanksgiving experience.</p>
         </div>
 
         <div class="scroll-indicator" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            <span class="scroll-hint-text">SCROLL</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
         </div>
     </section>
 
