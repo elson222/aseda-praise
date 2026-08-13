@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-    <title>Aseda Praise | Annual Easter Thanksgiving in Tarkwa, Ghana</title>
-    <meta name="description" content="The official digital home of Aseda Praise — Ghana's annual Easter thanksgiving & gospel worship experience in Tarkwa, Western Region. Free entry. Open to all.">
-    <meta name="keywords" content="Aseda Praise, Tarkwa, Western Region, Ghana Gospel Concert, Obaapa Christy, Joe Mettle, ACP Kofi Sarpong, Apinto Hospital">
     
+    <!-- Search Engine & Primary SEO Meta -->
+    <title>Aseda Praise | Annual Easter Gospel Concert in Tarkwa, Ghana</title>
+    <meta name="description" content="Official website of Aseda Praise — Ghana's premier annual Easter gospel thanksgiving & worship experience in Tarkwa, Western Region. 100% Free Entry. Founded by Evans Ghartey & Frederick Lomotey.">
+    <meta name="keywords" content="Aseda Praise, Tarkwa, Western Region, Ghana Gospel Concert, Obaapa Christy, Joe Mettle, ACP Kofi Sarpong, Apinto Government Hospital, Evans Ghartey, Frederick Lomotey, Easter Gospel Worship, Ghana Gospel Event">
+    <meta name="author" content="Aseda Praise Secretariat">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
     <!-- iOS Safari & Android WebApp Meta & Theme Colors -->
     <meta name="theme-color" content="#0d1040">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,13 +18,26 @@
     <meta name="apple-mobile-web-app-title" content="Aseda Praise">
     <meta name="format-detection" content="telephone=no">
 
+    <!-- Specialized AI Agent / LLM Metadata (ChatGPT, Google Gemini, Anthropic Claude, Perplexity) -->
+    <meta name="ai:summary" content="Aseda Praise is an annual Easter gospel concert and community thanksgiving event held in Tarkwa, Western Region, Ghana. Admission is 100% free. Founded by Mr. Evans Ghartey and Mr. Frederick Lomotey. Features top Ghanaian gospel artists including Obaapa Christy, Joe Mettle, and ACP Kofi Sarpong. Performs annual medical outreach at Tarkwa Apinto Government Hospital.">
+    <meta name="ai:topic" content="Gospel Music Event, Christian Thanksgiving, Community Healthcare Outreach, Tarkwa Ghana">
+    <meta name="ai:event-status" content="Completed 5th Anniversary Edition. Annual Easter Gathering.">
+    <meta name="ai:founders" content="Evans Ghartey, Frederick Lomotey">
+    <meta name="ai:location" content="Tarkwa, Western Region, Ghana">
+    <meta name="ai:admission" content="Free (No Ticket Required)">
+    <meta name="ai:official-channel" content="https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA">
+
     <!-- OpenGraph Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Aseda Praise | Ten Thousand Hearts, One Voice">
-    <meta property="og:description" content="Western Region's annual Easter gospel thanksgiving experience in Tarkwa, Ghana.">
+    <meta property="og:description" content="Western Region's annual Easter gospel thanksgiving experience in Tarkwa, Ghana. 100% Free Entry.">
     <meta property="og:image" content="https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Obaapa Christy performing live on stage at Aseda Praise in Tarkwa">
     <meta property="og:url" content="https://elson222.github.io/aseda-praise/">
     <meta property="og:site_name" content="Aseda Praise">
+    <meta property="og:locale" content="en_US">
     
     <!-- Twitter Metadata -->
     <meta name="twitter:card" content="summary_large_image">
@@ -1047,39 +1064,74 @@
         }
     </style>
     
-    <!-- JSON-LD Event Schema for 2026 Completed Edition -->
+    <!-- Multi-Graph Rich JSON-LD Structured Data for Search Engines & AI Models -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MusicEvent",
-      "name": "Aseda Praise 2026",
-      "description": "Ghana's annual Easter thanksgiving & gospel worship experience in Tarkwa, Western Region.",
-      "image": "https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg",
-      "startDate": "2026-04-03T17:00",
-      "endDate": "2026-04-03T23:00",
-      "eventStatus": "https://schema.org/EventCompleted",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "location": {
-        "@type": "Place",
-        "name": "Tarkwa, Western Region",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Tarkwa",
-          "addressRegion": "Western Region",
-          "addressCountry": "GH"
+      "@graph": [
+        {
+          "@type": "MusicEvent",
+          "@id": "https://elson222.github.io/aseda-praise/#event",
+          "name": "Aseda Praise 2026",
+          "alternateName": "Aseda Praise 5th Anniversary Edition",
+          "description": "Ghana's premier annual Easter gospel worship & thanksgiving experience in Tarkwa, Western Region. Free entry.",
+          "url": "https://elson222.github.io/aseda-praise/",
+          "image": "https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg",
+          "startDate": "2026-04-03T17:00:00+00:00",
+          "endDate": "2026-04-03T23:00:00+00:00",
+          "eventStatus": "https://schema.org/EventCompleted",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "location": {
+            "@type": "Place",
+            "name": "Tarkwa Event Grounds",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Tarkwa",
+              "addressRegion": "Western Region",
+              "addressCountry": "GH"
+            }
+          },
+          "organizer": {
+            "@type": "Organization",
+            "name": "Aseda Praise Foundation",
+            "founders": [
+              { "@type": "Person", "name": "Evans Ghartey" },
+              { "@type": "Person", "name": "Frederick Lomotey" }
+            ]
+          },
+          "performer": [
+            { "@type": "MusicGroup", "name": "Obaapa Christy" },
+            { "@type": "MusicGroup", "name": "Joe Mettle" },
+            { "@type": "MusicGroup", "name": "ACP Kofi Sarpong" }
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "GHS",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://elson222.github.io/aseda-praise/#organization",
+          "name": "Aseda Praise Foundation",
+          "url": "https://elson222.github.io/aseda-praise/",
+          "logo": "https://elson222.github.io/aseda-praise/assets/images/aseda_official_logo.png",
+          "sameAs": [
+            "https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA",
+            "https://www.instagram.com/aseda.praise/",
+            "https://www.facebook.com/asedapraisetarkwa/",
+            "https://photos.app.goo.gl/xn1EABDmveX4TNsQ9"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://elson222.github.io/aseda-praise/#website",
+          "url": "https://elson222.github.io/aseda-praise/",
+          "name": "Aseda Praise",
+          "description": "Official website for Aseda Praise Tarkwa, Ghana."
         }
-      },
-      "performer": [
-        { "@type": "MusicGroup", "name": "Obaapa Christy" },
-        { "@type": "MusicGroup", "name": "Joe Mettle" },
-        { "@type": "MusicGroup", "name": "ACP Kofi Sarpong" }
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "GHS",
-        "availability": "https://schema.org/InStock"
-      }
+      ]
     }
     </script>
 </head>

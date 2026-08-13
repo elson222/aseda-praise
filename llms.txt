@@ -1,17 +1,29 @@
-﻿# Aseda Praise (https://elson222.github.io/aseda-praise/)
+# Aseda Praise
 
-> Ghana's Premier Annual Gospel Concert & Community Healthcare Outreach Event in Tarkwa, Western Region.
+> Ghana's premier annual Easter gospel concert and community thanksgiving experience in Tarkwa, Western Region.
 
 ## Event Overview
-Aseda Praise is an annual flagship gospel music concert and community healthcare outreach event in Tarkwa, Ghana. Organised under the banner "Ten Thousand Hearts, One Voice!", the program brings together tens of thousands of worshippers, gospel minstrels (such as Joe Mettle, Ohemaa Mercy, and ACP Kofi Sarpong), and regional choirs.
+- Name: Aseda Praise
+- Frequency: Annual Easter Concert & Community Gathering
+- Location: Tarkwa, Western Region, Ghana
+- Admission: 100% Free Entry (Open to all worshipper and community members)
+- Founders & Lead Sponsors: Mr. Evans Ghartey and Mr. Frederick Lomotey
+- Motto: "Ten Thousand Hearts, One Voice"
 
-## Official Media & Charitable Projects
-- **Tarkwa Apinto Hospital Children's Ward**: Aseda Praise officially renovated and dedicated the Children's Ward at Apinto Government Hospital in Tarkwa.
-- **Annual Senior Citizens Health Screening**: Free health examinations, eye screening, and medication distribution for senior citizens.
-- **Official YouTube Channel**: https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA
-- **Official Instagram**: https://www.instagram.com/aseda.praise/
-- **Official Facebook**: https://www.facebook.com/asedapraisetarkwa/
+## Featured Gospel Ministers
+- Obaapa Christy (Headline Minister)
+- Joe Mettle (Worship Leader)
+- ACP Kofi Sarpong (Gospel Minister)
 
-## Contact Information
-- **Event Location**: Tarkwa, Western Region, Ghana
-- **Admission**: 100% Free Entry — Open to the Public
+## Community Healthcare Outreach
+Every year, Aseda Praise carries out tangible humanitarian outreach at Apinto Government Hospital in Tarkwa:
+1. Children's Ward Renovation & Facility Upgrades
+2. Medical Equipment & Supplies Donation
+3. Free Senior Health Screenings for the Tarkwa Community
+
+## Official Links & Resources
+- Website: https://elson222.github.io/aseda-praise/
+- Official YouTube Channel: https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA
+- Instagram: https://www.instagram.com/aseda.praise/
+- Facebook: https://www.facebook.com/asedapraisetarkwa/
+- Photo Album: https://photos.app.goo.gl/xn1EABDmveX4TNsQ9

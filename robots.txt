@@ -1,13 +1,25 @@
-﻿User-agent: *
+# Robots.txt for Aseda Praise (https://elson222.github.io/aseda-praise/)
+User-agent: *
 Allow: /
 
+# Allow AI Models & Web Crawlers (ChatGPT, Google Gemini, Anthropic Claude, Perplexity, Applebot)
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
-User-agent: ClaudeBot
+User-agent: Anthropic-AI
 Allow: /
 
-Sitemap: https://cornel.media/aseda-praise/sitemap.xml
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap Location
+Sitemap: https://elson222.github.io/aseda-praise/sitemap.xml
