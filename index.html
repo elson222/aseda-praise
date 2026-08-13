@@ -53,7 +53,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
     
     <style>
         /* Modern Premium CSS Design System */
@@ -120,11 +120,11 @@
             50% { opacity: 1; }
         }
 
-        /* Header Navigation — Ultra Rich Frosted Glass Blur */
+        /* Header Navigation — Large Ultra-Heavy Frosted Glass Surface */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            padding: 1.4rem max(var(--side-padding), env(safe-area-inset-left));
-            padding-top: max(1.4rem, env(safe-area-inset-top));
+            padding: 1.6rem max(var(--side-padding), env(safe-area-inset-left));
+            padding-top: max(1.6rem, env(safe-area-inset-top));
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
             background: transparent;
@@ -134,72 +134,73 @@
             transition: background 0.35s ease, padding 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
-        /* Scrolled Rich Frosted Glass Navbar State (Deep Opacity + Hardware GPU Acceleration Blur) */
+        /* Scrolled State: Deep 80px Blur, Taller Header Surface & Rich 85% Opacity */
         nav.scrolled {
-            background: rgba(8, 9, 26, 0.82) !important;
-            backdrop-filter: blur(30px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
-            padding-top: max(0.95rem, env(safe-area-inset-top));
-            padding-bottom: 0.95rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55);
+            background: rgba(8, 9, 26, 0.85) !important;
+            backdrop-filter: blur(80px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(80px) saturate(200%) !important;
+            padding-top: max(1.25rem, env(safe-area-inset-top));
+            padding-bottom: 1.25rem;
+            min-height: 84px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 14px 50px rgba(0, 0, 0, 0.65);
         }
 
         .logo-area { 
-            display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.05rem; color: white; text-decoration: none; cursor: pointer;
-            padding: 0.4rem 0.95rem;
+            display: flex; align-items: center; gap: 0.85rem; font-weight: 600; font-size: 1.1rem; color: white; text-decoration: none; cursor: pointer;
+            padding: 0.5rem 1.1rem;
             border-radius: 30px;
-            background: rgba(255, 255, 255, 0.14) !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.16) !important;
+            backdrop-filter: blur(50px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
             transition: background 0.3s, border-color 0.3s, transform 0.2s;
         }
         .logo-area:hover {
-            background: rgba(255, 255, 255, 0.22) !important;
-            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.24) !important;
+            border-color: rgba(255, 255, 255, 0.45);
             transform: scale(1.02);
         }
-        .logo-area img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 12px rgba(229, 82, 42, 0.35); }
-        .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; letter-spacing: 2px; }
+        .logo-area img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 14px rgba(229, 82, 42, 0.4); }
+        .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; }
 
         .nav-links { 
             display: flex; gap: 2rem; align-items: center;
-            background: rgba(255, 255, 255, 0.12) !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            padding: 0.55rem 1.6rem;
+            background: rgba(255, 255, 255, 0.14) !important;
+            backdrop-filter: blur(50px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
+            padding: 0.65rem 1.8rem;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
         }
-        .nav-links a { color: rgba(255,255,255,0.95); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600; transition: color 0.2s; }
+        .nav-links a { color: rgba(255,255,255,0.95); text-decoration: none; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600; transition: color 0.2s; }
         .nav-links a:hover { color: var(--bronze); }
 
-        /* Rich Glassmorphic Hamburger Menu Button */
+        /* Larger High-Impact Glassmorphic Hamburger Button */
         .hamburger {
             display: none;
-            background: rgba(255, 255, 255, 0.16) !important;
-            backdrop-filter: blur(24px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.18) !important;
+            backdrop-filter: blur(50px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.28);
             border-radius: 50%;
             color: white;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             align-items: center;
             justify-content: center;
             touch-action: manipulation;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             transition: background 0.3s, transform 0.2s, border-color 0.3s;
         }
         .hamburger:hover {
-            background: rgba(229, 82, 42, 0.9) !important;
-            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(229, 82, 42, 0.95) !important;
+            border-color: rgba(255, 255, 255, 0.6);
             transform: scale(1.06);
         }
 
@@ -208,9 +209,9 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(8, 9, 26, 0.88) !important;
-            backdrop-filter: blur(35px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(35px) saturate(180%) !important;
+            background: rgba(8, 9, 26, 0.92) !important;
+            backdrop-filter: blur(80px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(80px) saturate(200%) !important;
             z-index: 999;
             flex-direction: column;
             justify-content: center;
