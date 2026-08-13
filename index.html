@@ -123,24 +123,28 @@
         /* Header Navigation — Translucent Frosted Glass */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            padding: 1.4rem max(var(--side-padding), env(safe-area-inset-left));
-            padding-top: max(1.4rem, env(safe-area-inset-top));
+            padding: 1rem max(var(--side-padding), env(safe-area-inset-left));
+            padding-top: max(1rem, env(safe-area-inset-top));
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
-            transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+            background: transparent;
+            transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
         }
+        /* Full-width solid white frosted glass banner — blocks ALL background text */
         nav.scrolled {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(60px) saturate(200%);
-            -webkit-backdrop-filter: blur(60px) saturate(200%);
-            padding-bottom: 0.95rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+            background: rgba(255, 255, 255, 1);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding-top: max(0.85rem, env(safe-area-inset-top));
+            padding-bottom: 0.85rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
         }
-        nav.scrolled .logo-text { color: #08091a; }
-        nav.scrolled .nav-links a { color: rgba(8, 9, 26, 0.85); }
+        nav.scrolled .logo-text { color: #08091a; text-shadow: none; }
+        nav.scrolled .logo-area { color: #08091a; }
+        nav.scrolled .nav-links a { color: rgba(8, 9, 26, 0.8); }
         nav.scrolled .nav-links a:hover { color: var(--orange-red); }
-        nav.scrolled .hamburger { color: #08091a; }
+        nav.scrolled .hamburger { color: #08091a; border-color: rgba(0,0,0,0.15); }
         .logo-area { display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.05rem; color: white; text-decoration: none; cursor: pointer; }
         .logo-area img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 12px rgba(229, 82, 42, 0.3); }
         .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; letter-spacing: 2px; }
