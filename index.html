@@ -2,11 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>Aseda Praise | Annual Easter Thanksgiving in Tarkwa, Ghana</title>
     <meta name="description" content="The official digital home of Aseda Praise — Ghana's annual Easter thanksgiving & gospel worship experience in Tarkwa, Western Region. Free entry. Open to all.">
     <meta name="keywords" content="Aseda Praise, Tarkwa, Western Region, Ghana Gospel Concert, Obaapa Christy, Joe Mettle, ACP Kofi Sarpong, Apinto Hospital">
     
+    <!-- iOS Safari & Android WebApp Meta & Theme Colors -->
+    <meta name="theme-color" content="#0d1040">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Aseda Praise">
+    <meta name="format-detection" content="telephone=no">
+
     <!-- OpenGraph Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Aseda Praise | Ten Thousand Hearts, One Voice">
@@ -42,10 +49,10 @@
             --darkest: #060820;
             --border-color: rgba(255, 255, 255, 0.09);
             --side-padding: clamp(1.2rem, 7vw, 5rem);
-            --section-radius: clamp(24px, 5vw, 48px);
+            --section-radius: clamp(20px, 4vw, 40px);
 
             /* Editorial Typography Scale */
-            --font-hero: clamp(2.6rem, 8.5vw, 6.2rem);
+            --font-hero: clamp(2.5rem, 8vw, 6.2rem);
             --font-title: clamp(1.85rem, 4.5vw, 3.4rem);
             --font-body: 1.05rem;
             --font-eyebrow: 0.78rem;
@@ -53,7 +60,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -63,6 +70,8 @@
             line-height: 1.7;
             -webkit-tap-highlight-color: transparent;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            touch-action: manipulation;
         }
 
         h1, h2, h3, .playfair { font-family: 'Playfair Display', Georgia, serif; }
@@ -76,44 +85,49 @@
             outline-offset: 4px;
         }
 
-        /* High-End Premium Scroll Reveal Animations System */
+        /* 100% Guaranteed Visible Content Engine (No Invisible Text Breaks) */
         .reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right {
-            opacity: 0;
-            will-change: transform, opacity;
-            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 1 !important;
+            transform: translate3d(0, 0, 0) scale(1) !important;
+            will-change: opacity, transform;
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .reveal-up { transform: translate3d(0, 42px, 0) scale(0.96); }
-        .reveal-scale { transform: scale(0.91); }
-        .reveal-left { transform: translate3d(-38px, 0, 0); }
-        .reveal-right { transform: translate3d(38px, 0, 0); }
+        /* Smooth Progressive Animation Enhancements */
+        .js-anim .reveal-up { opacity: 0 !important; transform: translate3d(0, 26px, 0) !important; }
+        .js-anim .reveal-scale { opacity: 0 !important; transform: scale(0.95) !important; }
+        .js-anim .reveal-left { opacity: 0 !important; transform: translate3d(-24px, 0, 0) !important; }
+        .js-anim .reveal-right { opacity: 0 !important; transform: translate3d(24px, 0, 0) !important; }
 
-        .reveal.active, .reveal-up.active, .reveal-scale.active, .reveal-left.active, .reveal-right.active {
-            opacity: 1;
-            transform: translate3d(0, 0, 0) scale(1);
+        .js-anim .reveal-up.active, 
+        .js-anim .reveal-scale.active, 
+        .js-anim .reveal-left.active, 
+        .js-anim .reveal-right.active {
+            opacity: 1 !important;
+            transform: translate3d(0, 0, 0) scale(1) !important;
         }
 
         /* Staggered Cascading Children Animations */
-        .stagger-children > *:nth-child(1) { transition-delay: 0.05s; }
-        .stagger-children > *:nth-child(2) { transition-delay: 0.16s; }
-        .stagger-children > *:nth-child(3) { transition-delay: 0.27s; }
-        .stagger-children > *:nth-child(4) { transition-delay: 0.38s; }
-        .stagger-children > *:nth-child(5) { transition-delay: 0.49s; }
-        .stagger-children > *:nth-child(6) { transition-delay: 0.60s; }
+        .stagger-children > *:nth-child(1) { transition-delay: 0.04s; }
+        .stagger-children > *:nth-child(2) { transition-delay: 0.12s; }
+        .stagger-children > *:nth-child(3) { transition-delay: 0.20s; }
+        .stagger-children > *:nth-child(4) { transition-delay: 0.28s; }
+        .stagger-children > *:nth-child(5) { transition-delay: 0.36s; }
 
-        /* Header Navigation — Eager Logo, Floating, Quiet */
+        /* Header Navigation — Translucent Frosted Glass */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
-            padding: 1.4rem var(--side-padding);
+            padding: 1.4rem max(var(--side-padding), env(safe-area-inset-left));
+            padding-top: max(1.4rem, env(safe-area-inset-top));
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
             transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
         }
         nav.scrolled {
-            background: rgba(8, 9, 26, 0.25);
+            background: rgba(8, 9, 26, 0.35);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            padding: 0.95rem var(--side-padding);
+            padding-bottom: 0.95rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
@@ -139,6 +153,7 @@
             min-height: 44px;
             align-items: center;
             justify-content: center;
+            touch-action: manipulation;
         }
         .mobile-menu-overlay {
             display: none;
@@ -168,28 +183,28 @@
 
         /* Hero Section & Atmospheric Stage Lighting */
         .hero {
-            height: 90vh; height: 90dvh; min-height: 560px; position: relative;
+            height: 90vh; height: 90dvh; min-height: 540px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
             overflow: hidden;
             background-color: var(--darker-navy);
         }
 
         .hero-bg {
-            position: absolute; inset: -40px;
+            position: absolute; inset: -20px;
             background: url('assets/images/aseda_stage_obaapa_christy.jpg') center center/cover no-repeat;
             transform-origin: center center;
-            will-change: transform, filter;
+            will-change: transform;
             transition: transform 0.1s cubic-bezier(0.1, 0.2, 0.1, 1);
         }
 
-        /* Seamless Multi-Layered Stage Glow Overlay */
+        /* Continuous Seamless Stage Glow Overlay */
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: 
                 radial-gradient(circle at 18% 45%, rgba(229, 82, 42, 0.26) 0%, transparent 55%),
                 radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.95) 0%, transparent 75%),
                 linear-gradient(to top right, rgba(8, 9, 26, 0.88) 0%, rgba(229, 82, 42, 0.12) 100%),
-                linear-gradient(to bottom, transparent 20%, rgba(13, 16, 64, 0.85) 70%, #0d1040 100%);
+                linear-gradient(to bottom, transparent 20%, rgba(13, 16, 64, 0.7) 65%, #0d1040 100%);
             z-index: 1;
         }
 
@@ -232,7 +247,7 @@
         /* Clean Bottom Hero Bar: Location Tag + Single Line Subtitle Across Devices */
         .hero-bottom-bar {
             position: absolute;
-            bottom: 2.2rem;
+            bottom: max(2rem, env(safe-area-inset-bottom));
             left: var(--side-padding);
             right: var(--side-padding);
             z-index: 3;
@@ -283,10 +298,10 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Latest Edition Section & Glassmorphic Cinema Player */
+        /* Seamless Continuous Sections without Line Breaks */
         .spotlight {
-            background: linear-gradient(to bottom, var(--darker-navy) 0%, #0a0d33 100%);
-            padding: 5.5rem var(--side-padding) 6.5rem;
+            background: linear-gradient(to bottom, #0d1040 0%, #0a0d33 100%);
+            padding: 4.5rem var(--side-padding) 5.5rem;
             position: relative;
             z-index: 2;
         }
@@ -323,6 +338,7 @@
             border: 1px solid rgba(255, 255, 255, 0.12); 
             cursor: pointer;
             background: #000;
+            touch-action: manipulation;
         }
         .cinema-vid img {
             width: 100%;
@@ -342,16 +358,15 @@
             margin-left: 4px;
         }
 
-        /* Curved About Section Overlapping Dark Section Above */
+        /* Seamless Curved Light Cream About Section */
         .about {
             background: var(--cream);
             color: var(--navy);
-            padding: 6.5rem var(--side-padding);
+            padding: 5.5rem var(--side-padding);
             position: relative;
             z-index: 5;
-            margin-top: -45px;
             border-radius: var(--section-radius) var(--section-radius) 0 0;
-            box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.25);
         }
         .about-container { max-width: 1200px; margin: 0 auto; }
         .about-header h2 {
@@ -460,6 +475,7 @@
             margin-top: 1rem;
             box-shadow: 0 24px 60px rgba(27, 32, 112, 0.14);
             cursor: pointer;
+            touch-action: manipulation;
         }
         .about-banner img {
             width: 100%;
@@ -491,15 +507,14 @@
             font-style: italic;
         }
 
-        /* Curved Gospel Ministers Section Overlapping Light Cream Section */
+        /* Seamless Gospel Ministers Section */
         .ministers { 
             background: linear-gradient(to bottom, var(--dark) 0%, #060714 100%);
-            padding: 6.5rem var(--side-padding) 6rem;
+            padding: 5.5rem var(--side-padding) 5.5rem;
             position: relative;
             z-index: 6;
-            margin-top: -45px;
             border-radius: var(--section-radius) var(--section-radius) 0 0;
-            box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.35);
         }
         .ministers h2 { font-size: var(--font-title); font-style: italic; margin-bottom: 2.4rem; color: white; }
         .minister-grid { 
@@ -518,6 +533,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 16px 40px rgba(0,0,0,0.5);
             transition: border-color 0.3s ease, transform 0.4s ease, box-shadow 0.4s ease;
+            touch-action: manipulation;
         }
         .m-card:hover {
             border-color: rgba(229, 82, 42, 0.5);
@@ -556,16 +572,13 @@
             transform: scale(1.35);
         }
 
-        /* Seamless Curved Visionaries Section */
+        /* Seamless Visionaries Section */
         .visionaries {
             background: linear-gradient(to bottom, #0b0e28 0%, #0d1033 100%);
-            padding: 6.5rem var(--side-padding) 6rem;
+            padding: 5.5rem var(--side-padding) 5.5rem;
             color: white;
             position: relative;
             z-index: 7;
-            margin-top: -35px;
-            border-radius: var(--section-radius) var(--section-radius) 0 0;
-            box-shadow: 0 -20px 50px rgba(0,0,0,0.4);
         }
         .vis-container { max-width: 920px; margin: 0 auto; position: relative; z-index: 2; }
         .vis-container h2 { font-size: var(--font-title); color: white; margin-bottom: 0.2rem; }
@@ -581,6 +594,7 @@
             box-shadow: 0 24px 70px rgba(0,0,0,0.65);
             border: 1px solid rgba(255,255,255,0.1);
             cursor: pointer;
+            touch-action: manipulation;
         }
         .vis-hero-frame img {
             width: 100%;
@@ -622,20 +636,17 @@
             margin-top: 0.6rem;
         }
 
-        /* Seamless Curved Outreach Section */
+        /* Seamless Outreach Section */
         .outreach { 
             background: linear-gradient(to bottom, var(--darker-navy) 0%, #0a0d33 100%);
-            padding: 6.5rem var(--side-padding) 6rem;
+            padding: 5.5rem var(--side-padding) 5.5rem;
             text-align: center;
             position: relative;
             z-index: 8;
-            margin-top: -35px;
-            border-radius: var(--section-radius) var(--section-radius) 0 0;
-            box-shadow: 0 -20px 50px rgba(0,0,0,0.4);
         }
         .outreach h2 { font-size: var(--font-title); color: white; margin-bottom: 1rem; }
         .outreach-desc { max-width: 680px; margin: 0 auto 2.4rem; font-size: var(--font-body); line-height: 1.75; color: rgba(255,255,255,0.9); }
-        .video-wrapper { width: 80%; margin: 0 auto 2.5rem; position: relative; padding-bottom: 45%; height: 0; box-shadow: 0 0 40px rgba(229,82,42,0.22); border: 1px solid rgba(229,82,42,0.3); border-radius: 20px; overflow: hidden; }
+        .video-wrapper { width: 80%; margin: 0 auto 2.5rem; position: relative; padding-bottom: 45%; height: 0; box-shadow: 0 0 40px rgba(229,82,42,0.22); border: 1px solid rgba(229,82,42,0.3); border-radius: 20px; overflow: hidden; touch-action: manipulation; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         
         .impact-list {
@@ -671,15 +682,12 @@
             color: white;
         }
 
-        /* Seamless Curved Media Hub Section */
+        /* Seamless Media Hub Section */
         .main-video { 
             background: linear-gradient(to bottom, var(--dark) 0%, #060714 100%);
-            padding: 6.5rem var(--side-padding) 6rem;
+            padding: 5.5rem var(--side-padding) 5.5rem;
             position: relative;
             z-index: 9;
-            margin-top: -35px;
-            border-radius: var(--section-radius) var(--section-radius) 0 0;
-            box-shadow: 0 -20px 50px rgba(0,0,0,0.45);
         }
         .main-video h2 { font-size: var(--font-title); color: white; margin-bottom: 2.2rem; }
         .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.8rem; }
@@ -695,6 +703,7 @@
             display: block;
             box-shadow: 0 12px 30px rgba(0,0,0,0.4);
             transition: transform 0.4s ease, border-color 0.4s ease;
+            touch-action: manipulation;
         }
         .thumb-card:hover {
             transform: translateY(-4px);
@@ -748,22 +757,19 @@
             color: rgba(255,255,255,0.92);
         }
 
-        /* Seamless Curved Memories / Gallery Section */
+        /* Seamless Memories / Gallery Section */
         .gallery { 
             background: linear-gradient(to bottom, var(--darkest) 0%, #040517 100%);
-            padding: 6.5rem var(--side-padding) 6rem;
+            padding: 5.5rem var(--side-padding) 5.5rem;
             position: relative;
             z-index: 10;
-            margin-top: -35px;
-            border-radius: var(--section-radius) var(--section-radius) 0 0;
-            box-shadow: 0 -20px 50px rgba(0,0,0,0.5);
         }
         .gallery h2 { font-size: var(--font-title); color: white; }
         .gallery-header {
             display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2.2rem;
         }
         .masonry { column-count: 3; column-gap: 1.2rem; margin-bottom: 2rem; }
-        .gal-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 18px; cursor: pointer; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.4s ease, border-color 0.4s ease; }
+        .gal-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 18px; cursor: pointer; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.4s ease, border-color 0.4s ease; touch-action: manipulation; }
         .gal-item:hover { transform: translateY(-4px); border-color: rgba(229, 82, 42, 0.4); }
         .gal-item img { width: 100%; display: block; transition: transform 0.4s ease; }
         .gal-item:hover img { transform: scale(1.04); }
@@ -787,7 +793,7 @@
             color: var(--orange-red);
         }
 
-        /* Ultra-Sleek Media Theater Modal with Previous / Next Carousel Stepper Controls */
+        /* Ultra-Sleek Media Theater Modal with Stepper Controls */
         .lightbox {
             display: none; position: fixed; inset: 0; z-index: 9000;
             background: rgba(6, 8, 32, 0.95);
@@ -851,6 +857,7 @@
             z-index: 9002;
             transition: background 0.25s, transform 0.25s, border-color 0.25s;
             user-select: none;
+            touch-action: manipulation;
         }
         .lb-nav-btn:hover {
             background: rgba(229, 82, 42, 0.85);
@@ -892,10 +899,11 @@
             font-size: 1.8rem; color: white; cursor: pointer;
             display: flex; align-items: center; justify-content: center;
             line-height: 1; z-index: 9005; transition: background 0.2s, transform 0.2s;
+            touch-action: manipulation;
         }
         .lb-close:hover { background: rgba(229, 82, 42, 0.85); transform: scale(1.08); }
 
-        /* Compact Minimal Footer with Curved Top Edge */
+        /* Compact Minimal Footer */
         footer {
             background: var(--dark);
             padding: 4rem var(--side-padding) 2.5rem;
@@ -905,8 +913,6 @@
             border-top: 1px solid var(--border-color);
             position: relative;
             z-index: 11;
-            margin-top: -30px;
-            border-radius: var(--section-radius) var(--section-radius) 0 0;
         }
         footer img { width: 44px; margin-bottom: 0.8rem; border-radius: 50%; }
         .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: white; margin-bottom: 0.3rem; }
@@ -953,7 +959,7 @@
             }
 
             .hero-content { margin-top: -2.5rem; }
-            .hero-bottom-bar { bottom: 1.4rem; }
+            .hero-bottom-bar { bottom: max(1.4rem, env(safe-area-inset-bottom)); }
 
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 240px; }
@@ -1017,7 +1023,7 @@
 
         @media (prefers-reduced-motion: reduce) {
             .hero-bg { transform: none !important; }
-            .reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right { transition: none; opacity: 1; transform: none; }
+            .reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right { transition: none !important; opacity: 1 !important; transform: none !important; }
         }
     </style>
     
@@ -1342,7 +1348,7 @@
         </div>
     </section>
 
-    <!-- Ultra-Sleek Interactive Media Theater Carousel Lightbox -->
+    <!-- Ultra-Sleek Media Theater Modal with Stepper Controls -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media Theater Showcase">
         <button class="lb-close" onclick="closeLightbox()" aria-label="Close Theater">&times;</button>
         
@@ -1359,7 +1365,7 @@
         </div>
     </div>
 
-    <!-- Compact Minimal Footer with Curved Top Edge -->
+    <!-- Compact Minimal Footer -->
     <footer class="reveal-up">
         <div class="footer-brand">Aseda Praise</div>
         <div class="footer-location">Tarkwa &bull; Western Region &bull; Ghana</div>
@@ -1376,6 +1382,9 @@
 
     <!-- JavaScript Engine & Interactive Media Theater Carousel System -->
     <script>
+        // Enable JS Animation class on document root once JS is ready
+        document.documentElement.classList.add('js-anim');
+
         // Interactive Master Playlist across Videos & Photography
         const MEDIA_PLAYLIST = [
             { type: 'video', src: '8Lu8u8ZSbog', caption: 'Aseda Praise 2026 Official Full Program Broadcast' },
@@ -1503,35 +1512,25 @@
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
-        });
+        }, { passive: true });
 
-        // Dynamic High-Performance Scroll-Driven Zoom & Parallax Engine for Hero Stage Photography
+        // Dynamic High-Performance Scroll-Driven Parallax Engine for Hero Stage Photography
         const heroSection = document.getElementById('home');
         const heroBg = document.getElementById('hero-bg');
 
         if (heroSection && heroBg) {
-            let mouseX = 0, mouseY = 0;
-            let targetMouseX = 0, targetMouseY = 0;
             let ticking = false;
 
             function renderHeroParallax() {
                 const scrollY = window.scrollY || window.pageYOffset;
                 const heroHeight = heroSection.offsetHeight || 600;
 
-                if (scrollY <= heroHeight + 150) {
+                if (scrollY <= heroHeight + 100) {
                     const scrollProgress = Math.min(scrollY / heroHeight, 1);
-                    const scaleVal = 1.0 + (scrollProgress * 0.16); // Zooms smoothly from 1.0 to 1.16 on scroll
-                    const translateYVal = scrollY * 0.32; // Parallax vertical shift
-                    const filterDim = 1.0 - (scrollProgress * 0.22); // Subtle atmospheric dimming on scroll
+                    const scaleVal = 1.0 + (scrollProgress * 0.12);
+                    const translateYVal = scrollY * 0.28;
 
-                    mouseX += (targetMouseX - mouseX) * 0.08;
-                    mouseY += (targetMouseY - mouseY) * 0.08;
-
-                    const totalX = mouseX;
-                    const totalY = translateYVal + mouseY;
-
-                    heroBg.style.transform = `translate3d(${totalX}px, ${totalY}px, 0px) scale(${scaleVal})`;
-                    heroBg.style.filter = `brightness(${filterDim})`;
+                    heroBg.style.transform = `translate3d(0, ${translateYVal}px, 0) scale(${scaleVal})`;
                 }
 
                 ticking = false;
@@ -1544,26 +1543,7 @@
                 }
             }
 
-            // Scroll Event Listener
             window.addEventListener('scroll', requestParallaxTick, { passive: true });
-
-            // Interactive Mouse Tilt on Desktop
-            if (matchMedia('(pointer: fine)').matches) {
-                heroSection.addEventListener('mousemove', (e) => {
-                    const rect = heroSection.getBoundingClientRect();
-                    targetMouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-                    targetMouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 15;
-                    requestParallaxTick();
-                }, { passive: true });
-
-                heroSection.addEventListener('mouseleave', () => {
-                    targetMouseX = 0;
-                    targetMouseY = 0;
-                    requestParallaxTick();
-                });
-            }
-
-            // Initial render call
             renderHeroParallax();
         }
 
@@ -1645,7 +1625,7 @@
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.02, rootMargin: '0px 0px 80px 0px' });
 
         document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
     </script>
