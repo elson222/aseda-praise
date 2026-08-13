@@ -146,25 +146,20 @@
         }
         .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
-        /* Hero Section & Atmospheric Stage Glow */
+        /* Hero Section & Smooth Interactive Parallax Stage Background */
         .hero {
-            height: 88vh; height: 88dvh; min-height: 540px; position: relative;
+            height: 90vh; height: 90dvh; min-height: 560px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
             overflow: hidden;
             background-color: var(--darker-navy);
         }
 
         .hero-bg {
-            position: absolute; inset: -20px;
+            position: absolute; inset: -40px;
             background: url('assets/images/aseda_stage_obaapa_christy.jpg') center center/cover no-repeat;
             transform-origin: center center;
-            animation: heroZoomIn 3.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             will-change: transform, filter;
-        }
-
-        @keyframes heroZoomIn {
-            0% { transform: scale(1.18); filter: brightness(0.75); }
-            100% { transform: scale(1.0); filter: brightness(1); }
+            transition: transform 0.1s cubic-bezier(0.1, 0.2, 0.1, 1);
         }
 
         /* Multi-layered Cinematic Gradient & Stage Glow Overlay */
@@ -174,11 +169,16 @@
                 radial-gradient(circle at 18% 45%, rgba(229, 82, 42, 0.22) 0%, transparent 55%),
                 radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.94) 0%, transparent 75%),
                 linear-gradient(to top right, rgba(8, 9, 26, 0.88) 0%, rgba(229, 82, 42, 0.1) 100%),
-                linear-gradient(to bottom, transparent 35%, rgba(13, 16, 64, 0.75) 75%, #0d1040 100%);
+                linear-gradient(to bottom, transparent 30%, rgba(13, 16, 64, 0.85) 75%, #0d1040 100%);
             z-index: 1;
         }
 
-        .hero-content { position: relative; z-index: 2; max-width: 850px; margin-top: -3rem; }
+        .hero-content { 
+            position: relative; 
+            z-index: 2; 
+            max-width: 850px; 
+            margin-top: -4rem; 
+        }
         
         .hero-badge-tag {
             display: inline-block;
@@ -205,37 +205,39 @@
 
         .hero h1 {
             font-size: var(--font-hero);
-            line-height: 0.98;
+            line-height: 0.96;
             font-style: italic;
             margin-bottom: 0;
             display: flex;
             flex-direction: column;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
         .stroke-text { -webkit-text-stroke: 1.2px white; color: transparent; display: block; }
         .orange { display: block; color: var(--orange-red); }
 
-        /* Clean Bottom Hero Bar with Subtitle + Pure Downward Bouncing Arrow */
+        /* Clean Bottom Hero Bar: Subtitle at Bottom Left & Arrow at Bottom Right */
         .hero-bottom-bar {
             position: absolute;
-            bottom: 1.8rem;
+            bottom: 2rem;
             left: var(--side-padding);
             right: var(--side-padding);
-            z-index: 2;
+            z-index: 3;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
             gap: 1.5rem;
+            pointer-events: none;
         }
 
         .hero-subtitle {
             font-size: var(--font-body);
-            color: rgba(255, 255, 255, 0.88);
+            color: rgba(255, 255, 255, 0.92);
             font-weight: 400;
-            max-width: 460px;
+            max-width: 480px;
             line-height: 1.55;
             margin: 0;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+            pointer-events: auto;
         }
 
         .scroll-indicator {
@@ -244,6 +246,7 @@
             justify-content: center;
             animation: bounce 2s infinite;
             flex-shrink: 0;
+            pointer-events: auto;
         }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
 
@@ -761,9 +764,9 @@
                 background-position: 60% center;
             }
 
-            .hero-content { margin-top: -2rem; }
+            .hero-content { margin-top: -3rem; }
             .hero-bottom-bar { bottom: 1.4rem; gap: 1rem; }
-            .hero-subtitle { font-size: 0.95rem; max-width: 80%; }
+            .hero-subtitle { font-size: 0.95rem; max-width: 78%; }
 
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 240px; }
@@ -824,7 +827,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .hero-bg { animation: none; transform: none !important; }
+            .hero-bg { transform: none !important; }
             .reveal { transition: none; opacity: 1; transform: none; }
             .scroll-indicator { animation: none; }
         }
@@ -916,7 +919,7 @@
             </h1>
         </div>
 
-        <!-- Clean Hero Bottom Bar: Subtitle + Pure Downward Bouncing Arrow -->
+        <!-- Clean Hero Bottom Bar: Subtitle at Bottom Left & Arrow at Bottom Right -->
         <div class="hero-bottom-bar reveal">
             <p class="hero-subtitle">Ghana's annual Easter gospel worship &amp; thanksgiving experience.</p>
             <div class="scroll-indicator" aria-hidden="true">
@@ -1250,62 +1253,68 @@
             else nav.classList.remove('scrolled');
         });
 
-        // Unified Hero Parallax Engine (Scroll Parallax + Interactive Mouse Parallax)
+        // Dynamic High-Performance Scroll-Driven Zoom & Parallax Engine for Hero Stage Photography
         const heroSection = document.getElementById('home');
         const heroBg = document.getElementById('hero-bg');
 
         if (heroSection && heroBg) {
             let mouseX = 0, mouseY = 0;
             let targetMouseX = 0, targetMouseY = 0;
-            let isMouseInside = false;
-            let isTicking = false;
+            let ticking = false;
 
-            function updateHeroParallax() {
+            function renderHeroParallax() {
                 const scrollY = window.scrollY || window.pageYOffset;
                 const heroHeight = heroSection.offsetHeight || 600;
 
-                if (scrollY <= heroHeight + 100) {
-                    const scrollParallaxY = scrollY * 0.38;
+                if (scrollY <= heroHeight + 150) {
+                    // Calculate smooth scale increase as user scrolls down
+                    const scrollProgress = Math.min(scrollY / heroHeight, 1);
+                    const scaleVal = 1.0 + (scrollProgress * 0.16); // Zooms smoothly from 1.0 to 1.16 on scroll
+                    const translateYVal = scrollY * 0.32; // Parallax vertical shift
+                    const filterDim = 1.0 - (scrollProgress * 0.25); // Subtle atmospheric dimming on scroll
+
+                    // Smooth mouse tilt integration
                     mouseX += (targetMouseX - mouseX) * 0.08;
                     mouseY += (targetMouseY - mouseY) * 0.08;
-                    const totalY = scrollParallaxY + mouseY;
-                    heroBg.style.transform = `translate3d(${mouseX}px, ${totalY}px, 0px) scale(${1 + scrollY * 0.0003})`;
+
+                    const totalX = mouseX;
+                    const totalY = translateYVal + mouseY;
+
+                    heroBg.style.transform = `translate3d(${totalX}px, ${totalY}px, 0px) scale(${scaleVal})`;
+                    heroBg.style.filter = `brightness(${filterDim})`;
                 }
-                
-                if (isTicking) {
-                    requestAnimationFrame(updateHeroParallax);
+
+                ticking = false;
+            }
+
+            function requestParallaxTick() {
+                if (!ticking) {
+                    requestAnimationFrame(renderHeroParallax);
+                    ticking = true;
                 }
             }
 
-            window.addEventListener('scroll', () => {
-                if (!isTicking) {
-                    isTicking = true;
-                    requestAnimationFrame(() => {
-                        updateHeroParallax();
-                        isTicking = false;
-                    });
-                }
-            }, { passive: true });
+            // Scroll Event Listener
+            window.addEventListener('scroll', requestParallaxTick, { passive: true });
 
+            // Interactive Mouse Tilt on Desktop
             if (matchMedia('(pointer: fine)').matches) {
                 heroSection.addEventListener('mousemove', (e) => {
                     const rect = heroSection.getBoundingClientRect();
-                    targetMouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 24;
-                    targetMouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 18;
-
-                    if (!isMouseInside) {
-                        isMouseInside = true;
-                        isTicking = true;
-                        requestAnimationFrame(updateHeroParallax);
-                    }
-                });
+                    targetMouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+                    targetMouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 15;
+                    requestParallaxTick();
+                }, { passive: true });
 
                 heroSection.addEventListener('mouseleave', () => {
                     targetMouseX = 0;
                     targetMouseY = 0;
-                    isMouseInside = false;
+                    requestParallaxTick();
                 });
             }
+
+            // Initial render call
+            renderHeroParallax();
         }
 
         // Gospel Ministers Smooth Auto-Swipe Carousel Engine
