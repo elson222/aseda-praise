@@ -85,34 +85,29 @@
             outline-offset: 4px;
         }
 
-        /* 100% Guaranteed Visible Content Engine (No Invisible Text Breaks) */
+        /* High-Performance Smooth Scroll Reveal Animation Engine */
         .reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right {
-            opacity: 1 !important;
-            transform: translate3d(0, 0, 0) scale(1) !important;
+            opacity: 0;
             will-change: opacity, transform;
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Smooth Progressive Animation Enhancements */
-        .js-anim .reveal-up { opacity: 0 !important; transform: translate3d(0, 26px, 0) !important; }
-        .js-anim .reveal-scale { opacity: 0 !important; transform: scale(0.95) !important; }
-        .js-anim .reveal-left { opacity: 0 !important; transform: translate3d(-24px, 0, 0) !important; }
-        .js-anim .reveal-right { opacity: 0 !important; transform: translate3d(24px, 0, 0) !important; }
+        .reveal-up { transform: translate3d(0, 36px, 0) scale(0.96); }
+        .reveal-scale { transform: scale(0.92); }
+        .reveal-left { transform: translate3d(-32px, 0, 0); }
+        .reveal-right { transform: translate3d(32px, 0, 0); }
 
-        .js-anim .reveal-up.active, 
-        .js-anim .reveal-scale.active, 
-        .js-anim .reveal-left.active, 
-        .js-anim .reveal-right.active {
-            opacity: 1 !important;
-            transform: translate3d(0, 0, 0) scale(1) !important;
+        .reveal.active, .reveal-up.active, .reveal-scale.active, .reveal-left.active, .reveal-right.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
         }
 
         /* Staggered Cascading Children Animations */
-        .stagger-children > *:nth-child(1) { transition-delay: 0.04s; }
-        .stagger-children > *:nth-child(2) { transition-delay: 0.12s; }
-        .stagger-children > *:nth-child(3) { transition-delay: 0.20s; }
-        .stagger-children > *:nth-child(4) { transition-delay: 0.28s; }
-        .stagger-children > *:nth-child(5) { transition-delay: 0.36s; }
+        .stagger-children > *:nth-child(1) { transition-delay: 0.05s; }
+        .stagger-children > *:nth-child(2) { transition-delay: 0.15s; }
+        .stagger-children > *:nth-child(3) { transition-delay: 0.25s; }
+        .stagger-children > *:nth-child(4) { transition-delay: 0.35s; }
+        .stagger-children > *:nth-child(5) { transition-delay: 0.45s; }
 
         /* Header Navigation — Translucent Frosted Glass */
         nav {
@@ -181,7 +176,7 @@
         }
         .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
-        /* Hero Section & Atmospheric Stage Lighting */
+        /* Hero Section & Stage Photography Animation */
         .hero {
             height: 90vh; height: 90dvh; min-height: 540px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
@@ -190,22 +185,29 @@
         }
 
         .hero-bg {
-            position: absolute; inset: -20px;
+            position: absolute; inset: -40px;
             background: url('assets/images/aseda_stage_obaapa_christy.jpg') center center/cover no-repeat;
             transform-origin: center center;
-            will-change: transform;
-            transition: transform 0.1s cubic-bezier(0.1, 0.2, 0.1, 1);
+            will-change: transform, filter;
+            transition: transform 0.15s cubic-bezier(0.1, 0.2, 0.1, 1), filter 0.3s ease;
+        }
+
+        /* Pulsing Stage Light Atmosphere Keyframe Animation */
+        @keyframes stagePulse {
+            0%, 100% { opacity: 0.85; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.04); }
         }
 
         /* Continuous Seamless Stage Glow Overlay */
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: 
-                radial-gradient(circle at 18% 45%, rgba(229, 82, 42, 0.26) 0%, transparent 55%),
+                radial-gradient(circle at 18% 45%, rgba(229, 82, 42, 0.32) 0%, transparent 55%),
                 radial-gradient(circle at bottom left, rgba(27, 32, 112, 0.95) 0%, transparent 75%),
-                linear-gradient(to top right, rgba(8, 9, 26, 0.88) 0%, rgba(229, 82, 42, 0.12) 100%),
+                linear-gradient(to top right, rgba(8, 9, 26, 0.88) 0%, rgba(229, 82, 42, 0.14) 100%),
                 linear-gradient(to bottom, transparent 20%, rgba(13, 16, 64, 0.7) 65%, #0d1040 100%);
             z-index: 1;
+            animation: stagePulse 8s ease-in-out infinite;
         }
 
         .hero-content { 
@@ -1382,9 +1384,6 @@
 
     <!-- JavaScript Engine & Interactive Media Theater Carousel System -->
     <script>
-        // Enable JS Animation class on document root once JS is ready
-        document.documentElement.classList.add('js-anim');
-
         // Interactive Master Playlist across Videos & Photography
         const MEDIA_PLAYLIST = [
             { type: 'video', src: '8Lu8u8ZSbog', caption: 'Aseda Praise 2026 Official Full Program Broadcast' },
@@ -1514,23 +1513,33 @@
             else nav.classList.remove('scrolled');
         }, { passive: true });
 
-        // Dynamic High-Performance Scroll-Driven Parallax Engine for Hero Stage Photography
+        // Dynamic High-Performance Scroll & Mouse Parallax Zoom Engine for Hero Stage Photography
         const heroSection = document.getElementById('home');
         const heroBg = document.getElementById('hero-bg');
 
         if (heroSection && heroBg) {
+            let mouseX = 0, mouseY = 0;
+            let targetMouseX = 0, targetMouseY = 0;
             let ticking = false;
 
             function renderHeroParallax() {
                 const scrollY = window.scrollY || window.pageYOffset;
                 const heroHeight = heroSection.offsetHeight || 600;
 
-                if (scrollY <= heroHeight + 100) {
+                if (scrollY <= heroHeight + 150) {
                     const scrollProgress = Math.min(scrollY / heroHeight, 1);
-                    const scaleVal = 1.0 + (scrollProgress * 0.12);
-                    const translateYVal = scrollY * 0.28;
+                    const scaleVal = 1.0 + (scrollProgress * 0.16);
+                    const translateYVal = scrollY * 0.32;
+                    const filterDim = 1.0 - (scrollProgress * 0.22);
 
-                    heroBg.style.transform = `translate3d(0, ${translateYVal}px, 0) scale(${scaleVal})`;
+                    mouseX += (targetMouseX - mouseX) * 0.08;
+                    mouseY += (targetMouseY - mouseY) * 0.08;
+
+                    const totalX = mouseX;
+                    const totalY = translateYVal + mouseY;
+
+                    heroBg.style.transform = `translate3d(${totalX}px, ${totalY}px, 0px) scale(${scaleVal})`;
+                    heroBg.style.filter = `brightness(${filterDim})`;
                 }
 
                 ticking = false;
@@ -1544,6 +1553,22 @@
             }
 
             window.addEventListener('scroll', requestParallaxTick, { passive: true });
+
+            if (matchMedia('(pointer: fine)').matches) {
+                heroSection.addEventListener('mousemove', (e) => {
+                    const rect = heroSection.getBoundingClientRect();
+                    targetMouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+                    targetMouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 15;
+                    requestParallaxTick();
+                }, { passive: true });
+
+                heroSection.addEventListener('mouseleave', () => {
+                    targetMouseX = 0;
+                    targetMouseY = 0;
+                    requestParallaxTick();
+                });
+            }
+
             renderHeroParallax();
         }
 
@@ -1625,7 +1650,7 @@
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.02, rootMargin: '0px 0px 80px 0px' });
+        }, { threshold: 0.05, rootMargin: '0px 0px 40px 0px' });
 
         document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
     </script>
