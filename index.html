@@ -76,16 +76,38 @@
             outline-offset: 4px;
         }
 
-        /* Scroll Animations */
-        .reveal {
+        /* High-End Premium Scroll Reveal Animations System */
+        .reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .reveal.active {
+
+        .reveal-up {
+            transform: translate3d(0, 42px, 0) scale(0.96);
+        }
+        .reveal-scale {
+            transform: scale(0.91);
+        }
+        .reveal-left {
+            transform: translate3d(-38px, 0, 0);
+        }
+        .reveal-right {
+            transform: translate3d(38px, 0, 0);
+        }
+
+        .reveal.active, .reveal-up.active, .reveal-scale.active, .reveal-left.active, .reveal-right.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translate3d(0, 0, 0) scale(1);
         }
+
+        /* Staggered Cascading Children Animations */
+        .stagger-children > *:nth-child(1) { transition-delay: 0.05s; }
+        .stagger-children > *:nth-child(2) { transition-delay: 0.16s; }
+        .stagger-children > *:nth-child(3) { transition-delay: 0.27s; }
+        .stagger-children > *:nth-child(4) { transition-delay: 0.38s; }
+        .stagger-children > *:nth-child(5) { transition-delay: 0.49s; }
+        .stagger-children > *:nth-child(6) { transition-delay: 0.60s; }
 
         /* Header Navigation — Eager Logo, Floating, Quiet */
         nav {
@@ -269,16 +291,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Seamless Bleed Transition Utility */
-        .section-blend-top {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 140px;
-            background: linear-gradient(to bottom, rgba(13, 16, 64, 0.95) 0%, transparent 100%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
         /* Latest Edition Section & Glassmorphic Cinema Player */
         .spotlight {
             background: linear-gradient(to bottom, var(--darker-navy) 0%, #0a0d33 100%);
@@ -407,11 +419,11 @@
             align-items: center;
             gap: 1.6rem;
             box-shadow: 0 12px 35px rgba(27, 32, 112, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
         .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 40px rgba(27, 32, 112, 0.1);
+            transform: translateY(-4px) scale(1.015);
+            box-shadow: 0 18px 45px rgba(27, 32, 112, 0.12);
         }
         .stat-card.highlight-card {
             background: var(--navy);
@@ -513,14 +525,15 @@
             cursor: pointer;
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 16px 40px rgba(0,0,0,0.5);
-            transition: border-color 0.3s ease, transform 0.3s ease;
+            transition: border-color 0.3s ease, transform 0.4s ease, box-shadow 0.4s ease;
         }
         .m-card:hover {
             border-color: rgba(229, 82, 42, 0.5);
-            transform: translateY(-4px);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 24px 50px rgba(0,0,0,0.7);
         }
-        .m-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .m-card:hover img { transform: scale(1.05); }
+        .m-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .m-card:hover img { transform: scale(1.06); }
         .m-card::after { 
             content: ''; 
             position: absolute; 
@@ -647,6 +660,11 @@
             gap: 1.2rem;
             padding: 0.8rem 0;
             border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .impact-item:hover {
+            transform: translateX(6px);
+            border-color: rgba(229, 82, 42, 0.4);
         }
         .impact-num {
             font-family: 'Bebas Neue', sans-serif;
@@ -684,6 +702,11 @@
             cursor: pointer;
             display: block;
             box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .thumb-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(229, 82, 42, 0.45);
         }
         .thumb-card img {
             width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;
@@ -748,7 +771,8 @@
             display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2.2rem;
         }
         .masonry { column-count: 3; column-gap: 1.2rem; margin-bottom: 2rem; }
-        .gal-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 18px; cursor: pointer; border: 1px solid rgba(255,255,255,0.06); }
+        .gal-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 18px; cursor: pointer; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.4s ease, border-color 0.4s ease; }
+        .gal-item:hover { transform: translateY(-4px); border-color: rgba(229, 82, 42, 0.4); }
         .gal-item img { width: 100%; display: block; transition: transform 0.4s ease; }
         .gal-item:hover img { transform: scale(1.04); }
 
@@ -800,7 +824,7 @@
         .lightbox.open .lb-close { display: block; }
         .lb-close:hover { opacity: 1; }
 
-        /* Compact Minimal Footer without Tagline Repeat */
+        /* Compact Minimal Footer with Curved Top Edge */
         footer {
             background: var(--dark);
             padding: 4rem var(--side-padding) 2.5rem;
@@ -919,7 +943,7 @@
 
         @media (prefers-reduced-motion: reduce) {
             .hero-bg { transform: none !important; }
-            .reveal { transition: none; opacity: 1; transform: none; }
+            .reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right { transition: none; opacity: 1; transform: none; }
         }
     </style>
     
@@ -996,7 +1020,7 @@
         <div class="hero-bg" id="hero-bg"></div>
         <div class="hero-overlay"></div>
         
-        <div class="hero-content reveal">
+        <div class="hero-content reveal-up">
             <span class="hero-badge-tag">5TH ANNIVERSARY EDITION</span>
             <h1 class="playfair">
                 <span class="stroke-text">Ten</span>
@@ -1007,7 +1031,7 @@
         </div>
 
         <!-- Clean Hero Bottom Bar: Location Tag + Single Line Subtitle Across Devices -->
-        <div class="hero-bottom-bar reveal">
+        <div class="hero-bottom-bar reveal-up">
             <div class="hero-bottom-info">
                 <span class="hero-bottom-location">TARKWA &bull; WESTERN REGION &bull; GHANA</span>
                 <p class="hero-subtitle">Ghana's annual Easter gospel worship &amp; thanksgiving experience.</p>
@@ -1018,7 +1042,7 @@
     <!-- Latest Edition & Understated Completed Status Metadata directly beneath description -->
     <section class="spotlight" id="latest-edition">
         <div class="spotlight-container">
-            <div class="reveal">
+            <div class="reveal-up">
                 <span class="chapter-badge">LATEST EDITION</span>
                 <h2 class="playfair">Aseda Praise 2026</h2>
                 <p class="spotlight-desc">Five years of gratitude, worship and community.</p>
@@ -1026,7 +1050,7 @@
             </div>
 
             <!-- 16:9 Featured Official Broadcast with Custom Glassmorphic Play Icon Button -->
-            <div class="cinema-vid reveal" data-video-id="8Lu8u8ZSbog" onclick="loadYouTubeVideo(this, '8Lu8u8ZSbog')" role="button" tabindex="0" aria-label="Play Aseda Praise 2026 Official Full Program Broadcast">
+            <div class="cinema-vid reveal-scale" data-video-id="8Lu8u8ZSbog" onclick="loadYouTubeVideo(this, '8Lu8u8ZSbog')" role="button" tabindex="0" aria-label="Play Aseda Praise 2026 Official Full Program Broadcast">
                 <img src="https://img.youtube.com/vi/8Lu8u8ZSbog/hqdefault.jpg" alt="Aseda Praise 2026 Official Broadcast Poster" loading="lazy">
                 <div class="play-btn-overlay">
                     <div class="play-icon"></div>
@@ -1038,13 +1062,13 @@
     <!-- About Section with Curved Top Edge Overlapping Spotlight Section -->
     <section class="about" id="about">
         <div class="about-container">
-            <div class="about-header reveal">
+            <div class="about-header reveal-up">
                 <span class="chapter-badge">OUR STORY</span>
                 <h2>Five Years of Gratitude</h2>
             </div>
             
             <div class="about-grid">
-                <div class="about-main reveal">
+                <div class="about-main reveal-left">
                     <p class="lead-p">
                         For five years, Aseda Praise has brought thousands together in Tarkwa each Easter for worship, thanksgiving and community.
                     </p>
@@ -1058,7 +1082,7 @@
                     </p>
                 </div>
 
-                <div class="about-stats-grid reveal">
+                <div class="about-stats-grid reveal-right stagger-children">
                     <div class="stat-card">
                         <span class="stat-num">10,000+</span>
                         <div class="stat-meta">
@@ -1083,7 +1107,7 @@
                 </div>
             </div>
 
-            <div class="about-banner reveal" onclick="openLightbox('assets/images/aseda_gp_dancing.jpg')" role="button" tabindex="0" aria-label="Enlarge image of Aseda Praise Worshippers">
+            <div class="about-banner reveal-scale" onclick="openLightbox('assets/images/aseda_gp_dancing.jpg')" role="button" tabindex="0" aria-label="Enlarge image of Aseda Praise Worshippers">
                 <img src="assets/images/aseda_gp_dancing.jpg" alt="Aseda Praise Worshippers in Tarkwa" loading="lazy">
                 <div class="banner-caption">
                     <span class="caption-tag">TARKWA, WESTERN REGION</span>
@@ -1095,12 +1119,12 @@
 
     <!-- Gospel Ministers Section with Curved Top Edge & Smooth Color Bleed -->
     <section class="ministers" id="ministers">
-        <div class="reveal">
+        <div class="reveal-up">
             <span class="chapter-badge">ANOINTED VOICES</span>
             <h2>Gospel Ministers</h2>
         </div>
 
-        <div class="minister-grid reveal" id="minister-carousel">
+        <div class="minister-grid reveal-scale stagger-children" id="minister-carousel">
             <div class="m-card" onclick="openLightbox('assets/images/aseda_gp_good_shot.jpg')" role="button" tabindex="0" aria-label="Enlarge photo of Obaapa Christy">
                 <img src="assets/images/aseda_gp_good_shot.jpg" alt="Obaapa Christy performing on stage at Aseda Praise" loading="lazy">
                 <div class="m-info">
@@ -1134,20 +1158,22 @@
 
     <!-- Visionaries Section with Curved Top Edge -->
     <section class="visionaries" id="founders">
-        <div class="vis-container reveal">
-            <span class="chapter-badge">THE VISIONARIES</span>
-            <h2>Evans Ghartey &amp; Frederick Lomotey</h2>
-            <p class="vis-subtitle">FOUNDERS &amp; LEAD SPONSORS</p>
+        <div class="vis-container">
+            <div class="reveal-up">
+                <span class="chapter-badge">THE VISIONARIES</span>
+                <h2>Evans Ghartey &amp; Frederick Lomotey</h2>
+                <p class="vis-subtitle">FOUNDERS &amp; LEAD SPONSORS</p>
+            </div>
 
-            <div class="vis-hero-frame" onclick="openLightbox('assets/images/aseda_founders.jpg')" role="button" tabindex="0" aria-label="Enlarge photo of Mr. Evans Ghartey and Mr. Frederick Lomotey">
+            <div class="vis-hero-frame reveal-scale" onclick="openLightbox('assets/images/aseda_founders.jpg')" role="button" tabindex="0" aria-label="Enlarge photo of Mr. Evans Ghartey and Mr. Frederick Lomotey">
                 <img src="assets/images/aseda_founders.jpg" alt="Mr. Evans Ghartey and Mr. Frederick Lomotey on stage" loading="lazy">
             </div>
 
-            <div class="vis-body-text">
+            <div class="vis-body-text reveal-up">
                 <p>Driven by a shared vision to impact their community through faith and action, our founders established Aseda Praise as a beacon of hope and gratitude in the Western Region.</p>
             </div>
 
-            <div class="vis-quote">
+            <div class="vis-quote reveal-up">
                 <p>"Aseda Praise was never about a concert. It was always about saying thank you."</p>
                 <div class="vis-quote-author">— EVANS GHARTEY &amp; FREDERICK LOMOTEY</div>
             </div>
@@ -1156,17 +1182,17 @@
 
     <!-- Outreach Section with Curved Top Edge -->
     <section class="outreach" id="impact">
-        <div class="reveal">
+        <div class="reveal-up">
             <span class="chapter-badge">FAITH IN ACTION</span>
             <h2>Community Outreach</h2>
             <p class="outreach-desc">Our worship extends beyond the concert grounds. Every year, Aseda Praise carries out tangible outreach initiatives at <strong>Apinto Government Hospital</strong> in Tarkwa — renovating facilities, donating medical equipment, and providing free health screenings for the community.</p>
         </div>
         
-        <div class="video-wrapper reveal">
+        <div class="video-wrapper reveal-scale">
             <iframe src="https://www.youtube.com/embed/GGSFWt3NRoU" title="Dedication of Tarkwa Apinto Children's Ward" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
 
-        <div class="impact-list reveal">
+        <div class="impact-list reveal-up stagger-children">
             <div class="impact-item">
                 <span class="impact-num">01</span>
                 <span class="impact-text">Children's Ward Renovation</span>
@@ -1184,12 +1210,12 @@
 
     <!-- Media Hub with Curved Top Edge -->
     <section class="main-video" id="media">
-        <div class="reveal">
+        <div class="reveal-up">
             <span class="chapter-badge">MEDIA HUB</span>
             <h2>Highlights &amp; Video Clips</h2>
         </div>
 
-        <div class="vid-grid reveal">
+        <div class="vid-grid reveal-scale stagger-children">
             <div>
                 <div class="thumb-card" data-video-id="1W4pLw93xqI" onclick="loadYouTubeVideo(this, '1W4pLw93xqI')" role="button" tabindex="0" aria-label="Play Massive Crowd Video">
                     <img src="https://img.youtube.com/vi/1W4pLw93xqI/hqdefault.jpg" alt="Massive Crowd at Aseda Praise 2026" loading="lazy">
@@ -1226,18 +1252,18 @@
 
     <!-- Memories / Gallery Section with Curved Top Edge -->
     <section class="gallery" id="gallery">
-        <div class="gallery-header">
+        <div class="gallery-header reveal-up">
             <div>
                 <span class="chapter-badge">MEMORIES</span>
-                <h2 class="playfair reveal" style="margin: 0;">Ten Thousand Hearts</h2>
+                <h2 class="playfair" style="margin: 0;">Ten Thousand Hearts</h2>
             </div>
         </div>
         
-        <div class="masonry reveal" id="gallery-grid">
+        <div class="masonry reveal-scale stagger-children" id="gallery-grid">
             <!-- Injected via JavaScript -->
         </div>
 
-        <div class="gallery-album-container reveal">
+        <div class="gallery-album-container reveal-up">
             <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-link">View full album &rarr;</a>
         </div>
     </section>
@@ -1249,7 +1275,7 @@
     </div>
 
     <!-- Compact Minimal Footer with Curved Top Edge -->
-    <footer>
+    <footer class="reveal-up">
         <div class="footer-brand">Aseda Praise</div>
         <div class="footer-location">Tarkwa &bull; Western Region &bull; Ghana</div>
 
@@ -1475,16 +1501,16 @@
             });
         }
 
-        // Intersection Observer Reveal Effect
+        // High-Performance Intersection Observer Scroll Reveal Animation Engine
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
