@@ -768,7 +768,7 @@
         .masonry { column-count: 3; column-gap: 1.2rem; margin-bottom: 2rem; }
         .gal-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 18px; cursor: pointer; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.4s ease, border-color 0.4s ease; touch-action: manipulation; }
         .gal-item:hover { transform: translateY(-4px); border-color: rgba(229, 82, 42, 0.4); }
-        .gal-item img { width: 100%; display: block; transition: transform 0.4s ease; }
+        .gal-item img { width: 100%; display: block; transition: transform 0.4s ease; border-radius: 18px; }
         .gal-item:hover img { transform: scale(1.04); }
 
         .gallery-album-container {
@@ -1322,7 +1322,7 @@
         </div>
     </section>
 
-    <!-- Memories / Gallery Section with Curved Top Edge -->
+    <!-- Memories / Gallery Section with HTML Direct Images -->
     <section class="gallery" id="gallery">
         <div class="gallery-header">
             <div>
@@ -1332,7 +1332,33 @@
         </div>
         
         <div class="masonry" id="gallery-grid">
-            <!-- Injected via JavaScript -->
+            <div class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_gp_obaapa_crowd.jpg', 'Worshippers Engaging with Obaapa Christy')">
+                <img src="assets/images/aseda_gp_obaapa_crowd.jpg" alt="Aseda Praise celebration moment" loading="lazy">
+            </div>
+            <div class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_gp_engagement.jpg', 'Crowd Engagement & Worship Moments')">
+                <img src="assets/images/aseda_gp_engagement.jpg" alt="Aseda Praise celebration moment" loading="lazy">
+            </div>
+            <div class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_gp_yvonne.jpg', 'Gospel Minister Performing Live')">
+                <img src="assets/images/aseda_gp_yvonne.jpg" alt="Aseda Praise celebration moment" loading="lazy">
+            </div>
+            <div class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_official_photo_1.jpg', 'Aseda Praise Celebration Photography')">
+                <img src="assets/images/aseda_official_photo_1.jpg" alt="Aseda Praise celebration moment" loading="lazy">
+            </div>
+            <div class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_official_photo_2.jpg', 'Stage Worship Atmosphere')">
+                <img src="assets/images/aseda_official_photo_2.jpg" alt="Aseda Praise celebration moment" loading="lazy">
+            </div>
+            <div class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_official_photo_3.jpg', 'Annual Easter Thanksgiving Moments')">
+                <img src="assets/images/aseda_official_photo_3.jpg" alt="Aseda Praise celebration moment" loading="lazy">
+            </div>
+            <div class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_official_photo_4.jpg', 'Community Gathering in Worship')">
+                <img src="assets/images/aseda_official_photo_4.jpg" alt="Aseda Praise celebration moment" loading="lazy">
+            </div>
+            <div class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_official_photo_5.jpg', 'Festival Praise & Thanksgiving')">
+                <img src="assets/images/aseda_official_photo_5.jpg" alt="Aseda Praise celebration moment" loading="lazy">
+            </div>
+            <div class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_official_photo_6.jpg', 'Worship in Tarkwa')">
+                <img src="assets/images/aseda_official_photo_6.jpg" alt="Aseda Praise celebration moment" loading="lazy">
+            </div>
         </div>
 
         <div class="gallery-album-container">
@@ -1392,27 +1418,13 @@
             { type: 'image', src: 'assets/images/aseda_gp_yvonne.jpg', caption: 'Gospel Minister Performing Live' },
             { type: 'image', src: 'assets/images/aseda_official_photo_1.jpg', caption: 'Aseda Praise Celebration Photography' },
             { type: 'image', src: 'assets/images/aseda_official_photo_2.jpg', caption: 'Stage Worship Atmosphere' },
-            { type: 'image', src: 'assets/images/aseda_official_photo_3.jpg', caption: 'Annual Easter Thanksgiving Moments' }
+            { type: 'image', src: 'assets/images/aseda_official_photo_3.jpg', caption: 'Annual Easter Thanksgiving Moments' },
+            { type: 'image', src: 'assets/images/aseda_official_photo_4.jpg', caption: 'Community Gathering in Worship' },
+            { type: 'image', src: 'assets/images/aseda_official_photo_5.jpg', caption: 'Festival Praise & Thanksgiving' },
+            { type: 'image', src: 'assets/images/aseda_official_photo_6.jpg', caption: 'Worship in Tarkwa' }
         ];
 
         let activeMediaIndex = 0;
-
-        // Render Gallery Grid with Curated Photos Automatically Linked to Master Theater
-        const grid = document.getElementById('gallery-grid');
-        const galleryItems = [
-            'aseda_gp_obaapa_crowd.jpg', 'aseda_gp_engagement.jpg', 'aseda_gp_yvonne.jpg',
-            'aseda_official_photo_1.jpg', 'aseda_official_photo_2.jpg', 'aseda_official_photo_3.jpg'
-        ];
-
-        if (grid) {
-            galleryItems.forEach(img => {
-                const div = document.createElement('div');
-                div.className = 'gal-item';
-                div.innerHTML = `<img src="assets/images/${img}" alt="Aseda Praise celebration moment" loading="lazy">`;
-                div.addEventListener('click', () => openMediaTheater('image', `assets/images/${img}`));
-                grid.appendChild(div);
-            });
-        }
 
         // Media Theater Opening Logic with Stepper Synchronization
         function openMediaTheater(type, src, caption = '') {
