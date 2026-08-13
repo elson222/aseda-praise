@@ -214,7 +214,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Latest Edition Section */
+        /* Fix 1: Latest Edition Section & Understated Completed Status Metadata directly beneath description */
         .spotlight {
             background: var(--darker-navy);
             padding: 5rem var(--side-padding);
@@ -223,12 +223,20 @@
         }
         .spotlight-container { max-width: 1200px; margin: 0 auto; }
         .spotlight h2 { font-size: var(--font-title); color: white; margin-bottom: 0.1rem; }
+        .spotlight-desc {
+            max-width: 600px;
+            color: rgba(255,255,255,0.85);
+            font-size: var(--font-body);
+            margin-top: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
         .status-meta {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 0.88rem;
             letter-spacing: 2px;
             color: var(--bronze);
-            margin-bottom: 0.6rem;
+            margin-top: 0.2rem;
+            display: block;
         }
         
         .cinema-vid { 
@@ -243,7 +251,7 @@
         }
         .cinema-vid iframe { width: 100%; height: 100%; }
 
-        /* About Section */
+        /* Fix 2: About Section & Clean Factual Copy */
         .about {
             background: var(--cream);
             color: var(--navy);
@@ -291,7 +299,7 @@
             margin: 0;
         }
 
-        /* Refined Editorial Stats Cards Component */
+        /* Fix 3: Clean 5-Year ("5 YEARS OF ASEDA PRAISE") & 100% Free Statistics */
         .about-stats-grid {
             display: flex;
             flex-direction: column;
@@ -405,7 +413,7 @@
         .m-info h3 { font-size: 1.6rem; margin-bottom: 0.2rem; }
         .m-info p { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
         
-        /* Visionaries Section */
+        /* Fix 4: Visionaries Section (Duplicate 100% Free Removed from Paragraph) */
         .visionaries {
             background: #0b0e28;
             padding: 5.5rem var(--side-padding);
@@ -543,28 +551,37 @@
             color: rgba(255,255,255,0.9);
         }
 
-        /* Gallery Section */
+        /* Fix 5: Memories / Gallery Section (6 Curated Photos Directly Visible before Album Link) */
         .gallery { background: var(--darkest); padding: 5rem var(--side-padding); }
         .gallery h2 { font-size: var(--font-title); color: white; }
-        .masonry { column-count: 3; column-gap: 1.2rem; }
+        .gallery-header {
+            display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2.2rem;
+        }
+        .masonry { column-count: 3; column-gap: 1.2rem; margin-bottom: 2rem; }
         .gal-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; }
         .gal-item img { width: 100%; display: block; transition: transform 0.4s ease; }
         .gal-item:hover img { transform: scale(1.03); }
 
+        .gallery-album-container {
+            display: flex; justify-content: flex-start; align-items: center; margin-top: 1rem;
+        }
         .gallery-album-link {
             color: var(--bronze);
             text-decoration: none;
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 600;
             letter-spacing: 0.5px;
             transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
         }
         .gallery-album-link:hover {
             color: var(--orange-red);
         }
 
-        /* Lightbox */
+        /* Fix 6: Lightbox & Mobile Menu Close Button Fix — Strictly hidden when closed */
         .lightbox {
             display: none; position: fixed; inset: 0; z-index: 9000;
             background: rgba(6,8,32,0.95); backdrop-filter: blur(20px);
@@ -583,11 +600,13 @@
             to   { transform: scale(1);    opacity: 1; }
         }
         .lb-close {
+            display: none;
             position: fixed; top: 1.2rem; right: 1.5rem;
             font-size: 2.5rem; color: white; cursor: pointer;
             line-height: 1; z-index: 9001; opacity: 0.8;
             padding: 0.5rem;
         }
+        .lightbox.open .lb-close { display: block; }
         .lb-close:hover { opacity: 1; }
 
         /* Compact Minimal Footer */
@@ -598,6 +617,8 @@
             color: rgba(255,255,255,0.6);
             font-size: 0.88rem;
             border-top: 1px solid var(--border-color);
+            position: relative;
+            z-index: 10;
         }
         footer img { width: 44px; margin-bottom: 0.8rem; border-radius: 50%; }
         .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white; margin-bottom: 0.3rem; }
@@ -801,16 +822,14 @@
         </div>
     </section>
 
-    <!-- Latest Edition & Understated Completed Status Metadata -->
+    <!-- Fix 1: Latest Edition & Understated Completed Status Metadata directly beneath description -->
     <section class="spotlight" id="latest-edition">
         <div class="spotlight-container">
             <div class="reveal">
                 <span class="chapter-badge">LATEST EDITION</span>
                 <h2 class="playfair">Aseda Praise 2026</h2>
-                <div class="status-meta">2026 EDITION &bull; COMPLETED</div>
-                <p style="max-width: 600px; color: rgba(255,255,255,0.8); font-size: var(--font-body); margin-top: 0.4rem;">
-                    Five years of gratitude, worship and community.
-                </p>
+                <p class="spotlight-desc">Five years of gratitude, worship and community.</p>
+                <span class="status-meta">2026 EDITION &bull; COMPLETED</span>
             </div>
 
             <!-- 16:9 Featured Official Broadcast -->
@@ -820,7 +839,7 @@
         </div>
     </section>
 
-    <!-- About Section with Upgraded Stats Cards Component & Free Entry for All -->
+    <!-- Fix 2 & 3: About Section (Clean Copy, Fixed 5-Year Statistic) -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-header reveal">
@@ -854,7 +873,7 @@
                     <div class="stat-card">
                         <span class="stat-num">5 YEARS</span>
                         <div class="stat-meta">
-                            <span class="stat-label">Of Aseda Praise</span>
+                            <span class="stat-label">OF ASEDA PRAISE</span>
                             <span class="stat-sub">Anniversary Milestone</span>
                         </div>
                     </div>
@@ -910,7 +929,7 @@
         </div>
     </section>
 
-    <!-- Visionaries Section -->
+    <!-- Fix 4: Visionaries Section (Duplicate Free Phrase Removed) -->
     <section class="visionaries" id="founders">
         <div class="vis-container reveal">
             <span class="chapter-badge">THE VISIONARIES</span>
@@ -1006,24 +1025,27 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Fix 5: Memories / Gallery Section (6 Curated Photos Directly Visible BEFORE Full Album Link) -->
     <section class="gallery" id="gallery">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2rem;">
+        <div class="gallery-header">
             <div>
                 <span class="chapter-badge">MEMORIES</span>
                 <h2 class="playfair reveal" style="margin: 0;">Ten Thousand Hearts</h2>
             </div>
-            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-link reveal">View full album &rarr;</a>
         </div>
         
         <div class="masonry reveal" id="gallery-grid">
             <!-- Injected via JavaScript -->
         </div>
+
+        <div class="gallery-album-container reveal">
+            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-link">View full album &rarr;</a>
+        </div>
     </section>
 
-    <!-- Lightbox Overlay -->
+    <!-- Fix 6: Lightbox & Mobile Menu Close Button Fix — Strictly hidden when closed -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Preview" onclick="closeLightbox()">
-        <span class="lb-close" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</span>
+        <span class="lb-close" id="lb-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</span>
         <img id="lb-img" src="" alt="Aseda Praise celebration photograph">
     </div>
 
@@ -1048,15 +1070,11 @@
         const ASEDA_CONFIG = {
             galleryImages: [
                 'aseda_gp_obaapa_crowd.jpg', 'aseda_gp_engagement.jpg', 'aseda_gp_yvonne.jpg',
-                'aseda_official_photo_1.jpg', 'aseda_official_photo_2.jpg', 'aseda_official_photo_3.jpg',
-                'aseda_official_photo_4.jpg', 'aseda_official_photo_5.jpg', 'aseda_official_photo_6.jpg',
-                'aseda_official_photo_7.jpg', 'aseda_official_photo_8.jpg', 'aseda_official_photo_9.jpg',
-                'aseda_official_photo_10.jpg', 'aseda_official_photo_11.jpg', 'aseda_official_photo_12.jpg',
-                'aseda_official_photo_13.jpg', 'aseda_official_photo_14.jpg', 'aseda_official_photo_15.jpg'
+                'aseda_official_photo_1.jpg', 'aseda_official_photo_2.jpg', 'aseda_official_photo_3.jpg'
             ]
         };
 
-        // Render Gallery Grid
+        // Render Gallery Grid with 6 Curated Photos Directly Visible
         const grid = document.getElementById('gallery-grid');
         if (grid) {
             ASEDA_CONFIG.galleryImages.forEach(img => {
@@ -1092,7 +1110,7 @@
             if (e.key === 'Escape') closeLightbox(); 
         });
 
-        // Mobile Menu Drawer Logic
+        // Mobile Menu Drawer Logic & Hamburger Toggle
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -1103,6 +1121,7 @@
             } else {
                 mobileMenu.classList.add('open');
                 hamburgerBtn.setAttribute('aria-expanded', 'true');
+                hamburgerBtn.innerHTML = '&times;'; // Changes to X when menu is open
                 mobileMenu.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
             }
@@ -1111,6 +1130,7 @@
         function closeMobileMenu() {
             mobileMenu.classList.remove('open');
             hamburgerBtn.setAttribute('aria-expanded', 'false');
+            hamburgerBtn.innerHTML = '&#9776;'; // Reverts to hamburger when closed
             mobileMenu.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         }
