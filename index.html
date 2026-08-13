@@ -83,18 +83,10 @@
             transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .reveal-up {
-            transform: translate3d(0, 42px, 0) scale(0.96);
-        }
-        .reveal-scale {
-            transform: scale(0.91);
-        }
-        .reveal-left {
-            transform: translate3d(-38px, 0, 0);
-        }
-        .reveal-right {
-            transform: translate3d(38px, 0, 0);
-        }
+        .reveal-up { transform: translate3d(0, 42px, 0) scale(0.96); }
+        .reveal-scale { transform: scale(0.91); }
+        .reveal-left { transform: translate3d(-38px, 0, 0); }
+        .reveal-right { transform: translate3d(38px, 0, 0); }
 
         .reveal.active, .reveal-up.active, .reveal-scale.active, .reveal-left.active, .reveal-right.active {
             opacity: 1;
@@ -795,34 +787,113 @@
             color: var(--orange-red);
         }
 
-        /* Lightbox */
+        /* Ultra-Sleek Media Theater Modal with Previous / Next Carousel Stepper Controls */
         .lightbox {
             display: none; position: fixed; inset: 0; z-index: 9000;
-            background: rgba(6,8,32,0.96); backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(6, 8, 32, 0.95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             align-items: center; justify-content: center;
-            cursor: zoom-out;
+            flex-direction: column;
+            cursor: default;
         }
         .lightbox.open { display: flex; }
-        .lightbox img {
-            max-width: 92vw; max-height: 84vh;
-            object-fit: contain; border-radius: 18px;
-            box-shadow: 0 24px 80px rgba(0,0,0,0.9);
-            animation: lbPop 0.25s cubic-bezier(0.22,1,0.36,1);
+        
+        .lb-media-stage {
+            position: relative;
+            max-width: 90vw;
+            max-height: 80vh;
+            width: 960px;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #000;
+            animation: lbPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         @keyframes lbPop {
-            from { transform: scale(0.88); opacity: 0; }
-            to   { transform: scale(1);    opacity: 1; }
+            from { transform: scale(0.92) translateY(18px); opacity: 0; }
+            to   { transform: scale(1) translateY(0);    opacity: 1; }
         }
+
+        .lb-media-stage iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .lb-media-stage img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .lb-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: white;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9002;
+            transition: background 0.25s, transform 0.25s, border-color 0.25s;
+            user-select: none;
+        }
+        .lb-nav-btn:hover {
+            background: rgba(229, 82, 42, 0.85);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-50%) scale(1.08);
+        }
+        .lb-prev { left: 1.5rem; }
+        .lb-next { right: 1.5rem; }
+
+        .lb-info-bar {
+            margin-top: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90vw;
+            max-width: 960px;
+            color: white;
+        }
+        .lb-caption-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: white;
+        }
+        .lb-counter {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2.5px;
+            color: var(--bronze);
+        }
+
         .lb-close {
-            display: none;
-            position: fixed; top: 1.2rem; right: 1.5rem;
-            font-size: 2.5rem; color: white; cursor: pointer;
-            line-height: 1; z-index: 9001; opacity: 0.8;
-            padding: 0.5rem;
+            position: fixed; top: 1.4rem; right: 1.8rem;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.8rem; color: white; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            line-height: 1; z-index: 9005; transition: background 0.2s, transform 0.2s;
         }
-        .lightbox.open .lb-close { display: block; }
-        .lb-close:hover { opacity: 1; }
+        .lb-close:hover { background: rgba(229, 82, 42, 0.85); transform: scale(1.08); }
 
         /* Compact Minimal Footer with Curved Top Edge */
         footer {
@@ -920,6 +991,9 @@
 
             .video-wrapper { width: 100%; padding-bottom: 56.25%; margin-bottom: 1.8rem; }
             .footer-socials { gap: 1rem; }
+            .lb-nav-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+            .lb-prev { left: 0.6rem; }
+            .lb-next { right: 0.6rem; }
         }
 
         @media(max-width: 480px) {
@@ -1050,7 +1124,7 @@
             </div>
 
             <!-- 16:9 Featured Official Broadcast with Custom Glassmorphic Play Icon Button -->
-            <div class="cinema-vid reveal-scale" data-video-id="8Lu8u8ZSbog" onclick="loadYouTubeVideo(this, '8Lu8u8ZSbog')" role="button" tabindex="0" aria-label="Play Aseda Praise 2026 Official Full Program Broadcast">
+            <div class="cinema-vid reveal-scale" onclick="openMediaTheater('video', '8Lu8u8ZSbog', 'Aseda Praise 2026 Official Full Broadcast')" role="button" tabindex="0" aria-label="Play Aseda Praise 2026 Official Full Program Broadcast">
                 <img src="https://img.youtube.com/vi/8Lu8u8ZSbog/hqdefault.jpg" alt="Aseda Praise 2026 Official Broadcast Poster" loading="lazy">
                 <div class="play-btn-overlay">
                     <div class="play-icon"></div>
@@ -1107,7 +1181,7 @@
                 </div>
             </div>
 
-            <div class="about-banner reveal-scale" onclick="openLightbox('assets/images/aseda_gp_dancing.jpg')" role="button" tabindex="0" aria-label="Enlarge image of Aseda Praise Worshippers">
+            <div class="about-banner reveal-scale" onclick="openMediaTheater('image', 'assets/images/aseda_gp_dancing.jpg', 'Uniting Hearts in Praise & Worship · Tarkwa')" role="button" tabindex="0" aria-label="Enlarge image of Aseda Praise Worshippers">
                 <img src="assets/images/aseda_gp_dancing.jpg" alt="Aseda Praise Worshippers in Tarkwa" loading="lazy">
                 <div class="banner-caption">
                     <span class="caption-tag">TARKWA, WESTERN REGION</span>
@@ -1125,21 +1199,21 @@
         </div>
 
         <div class="minister-grid reveal-scale stagger-children" id="minister-carousel">
-            <div class="m-card" onclick="openLightbox('assets/images/aseda_gp_good_shot.jpg')" role="button" tabindex="0" aria-label="Enlarge photo of Obaapa Christy">
+            <div class="m-card" onclick="openMediaTheater('image', 'assets/images/aseda_gp_good_shot.jpg', 'Obaapa Christy · Headline Minister')" role="button" tabindex="0" aria-label="Enlarge photo of Obaapa Christy">
                 <img src="assets/images/aseda_gp_good_shot.jpg" alt="Obaapa Christy performing on stage at Aseda Praise" loading="lazy">
                 <div class="m-info">
                     <h3 class="playfair">Obaapa Christy</h3>
                     <p>Headline Minister</p>
                 </div>
             </div>
-            <div class="m-card" onclick="openLightbox('assets/images/aseda_joe_mettle.jpg')" role="button" tabindex="0" aria-label="Enlarge photo of Joe Mettle">
+            <div class="m-card" onclick="openMediaTheater('image', 'assets/images/aseda_joe_mettle.jpg', 'Joe Mettle · Worship Leader')" role="button" tabindex="0" aria-label="Enlarge photo of Joe Mettle">
                 <img src="assets/images/aseda_joe_mettle.jpg" alt="Joe Mettle in worship at Aseda Praise" loading="lazy">
                 <div class="m-info">
                     <h3 class="playfair">Joe Mettle</h3>
                     <p>Worship Leader</p>
                 </div>
             </div>
-            <div class="m-card" onclick="openLightbox('assets/images/aseda_acp_kofi_sarpong.jpg')" role="button" tabindex="0" aria-label="Enlarge photo of ACP Kofi Sarpong">
+            <div class="m-card" onclick="openMediaTheater('image', 'assets/images/aseda_acp_kofi_sarpong.jpg', 'ACP Kofi Sarpong · Gospel Minister')" role="button" tabindex="0" aria-label="Enlarge photo of ACP Kofi Sarpong">
                 <img src="assets/images/aseda_acp_kofi_sarpong.jpg" alt="ACP Kofi Sarpong ministering at Aseda Praise" loading="lazy">
                 <div class="m-info">
                     <h3 class="playfair">ACP Kofi Sarpong</h3>
@@ -1165,7 +1239,7 @@
                 <p class="vis-subtitle">FOUNDERS &amp; LEAD SPONSORS</p>
             </div>
 
-            <div class="vis-hero-frame reveal-scale" onclick="openLightbox('assets/images/aseda_founders.jpg')" role="button" tabindex="0" aria-label="Enlarge photo of Mr. Evans Ghartey and Mr. Frederick Lomotey">
+            <div class="vis-hero-frame reveal-scale" onclick="openMediaTheater('image', 'assets/images/aseda_founders.jpg', 'Mr. Evans Ghartey & Mr. Frederick Lomotey · Founders')" role="button" tabindex="0" aria-label="Enlarge photo of Mr. Evans Ghartey and Mr. Frederick Lomotey">
                 <img src="assets/images/aseda_founders.jpg" alt="Mr. Evans Ghartey and Mr. Frederick Lomotey on stage" loading="lazy">
             </div>
 
@@ -1188,7 +1262,7 @@
             <p class="outreach-desc">Our worship extends beyond the concert grounds. Every year, Aseda Praise carries out tangible outreach initiatives at <strong>Apinto Government Hospital</strong> in Tarkwa — renovating facilities, donating medical equipment, and providing free health screenings for the community.</p>
         </div>
         
-        <div class="video-wrapper reveal-scale">
+        <div class="video-wrapper reveal-scale" onclick="openMediaTheater('video', 'GGSFWt3NRoU', 'Dedication of Tarkwa Apinto Children's Ward')" role="button" tabindex="0" aria-label="Play Apinto Children's Ward Dedication Video">
             <iframe src="https://www.youtube.com/embed/GGSFWt3NRoU" title="Dedication of Tarkwa Apinto Children's Ward" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
 
@@ -1217,7 +1291,7 @@
 
         <div class="vid-grid reveal-scale stagger-children">
             <div>
-                <div class="thumb-card" data-video-id="1W4pLw93xqI" onclick="loadYouTubeVideo(this, '1W4pLw93xqI')" role="button" tabindex="0" aria-label="Play Massive Crowd Video">
+                <div class="thumb-card" onclick="openMediaTheater('video', '1W4pLw93xqI', 'Massive Crowd at Aseda Praise')" role="button" tabindex="0" aria-label="Play Massive Crowd Video">
                     <img src="https://img.youtube.com/vi/1W4pLw93xqI/hqdefault.jpg" alt="Massive Crowd at Aseda Praise 2026" loading="lazy">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
                 </div>
@@ -1225,7 +1299,7 @@
             </div>
 
             <div>
-                <div class="thumb-card" data-video-id="fMbN4ejx-QA" onclick="loadYouTubeVideo(this, 'fMbN4ejx-QA')" role="button" tabindex="0" aria-label="Play Arrival of Ministers Video">
+                <div class="thumb-card" onclick="openMediaTheater('video', 'fMbN4ejx-QA', 'Arrival of Ministers for Aseda Praise')" role="button" tabindex="0" aria-label="Play Arrival of Ministers Video">
                     <img src="https://img.youtube.com/vi/fMbN4ejx-QA/hqdefault.jpg" alt="Arrival of Ministers for Aseda Praise 2026" loading="lazy">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
                 </div>
@@ -1233,7 +1307,7 @@
             </div>
 
             <div>
-                <div class="thumb-card" data-video-id="2KjBHujXc70" onclick="loadYouTubeVideo(this, '2KjBHujXc70')" role="button" tabindex="0" aria-label="Play Ten Thousand Hearts Video Clip">
+                <div class="thumb-card" onclick="openMediaTheater('video', '2KjBHujXc70', 'Ten Thousand Hearts, One Voice')" role="button" tabindex="0" aria-label="Play Ten Thousand Hearts Video Clip">
                     <img src="https://img.youtube.com/vi/2KjBHujXc70/hqdefault.jpg" alt="Ten Thousand Hearts One Voice Clip" loading="lazy">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
                 </div>
@@ -1241,7 +1315,7 @@
             </div>
 
             <div>
-                <div class="thumb-card" data-video-id="WXVQr9k0ixU" onclick="loadYouTubeVideo(this, 'WXVQr9k0ixU')" role="button" tabindex="0" aria-label="Play Stage Set Video Clip">
+                <div class="thumb-card" onclick="openMediaTheater('video', 'WXVQr9k0ixU', 'The Stage is Set for Aseda Praise')" role="button" tabindex="0" aria-label="Play Stage Set Video Clip">
                     <img src="https://img.youtube.com/vi/WXVQr9k0ixU/hqdefault.jpg" alt="The Stage is Set for Aseda Praise 2026" loading="lazy">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
                 </div>
@@ -1268,10 +1342,21 @@
         </div>
     </section>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Preview" onclick="closeLightbox()">
-        <span class="lb-close" id="lb-close-btn" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</span>
-        <img id="lb-img" src="" alt="Aseda Praise celebration photograph">
+    <!-- Ultra-Sleek Interactive Media Theater Carousel Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media Theater Showcase">
+        <button class="lb-close" onclick="closeLightbox()" aria-label="Close Theater">&times;</button>
+        
+        <div class="lb-nav-btn lb-prev" onclick="stepMediaTheater(-1)" aria-label="Previous Media Item">&#10094;</div>
+        <div class="lb-nav-btn lb-next" onclick="stepMediaTheater(1)" aria-label="Next Media Item">&#10095;</div>
+
+        <div class="lb-media-stage" id="lb-media-stage">
+            <!-- Dynamically populated with active photo or video -->
+        </div>
+
+        <div class="lb-info-bar">
+            <span class="lb-caption-title" id="lb-caption-title">Media Showcase</span>
+            <span class="lb-counter" id="lb-counter">1 / 10</span>
+        </div>
     </div>
 
     <!-- Compact Minimal Footer with Curved Top Edge -->
@@ -1289,49 +1374,101 @@
         <div class="footer-copy">&copy; 2026 Aseda Praise. All rights reserved.</div>
     </footer>
 
-    <!-- JavaScript Engine -->
+    <!-- JavaScript Engine & Interactive Media Theater Carousel System -->
     <script>
-        const ASEDA_CONFIG = {
-            galleryImages: [
-                'aseda_gp_obaapa_crowd.jpg', 'aseda_gp_engagement.jpg', 'aseda_gp_yvonne.jpg',
-                'aseda_official_photo_1.jpg', 'aseda_official_photo_2.jpg', 'aseda_official_photo_3.jpg'
-            ]
-        };
+        // Interactive Master Playlist across Videos & Photography
+        const MEDIA_PLAYLIST = [
+            { type: 'video', src: '8Lu8u8ZSbog', caption: 'Aseda Praise 2026 Official Full Program Broadcast' },
+            { type: 'video', src: '1W4pLw93xqI', caption: 'Massive Crowd at Aseda Praise 2026' },
+            { type: 'video', src: 'fMbN4ejx-QA', caption: 'Arrival of Ministers for Aseda Praise 2026' },
+            { type: 'video', src: '2KjBHujXc70', caption: 'Ten Thousand Hearts, One Voice' },
+            { type: 'video', src: 'WXVQr9k0ixU', caption: 'The Stage is Set for Aseda Praise 2026' },
+            { type: 'video', src: 'GGSFWt3NRoU', caption: 'Dedication of Tarkwa Apinto Children's Ward' },
+            { type: 'image', src: 'assets/images/aseda_gp_good_shot.jpg', caption: 'Obaapa Christy · Headline Minister' },
+            { type: 'image', src: 'assets/images/aseda_joe_mettle.jpg', caption: 'Joe Mettle · Worship Leader' },
+            { type: 'image', src: 'assets/images/aseda_acp_kofi_sarpong.jpg', caption: 'ACP Kofi Sarpong · Gospel Minister' },
+            { type: 'image', src: 'assets/images/aseda_founders.jpg', caption: 'Mr. Evans Ghartey & Mr. Frederick Lomotey · Founders' },
+            { type: 'image', src: 'assets/images/aseda_gp_dancing.jpg', caption: 'Uniting Hearts in Praise & Worship · Tarkwa' },
+            { type: 'image', src: 'assets/images/aseda_gp_obaapa_crowd.jpg', caption: 'Worshippers Engaging with Obaapa Christy' },
+            { type: 'image', src: 'assets/images/aseda_gp_engagement.jpg', caption: 'Crowd Engagement & Worship Moments' },
+            { type: 'image', src: 'assets/images/aseda_gp_yvonne.jpg', caption: 'Gospel Minister Performing Live' },
+            { type: 'image', src: 'assets/images/aseda_official_photo_1.jpg', caption: 'Aseda Praise Celebration Photography' },
+            { type: 'image', src: 'assets/images/aseda_official_photo_2.jpg', caption: 'Stage Worship Atmosphere' },
+            { type: 'image', src: 'assets/images/aseda_official_photo_3.jpg', caption: 'Annual Easter Thanksgiving Moments' }
+        ];
 
-        // Render Gallery Grid with 6 Curated Photos Directly Visible
+        let activeMediaIndex = 0;
+
+        // Render Gallery Grid with Curated Photos Automatically Linked to Master Theater
         const grid = document.getElementById('gallery-grid');
+        const galleryItems = [
+            'aseda_gp_obaapa_crowd.jpg', 'aseda_gp_engagement.jpg', 'aseda_gp_yvonne.jpg',
+            'aseda_official_photo_1.jpg', 'aseda_official_photo_2.jpg', 'aseda_official_photo_3.jpg'
+        ];
+
         if (grid) {
-            ASEDA_CONFIG.galleryImages.forEach(img => {
+            galleryItems.forEach(img => {
                 const div = document.createElement('div');
                 div.className = 'gal-item';
                 div.innerHTML = `<img src="assets/images/${img}" alt="Aseda Praise celebration moment" loading="lazy">`;
-                div.addEventListener('click', () => openLightbox(`assets/images/${img}`));
+                div.addEventListener('click', () => openMediaTheater('image', `assets/images/${img}`));
                 grid.appendChild(div);
             });
         }
 
-        // Dynamic Click-to-Load YouTube Video Player Handler
-        function loadYouTubeVideo(element, videoId) {
-            element.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>`;
-            element.onclick = null;
-        }
+        // Media Theater Opening Logic with Stepper Synchronization
+        function openMediaTheater(type, src, caption = '') {
+            let foundIdx = MEDIA_PLAYLIST.findIndex(item => item.src === src || (type === 'video' && item.src === src));
+            if (foundIdx !== -1) {
+                activeMediaIndex = foundIdx;
+            } else {
+                activeMediaIndex = 0;
+            }
+            renderMediaTheater();
 
-        // Lightbox Functions
-        function openLightbox(src) {
-            document.getElementById('lb-img').src = src;
             const lb = document.getElementById('lightbox');
             lb.classList.add('open');
             lb.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
         }
+
+        function renderMediaTheater() {
+            const currentItem = MEDIA_PLAYLIST[activeMediaIndex];
+            const stage = document.getElementById('lb-media-stage');
+            const captionEl = document.getElementById('lb-caption-title');
+            const counterEl = document.getElementById('lb-counter');
+
+            if (currentItem.type === 'video') {
+                stage.innerHTML = `<iframe src="https://www.youtube.com/embed/${currentItem.src}?autoplay=1" title="${currentItem.caption}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>`;
+            } else {
+                stage.innerHTML = `<img src="${currentItem.src}" alt="${currentItem.caption}">`;
+            }
+
+            captionEl.textContent = currentItem.caption;
+            counterEl.textContent = `${activeMediaIndex + 1} / ${MEDIA_PLAYLIST.length}`;
+        }
+
+        function stepMediaTheater(direction) {
+            activeMediaIndex = (activeMediaIndex + direction + MEDIA_PLAYLIST.length) % MEDIA_PLAYLIST.length;
+            renderMediaTheater();
+        }
+
         function closeLightbox() {
             const lb = document.getElementById('lightbox');
             lb.classList.remove('open');
             lb.setAttribute('aria-hidden', 'true');
+            document.getElementById('lb-media-stage').innerHTML = ''; // Stop video playback
             document.body.style.overflow = '';
         }
+
+        // Keyboard Controls: Left/Right Arrow to Scroll, Escape to Close
         document.addEventListener('keydown', e => { 
-            if (e.key === 'Escape') closeLightbox(); 
+            const lb = document.getElementById('lightbox');
+            if (lb.classList.contains('open')) {
+                if (e.key === 'Escape') closeLightbox(); 
+                if (e.key === 'ArrowRight') stepMediaTheater(1);
+                if (e.key === 'ArrowLeft') stepMediaTheater(-1);
+            }
         });
 
         // Mobile Menu Drawer Logic & Hamburger Toggle
