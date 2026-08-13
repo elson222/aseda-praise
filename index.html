@@ -285,7 +285,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Latest Edition Section */
+        /* Latest Edition Section & Glassmorphic Cinema Player */
         .spotlight {
             background: var(--darker-navy);
             padding: 5.5rem var(--side-padding);
@@ -323,8 +323,26 @@
             border-radius: 12px; 
             overflow: hidden; 
             border: 1px solid rgba(255, 255, 255, 0.12); 
+            cursor: pointer;
+            background: #000;
         }
-        .cinema-vid iframe { width: 100%; height: 100%; }
+        .cinema-vid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .cinema-vid:hover img {
+            transform: scale(1.03);
+        }
+        .cinema-vid .play-icon {
+            width: 68px;
+            height: 68px;
+        }
+        .cinema-vid .play-icon::after {
+            border-width: 10px 0 10px 18px;
+            margin-left: 4px;
+        }
 
         /* About Section */
         .about {
@@ -977,9 +995,12 @@
                 <span class="status-meta">2026 EDITION &bull; COMPLETED</span>
             </div>
 
-            <!-- 16:9 Featured Official Broadcast -->
-            <div class="cinema-vid reveal">
-                <iframe src="https://www.youtube.com/embed/8Lu8u8ZSbog" title="Aseda Praise 2026 Official Full Program Broadcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <!-- 16:9 Featured Official Broadcast with Custom Glassmorphic Play Icon Button -->
+            <div class="cinema-vid reveal" data-video-id="8Lu8u8ZSbog" onclick="loadYouTubeVideo(this, '8Lu8u8ZSbog')" role="button" tabindex="0" aria-label="Play Aseda Praise 2026 Official Full Program Broadcast">
+                <img src="https://img.youtube.com/vi/8Lu8u8ZSbog/maxresdefault.jpg" alt="Aseda Praise 2026 Official Broadcast Poster" loading="lazy">
+                <div class="play-btn-overlay">
+                    <div class="play-icon"></div>
+                </div>
             </div>
         </div>
     </section>
