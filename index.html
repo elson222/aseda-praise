@@ -85,49 +85,22 @@
             outline-offset: 4px;
         }
 
-        /* 100% Guaranteed Active Animation System (Never Blank) */
-        @keyframes animUp {
-            from { opacity: 0; transform: translate3d(0, 32px, 0) scale(0.97); }
-            to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
-        }
-
-        @keyframes animScale {
-            from { opacity: 0; transform: scale(0.91); }
-            to   { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes animLeft {
-            from { opacity: 0; transform: translate3d(-32px, 0, 0); }
-            to   { opacity: 1; transform: translate3d(0, 0, 0); }
-        }
-
-        @keyframes animRight {
-            from { opacity: 0; transform: translate3d(32px, 0, 0); }
+        /* Hero Entrance Keyframes */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translate3d(0, 24px, 0); }
             to   { opacity: 1; transform: translate3d(0, 0, 0); }
         }
 
         @keyframes heroBgFloat {
-            0% { transform: scale(1) translate3d(0, 0, 0); }
-            50% { transform: scale(1.08) translate3d(0, -12px, 0); }
-            100% { transform: scale(1) translate3d(0, 0, 0); }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(1); }
         }
 
         @keyframes stagePulse {
-            0%, 100% { opacity: 0.8; }
+            0%, 100% { opacity: 0.82; }
             50% { opacity: 1; }
         }
-
-        .reveal-up { animation: animUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .reveal-scale { animation: animScale 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .reveal-left { animation: animLeft 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .reveal-right { animation: animRight 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-
-        /* Staggered Cascading Children Animations */
-        .stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
-        .stagger-children > *:nth-child(2) { animation-delay: 0.15s; }
-        .stagger-children > *:nth-child(3) { animation-delay: 0.25s; }
-        .stagger-children > *:nth-child(4) { animation-delay: 0.35s; }
-        .stagger-children > *:nth-child(5) { animation-delay: 0.45s; }
 
         /* Header Navigation — Translucent Frosted Glass */
         nav {
@@ -230,7 +203,7 @@
             z-index: 2; 
             max-width: 850px; 
             margin-top: -3.5rem;
-            animation: animUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
         .hero-badge-tag {
@@ -273,7 +246,7 @@
             justify-content: flex-start;
             align-items: flex-end;
             pointer-events: none;
-            animation: animUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: heroFadeUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .hero-bottom-info {
@@ -317,7 +290,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Seamless Continuous Sections without Line Breaks */
+        /* 100% Guaranteed Visible Sections without Line Breaks */
         .spotlight {
             background: linear-gradient(to bottom, #0d1040 0%, #0a0d33 100%);
             padding: 4.5rem var(--side-padding) 5.5rem;
@@ -358,6 +331,11 @@
             cursor: pointer;
             background: #000;
             touch-action: manipulation;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .cinema-vid:hover {
+            transform: translateY(-4px) scale(1.01);
+            border-color: rgba(229, 82, 42, 0.5);
         }
         .cinema-vid img {
             width: 100%;
@@ -1136,7 +1114,7 @@
     <!-- Latest Edition & Understated Completed Status Metadata directly beneath description -->
     <section class="spotlight" id="latest-edition">
         <div class="spotlight-container">
-            <div class="reveal-up">
+            <div>
                 <span class="chapter-badge">LATEST EDITION</span>
                 <h2 class="playfair">Aseda Praise 2026</h2>
                 <p class="spotlight-desc">Five years of gratitude, worship and community.</p>
@@ -1144,7 +1122,7 @@
             </div>
 
             <!-- 16:9 Featured Official Broadcast with Custom Glassmorphic Play Icon Button -->
-            <div class="cinema-vid reveal-scale" onclick="openMediaTheater('video', '8Lu8u8ZSbog', 'Aseda Praise 2026 Official Full Broadcast')" role="button" tabindex="0" aria-label="Play Aseda Praise 2026 Official Full Program Broadcast">
+            <div class="cinema-vid" onclick="openMediaTheater('video', '8Lu8u8ZSbog', 'Aseda Praise 2026 Official Full Broadcast')" role="button" tabindex="0" aria-label="Play Aseda Praise 2026 Official Full Program Broadcast">
                 <img src="https://img.youtube.com/vi/8Lu8u8ZSbog/hqdefault.jpg" alt="Aseda Praise 2026 Official Broadcast Poster" loading="lazy">
                 <div class="play-btn-overlay">
                     <div class="play-icon"></div>
@@ -1156,13 +1134,13 @@
     <!-- About Section with Curved Top Edge Overlapping Spotlight Section -->
     <section class="about" id="about">
         <div class="about-container">
-            <div class="about-header reveal-up">
+            <div class="about-header">
                 <span class="chapter-badge">OUR STORY</span>
                 <h2>Five Years of Gratitude</h2>
             </div>
             
             <div class="about-grid">
-                <div class="about-main reveal-left">
+                <div class="about-main">
                     <p class="lead-p">
                         For five years, Aseda Praise has brought thousands together in Tarkwa each Easter for worship, thanksgiving and community.
                     </p>
@@ -1176,7 +1154,7 @@
                     </p>
                 </div>
 
-                <div class="about-stats-grid reveal-right stagger-children">
+                <div class="about-stats-grid">
                     <div class="stat-card">
                         <span class="stat-num">10,000+</span>
                         <div class="stat-meta">
@@ -1201,7 +1179,7 @@
                 </div>
             </div>
 
-            <div class="about-banner reveal-scale" onclick="openMediaTheater('image', 'assets/images/aseda_gp_dancing.jpg', 'Uniting Hearts in Praise & Worship · Tarkwa')" role="button" tabindex="0" aria-label="Enlarge image of Aseda Praise Worshippers">
+            <div class="about-banner" onclick="openMediaTheater('image', 'assets/images/aseda_gp_dancing.jpg', 'Uniting Hearts in Praise & Worship · Tarkwa')" role="button" tabindex="0" aria-label="Enlarge image of Aseda Praise Worshippers">
                 <img src="assets/images/aseda_gp_dancing.jpg" alt="Aseda Praise Worshippers in Tarkwa" loading="lazy">
                 <div class="banner-caption">
                     <span class="caption-tag">TARKWA, WESTERN REGION</span>
@@ -1213,12 +1191,12 @@
 
     <!-- Gospel Ministers Section with Curved Top Edge & Smooth Color Bleed -->
     <section class="ministers" id="ministers">
-        <div class="reveal-up">
+        <div>
             <span class="chapter-badge">ANOINTED VOICES</span>
             <h2>Gospel Ministers</h2>
         </div>
 
-        <div class="minister-grid reveal-scale stagger-children" id="minister-carousel">
+        <div class="minister-grid" id="minister-carousel">
             <div class="m-card" onclick="openMediaTheater('image', 'assets/images/aseda_gp_good_shot.jpg', 'Obaapa Christy · Headline Minister')" role="button" tabindex="0" aria-label="Enlarge photo of Obaapa Christy">
                 <img src="assets/images/aseda_gp_good_shot.jpg" alt="Obaapa Christy performing on stage at Aseda Praise" loading="lazy">
                 <div class="m-info">
@@ -1253,21 +1231,21 @@
     <!-- Visionaries Section with Curved Top Edge -->
     <section class="visionaries" id="founders">
         <div class="vis-container">
-            <div class="reveal-up">
+            <div>
                 <span class="chapter-badge">THE VISIONARIES</span>
                 <h2>Evans Ghartey &amp; Frederick Lomotey</h2>
                 <p class="vis-subtitle">FOUNDERS &amp; LEAD SPONSORS</p>
             </div>
 
-            <div class="vis-hero-frame reveal-scale" onclick="openMediaTheater('image', 'assets/images/aseda_founders.jpg', 'Mr. Evans Ghartey & Mr. Frederick Lomotey · Founders')" role="button" tabindex="0" aria-label="Enlarge photo of Mr. Evans Ghartey and Mr. Frederick Lomotey">
+            <div class="vis-hero-frame" onclick="openMediaTheater('image', 'assets/images/aseda_founders.jpg', 'Mr. Evans Ghartey & Mr. Frederick Lomotey · Founders')" role="button" tabindex="0" aria-label="Enlarge photo of Mr. Evans Ghartey and Mr. Frederick Lomotey">
                 <img src="assets/images/aseda_founders.jpg" alt="Mr. Evans Ghartey and Mr. Frederick Lomotey on stage" loading="lazy">
             </div>
 
-            <div class="vis-body-text reveal-up">
+            <div class="vis-body-text">
                 <p>Driven by a shared vision to impact their community through faith and action, our founders established Aseda Praise as a beacon of hope and gratitude in the Western Region.</p>
             </div>
 
-            <div class="vis-quote reveal-up">
+            <div class="vis-quote">
                 <p>"Aseda Praise was never about a concert. It was always about saying thank you."</p>
                 <div class="vis-quote-author">— EVANS GHARTEY &amp; FREDERICK LOMOTEY</div>
             </div>
@@ -1276,17 +1254,17 @@
 
     <!-- Outreach Section with Curved Top Edge -->
     <section class="outreach" id="impact">
-        <div class="reveal-up">
+        <div>
             <span class="chapter-badge">FAITH IN ACTION</span>
             <h2>Community Outreach</h2>
             <p class="outreach-desc">Our worship extends beyond the concert grounds. Every year, Aseda Praise carries out tangible outreach initiatives at <strong>Apinto Government Hospital</strong> in Tarkwa — renovating facilities, donating medical equipment, and providing free health screenings for the community.</p>
         </div>
         
-        <div class="video-wrapper reveal-scale" onclick="openMediaTheater('video', 'GGSFWt3NRoU', 'Dedication of Tarkwa Apinto Children's Ward')" role="button" tabindex="0" aria-label="Play Apinto Children's Ward Dedication Video">
+        <div class="video-wrapper" onclick="openMediaTheater('video', 'GGSFWt3NRoU', 'Dedication of Tarkwa Apinto Children's Ward')" role="button" tabindex="0" aria-label="Play Apinto Children's Ward Dedication Video">
             <iframe src="https://www.youtube.com/embed/GGSFWt3NRoU" title="Dedication of Tarkwa Apinto Children's Ward" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
 
-        <div class="impact-list reveal-up stagger-children">
+        <div class="impact-list">
             <div class="impact-item">
                 <span class="impact-num">01</span>
                 <span class="impact-text">Children's Ward Renovation</span>
@@ -1304,12 +1282,12 @@
 
     <!-- Media Hub with Curved Top Edge -->
     <section class="main-video" id="media">
-        <div class="reveal-up">
+        <div>
             <span class="chapter-badge">MEDIA HUB</span>
             <h2>Highlights &amp; Video Clips</h2>
         </div>
 
-        <div class="vid-grid reveal-scale stagger-children">
+        <div class="vid-grid">
             <div>
                 <div class="thumb-card" onclick="openMediaTheater('video', '1W4pLw93xqI', 'Massive Crowd at Aseda Praise')" role="button" tabindex="0" aria-label="Play Massive Crowd Video">
                     <img src="https://img.youtube.com/vi/1W4pLw93xqI/hqdefault.jpg" alt="Massive Crowd at Aseda Praise 2026" loading="lazy">
@@ -1346,18 +1324,18 @@
 
     <!-- Memories / Gallery Section with Curved Top Edge -->
     <section class="gallery" id="gallery">
-        <div class="gallery-header reveal-up">
+        <div class="gallery-header">
             <div>
                 <span class="chapter-badge">MEMORIES</span>
                 <h2 class="playfair" style="margin: 0;">Ten Thousand Hearts</h2>
             </div>
         </div>
         
-        <div class="masonry reveal-scale stagger-children" id="gallery-grid">
+        <div class="masonry" id="gallery-grid">
             <!-- Injected via JavaScript -->
         </div>
 
-        <div class="gallery-album-container reveal-up">
+        <div class="gallery-album-container">
             <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-link">View full album &rarr;</a>
         </div>
     </section>
@@ -1380,7 +1358,7 @@
     </div>
 
     <!-- Compact Minimal Footer -->
-    <footer class="reveal-up">
+    <footer>
         <div class="footer-brand">Aseda Praise</div>
         <div class="footer-location">Tarkwa &bull; Western Region &bull; Ghana</div>
 
