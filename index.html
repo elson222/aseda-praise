@@ -22,11 +22,16 @@
     <meta name="twitter:image" content="https://elson222.github.io/aseda-praise/assets/images/aseda_stage_obaapa_christy.jpg">
 
     <link rel="canonical" href="https://elson222.github.io/aseda-praise/">
+    
+    <!-- Technical: Preload Hero Photography Above the Fold -->
+    <link rel="preload" as="image" href="assets/images/aseda_stage_obaapa_christy.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
     <style>
+        /* CSS System Variables */
         :root {
             --navy: #1B2070;
             --orange-red: #E5522A;
@@ -38,10 +43,16 @@
             --card-bg: rgba(255, 255, 255, 0.04);
             --border-color: rgba(255, 255, 255, 0.1);
             --side-padding: 6vw;
+
+            /* Sophisticated Mobile & Desktop Typography Scale */
+            --font-hero: clamp(2.7rem, 9.5vw, 6.8rem);
+            --font-title: clamp(1.9rem, 5vw, 3.8rem);
+            --font-body: 1rem;
+            --font-eyebrow: 0.75rem;
+            --font-support: 0.9rem;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         html { scroll-behavior: smooth; }
 
         body {
@@ -57,7 +68,7 @@
         .bebas { font-family: 'Bebas Neue', sans-serif; }
         .bronze { color: var(--bronze); }
         .orange { color: var(--orange-red); }
-        
+
         /* Focus Rings for Accessibility */
         a:focus-visible, button:focus-visible {
             outline: 2px solid var(--bronze);
@@ -75,7 +86,7 @@
             transform: translateY(0);
         }
 
-        /* Point 4: Tiny, Floating Mobile Header (Transparent initially, subtle blur on scroll) */
+        /* Header Navigation — Tiny, Floating, Eager Logo */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
             padding: 1.2rem var(--side-padding);
@@ -96,7 +107,7 @@
         .nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--bronze); }
 
-        /* Point 4 & 5: Quiet Hamburger & Elegant Mobile Menu */
+        /* Quiet Hamburger & Elegant Mobile Menu Drawer */
         .hamburger {
             display: none;
             background: none;
@@ -136,7 +147,7 @@
         }
         .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
-        /* Points 1, 2, 3: Pure Mobile Hero (88dvh peak, 68% focal crop, poster typography) */
+        /* Art-Directed Poster Hero (88dvh peak, 68% crop) */
         .hero {
             height: 88vh; height: 88dvh; min-height: 540px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
@@ -151,7 +162,7 @@
         }
         .hero-content { position: relative; z-index: 2; max-width: 900px; margin-top: 2rem; }
         .hero-overline { 
-            font-size: 0.8rem; 
+            font-size: var(--font-eyebrow); 
             letter-spacing: 3.5px; 
             font-weight: 600; 
             margin-bottom: 1.5rem; 
@@ -162,7 +173,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 8.5vw, 6.8rem);
+            font-size: var(--font-hero);
             line-height: 1.0;
             font-style: italic;
             margin-bottom: 0;
@@ -178,27 +189,25 @@
         }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-12px);} 60% {transform: translateY(-6px);} }
 
-        /* Section Components */
+        /* Clean Eyebrow Badges (Pill-Free, Number-Free) */
         .chapter-badge {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 2.5px;
             color: var(--orange-red);
-            background: rgba(229, 82, 42, 0.08);
-            padding: 0.35rem 0.9rem;
-            border-radius: 50px;
             display: inline-block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
-        /* Points 7 & 8: Latest Edition & Quick Broadcast Section */
+        /* Latest Edition & Featured Broadcast */
         .spotlight {
             background: var(--darker-navy);
-            padding: 4rem var(--side-padding);
+            padding: 4.5rem var(--side-padding);
             position: relative;
             border-bottom: 1px solid var(--border-color);
         }
         .spotlight-container { max-width: 1280px; margin: 0 auto; }
+        .spotlight h2 { font-size: var(--font-title); color: white; }
         
         .cinema-vid { 
             width: 100%; 
@@ -221,7 +230,7 @@
         }
         .about-container { max-width: 1280px; margin: 0 auto; }
         .about-header h2 {
-            font-size: clamp(2.1rem, 5vw, 4rem);
+            font-size: var(--font-title);
             color: var(--navy);
             font-family: 'Playfair Display', serif;
             margin-bottom: 2rem;
@@ -242,7 +251,7 @@
             margin-bottom: 1.2rem;
         }
         .body-p {
-            font-size: 0.98rem;
+            font-size: var(--font-body);
             line-height: 1.65;
             color: rgba(27, 32, 112, 0.85);
         }
@@ -334,9 +343,9 @@
             font-style: italic;
         }
 
-        /* Point 10: Gospel Ministers Section (Desktop Grid, Mobile Horizontal Carousel) */
+        /* Gospel Ministers Section (Desktop Grid, Mobile Horizontal Carousel) */
         .ministers { background: var(--dark); padding: 4.5rem var(--side-padding); }
-        .ministers h2 { font-size: clamp(2.1rem, 5vw, 4rem); font-style: italic; margin-bottom: 2rem; }
+        .ministers h2 { font-size: var(--font-title); font-style: italic; margin-bottom: 2rem; color: white; }
         .minister-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
         .m-card { position: relative; aspect-ratio: 3/4; overflow: hidden; background: #111; border-radius: 12px; }
         .m-card img { width: 100%; height: 100%; object-fit: cover; }
@@ -346,7 +355,7 @@
         .m-info p { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
         .card-headliner { grid-column: 1 / -1; aspect-ratio: auto; height: 55vh; max-height: 460px; }
 
-        /* Points 11 & 12: Visionaries Section (Pill-Free, Clean & Editorial) */
+        /* Visionaries Section (Pill-Free & Editorial) */
         .visionaries {
             background: #0b0e28;
             padding: 4.5rem var(--side-padding);
@@ -354,6 +363,7 @@
             position: relative;
         }
         .vis-container { max-width: 1280px; margin: 0 auto; }
+        .vis-container h2 { font-size: var(--font-title); color: white; }
         
         .vis-hero-frame {
             position: relative;
@@ -404,7 +414,7 @@
             margin-bottom: 1.5rem;
         }
         .vis-story-card p {
-            font-size: 1rem;
+            font-size: var(--font-body);
             line-height: 1.7;
             color: rgba(255, 255, 255, 0.85);
             margin: 0;
@@ -431,15 +441,15 @@
             margin-top: 0.5rem;
         }
 
-        /* Point 13: Outreach / Impact Section (Pill-Free Editorial Numbered List) */
+        /* Outreach / Impact Section (Pill-Free Editorial Numbered List) */
         .outreach { background: var(--darker-navy); padding: 4.5rem var(--side-padding); text-align: center; }
-        .outreach h2 { font-size: clamp(2.1rem, 5vw, 4rem); margin-bottom: 1.2rem; }
-        .outreach-desc { max-width: 620px; margin: 0 auto 2rem; font-size: 1.02rem; line-height: 1.65; color: rgba(255,255,255,0.85); }
+        .outreach h2 { font-size: var(--font-title); color: white; margin-bottom: 1.2rem; }
+        .outreach-desc { max-width: 620px; margin: 0 auto 2rem; font-size: var(--font-body); line-height: 1.65; color: rgba(255,255,255,0.85); }
         .video-wrapper { width: 80%; margin: 0 auto 2.5rem; position: relative; padding-bottom: 45%; height: 0; box-shadow: 0 0 35px rgba(229,82,42,0.25); border: 1px solid rgba(229,82,42,0.3); border-radius: 12px; overflow: hidden; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         
         .impact-list {
-            max-width: 500px;
+            max-width: 480px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -462,15 +472,17 @@
             min-width: 25px;
         }
         .impact-text {
-            font-size: 0.92rem;
+            font-size: var(--font-support);
             font-weight: 500;
             letter-spacing: 0.5px;
             color: white;
         }
 
-        /* Point 9: Media Hub with Interactive Thumbnail Cards */
+        /* Media Hub with Dynamic Click-to-Load YouTube iFrames */
         .main-video { background: var(--dark); padding: 4.5rem var(--side-padding); }
+        .main-video h2 { font-size: var(--font-title); color: white; margin-bottom: 1.8rem; }
         .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        
         .thumb-card {
             aspect-ratio: 16/9;
             position: relative;
@@ -479,7 +491,6 @@
             border: 1px solid var(--border-color);
             background: #111;
             cursor: pointer;
-            text-decoration: none;
             display: block;
         }
         .thumb-card img {
@@ -511,16 +522,31 @@
         }
         .thumb-caption {
             margin-top: 0.6rem;
-            font-size: 0.9rem;
+            font-size: var(--font-support);
             font-weight: 500;
             color: rgba(255,255,255,0.9);
         }
 
-        /* Point 14: Gallery (2-column compact grid on mobile) */
+        /* Gallery (2-Column Mobile Masonry & Simple Link) */
         .gallery { background: var(--darkest); padding: 4.5rem var(--side-padding); }
+        .gallery h2 { font-size: var(--font-title); color: white; }
         .masonry { column-count: 3; column-gap: 1.2rem; }
         .gal-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; }
         .gal-item img { width: 100%; display: block; }
+
+        /* Point 15: Compact Album Text Link */
+        .gallery-album-link {
+            color: var(--bronze);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
+        }
+        .gallery-album-link:hover {
+            color: var(--orange-red);
+        }
 
         /* Lightbox */
         .lightbox {
@@ -548,83 +574,40 @@
         }
         .lb-close:hover { opacity: 1; }
 
-        /* Gallery Album Button */
-        .gallery-album-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: rgba(201, 160, 80, 0.12);
-            color: var(--bronze);
-            border: 1px solid var(--bronze);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .gallery-album-btn:hover {
-            background: var(--bronze);
-            color: var(--dark);
-            transform: translateY(-2px);
-        }
-
-        /* Contact & Connect */
-        .contact-section {
-            background: var(--darker-navy);
-            padding: 4.5rem var(--side-padding);
-            border-top: 1px solid var(--border-color);
+        /* Point 26: Compact Minimal Footer & Social Links */
+        footer {
+            background: var(--dark);
+            padding: 3.5rem var(--side-padding) 2.5rem;
             text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.88rem;
+            border-top: 1px solid var(--border-color);
         }
-        .contact-box {
-            max-width: 650px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2.2rem 1.4rem;
-            border-radius: 16px;
-        }
-
-        /* Social Links Strip with SVG Icons */
-        .social-strip {
-            background: var(--navy);
+        footer img { width: 44px; margin-bottom: 0.8rem; border-radius: 50%; }
+        .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white; margin-bottom: 0.3rem; }
+        .footer-tagline { color: var(--bronze); font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; font-size: 1rem; margin-bottom: 0.3rem; }
+        .footer-location { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; }
+        
+        .footer-socials {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 3rem;
-            padding: 3.5rem var(--side-padding);
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
             flex-wrap: wrap;
         }
-        .social-link-item {
+        .footer-socials a {
             color: white;
             text-decoration: none;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
         }
-        .social-link-item:hover {
-            color: var(--bronze);
-            transform: translateY(-2px);
-        }
-        .social-link-item svg {
-            width: 30px;
-            height: 30px;
-            fill: currentColor;
-            flex-shrink: 0;
-        }
+        .footer-socials a:hover { color: var(--orange-red); }
 
-        footer { background: var(--dark); padding: 3rem var(--side-padding); text-align: center; color: rgba(255,255,255,0.5); font-size: 0.88rem; border-top: 1px solid var(--border-color); }
-        footer img { width: 48px; margin-bottom: 0.8rem; border-radius: 50%; }
-        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1rem 0; flex-wrap: wrap; }
-        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; padding: 0.4rem; }
-        .footer-links a:hover { color: white; }
+        .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; max-width: 600px; margin: 0 auto; }
 
-        /* Media Queries for Desktop & Mobile Sizing */
+        /* Consolidated Media Queries for Tablet & Mobile */
         @media(min-width: 769px) {
             .hero-overline {
                 flex-direction: row;
@@ -639,18 +622,16 @@
 
         @media(max-width: 1024px) {
             .masonry { column-count: 2; }
-            .social-strip { gap: 2.2rem; }
         }
 
         @media(max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
-            .hero h1 { font-size: clamp(2.5rem, 9.5vw, 4rem); line-height: 1.02; }
 
             .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
             .about-banner { height: 240px; }
             
-            /* Point 10: Ministers Mobile Horizontal Carousel */
+            /* Point 10: Ministers Mobile Horizontal Swipe Carousel */
             .minister-grid {
                 display: flex;
                 overflow-x: auto;
@@ -662,16 +643,16 @@
             .m-card {
                 flex: 0 0 82vw;
                 scroll-snap-align: start;
-                height: 400px;
+                height: 380px;
                 aspect-ratio: auto;
             }
             .card-headliner {
                 flex: 0 0 82vw;
-                height: 400px;
+                height: 380px;
             }
 
             /* Visionaries Mobile Frame */
-            .vis-hero-frame { height: 260px; margin: 1.4rem 0; border-radius: 14px; }
+            .vis-hero-frame { height: 250px; margin: 1.2rem 0; border-radius: 14px; }
             .vis-hero-overlay { padding: 1.2rem 1rem 0.8rem; }
             .vis-hero-overlay h3 { font-size: 1.25rem; line-height: 1.25; }
             .vis-hero-overlay p { font-size: 0.78rem; letter-spacing: 2px; }
@@ -681,19 +662,13 @@
             .gal-item { margin-bottom: 0.8rem; }
 
             .video-wrapper { width: 100%; padding-bottom: 56.25%; margin-bottom: 1.8rem; }
-            .gallery-album-btn { width: 100%; justify-content: center; padding: 0.85rem 1.2rem; text-align: center; }
-            
-            .social-strip { gap: 1.4rem; flex-direction: column; align-items: center; padding: 2.8rem var(--side-padding); }
-            .social-link-item { font-size: 1.65rem; }
-            .social-link-item svg { width: 26px; height: 26px; }
         }
 
         @media(max-width: 480px) {
-            .hero h1 { font-size: 2.4rem; }
             .hero-content { margin-top: 1.5rem; }
             .stat-card { padding: 1rem; flex-direction: row; gap: 0.9rem; }
             .stat-num { font-size: 2.3rem; min-width: 75px; }
-            .vis-hero-frame { height: 240px; }
+            .vis-hero-frame { height: 230px; }
             .banner-caption { padding: 1rem 1.2rem; }
             .banner-caption .caption-title { font-size: 1.15rem; }
         }
@@ -742,10 +717,10 @@
 </head>
 <body>
 
-    <!-- Header Navigation — Tiny, Floating, Quiet -->
+    <!-- Header Navigation — Eager Eager Logo, Floating, Quiet -->
     <nav id="navbar" aria-label="Main Navigation">
         <a href="#" class="logo-area" aria-label="Aseda Praise Home">
-            <img src="assets/images/aseda_official_logo.png" alt="Aseda Praise Official Logo" loading="lazy">
+            <img src="assets/images/aseda_official_logo.png" alt="Aseda Praise Official Logo">
             <span>ASEDA PRAISE</span>
         </a>
         
@@ -762,7 +737,7 @@
         </button>
     </nav>
 
-    <!-- Mobile Drawer Overlay (Quiet & Elegant Typography) -->
+    <!-- Quiet & Concise Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
         <a href="#home" onclick="closeMobileMenu()">Home</a>
         <a href="#about" onclick="closeMobileMenu()">About</a>
@@ -772,7 +747,7 @@
         <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
     </div>
 
-    <!-- Points 1-3: Art-Directed Mobile Hero (88dvh peak, 68% crop, pure poster) -->
+    <!-- Art-Directed Poster Hero (88dvh peak, 68% crop) -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
@@ -793,13 +768,13 @@
         </div>
     </section>
 
-    <!-- Points 7 & 8: Latest Edition & Featured Broadcast -->
+    <!-- Latest Edition & Featured Broadcast -->
     <section class="spotlight" id="latest-edition">
         <div class="spotlight-container">
             <div class="reveal">
                 <span class="chapter-badge">LATEST EDITION</span>
-                <h2 class="playfair" style="font-size: clamp(2rem, 4vw, 3.5rem); color: white;">Aseda Praise 2026</h2>
-                <p style="max-width: 600px; color: rgba(255,255,255,0.8); font-size: 1.02rem; margin-top: 0.4rem;">
+                <h2 class="playfair">Aseda Praise 2026</h2>
+                <p style="max-width: 600px; color: rgba(255,255,255,0.8); font-size: var(--font-body); margin-top: 0.4rem;">
                     Five years of gratitude, worship and community.
                 </p>
             </div>
@@ -860,11 +835,11 @@
         </div>
     </section>
 
-    <!-- Point 10: Ministers Section (Horizontal Swipe Carousel on Mobile) -->
+    <!-- Gospel Ministers Section (Horizontal Swipe Carousel on Mobile) -->
     <section class="ministers" id="ministers">
         <div class="reveal">
             <span class="chapter-badge">GOSPEL MINISTERS</span>
-            <h2 class="playfair" style="color: white;">Anointed Voices</h2>
+            <h2>Anointed Voices</h2>
         </div>
 
         <div class="minister-grid reveal">
@@ -892,12 +867,12 @@
         </div>
     </section>
 
-    <!-- Points 11 & 12: Visionaries Section (Clean, Pill-Free Editorial) -->
+    <!-- Visionaries Section (Clean, Pill-Free Editorial) -->
     <section class="visionaries" id="founders">
         <div class="vis-container">
             <div class="reveal">
                 <span class="chapter-badge">THE VISIONARIES</span>
-                <h2 class="playfair" style="font-size: clamp(2.1rem, 5vw, 4rem); color: white;">Evans Ghartey &amp; Frederick Lomotey</h2>
+                <h2>Evans Ghartey &amp; Frederick Lomotey</h2>
                 <p style="color: var(--bronze); font-family:'Bebas Neue',sans-serif; letter-spacing:2px; font-size:1.1rem; margin-top:0.2rem;">FOUNDERS &amp; LEAD SPONSORS</p>
             </div>
 
@@ -922,11 +897,11 @@
         </div>
     </section>
 
-    <!-- Point 13: Outreach Section (Visual Editorial Numbered List, Pill-Free) -->
+    <!-- Outreach Section (Visual Editorial Numbered List, Pill-Free) -->
     <section class="outreach" id="impact">
         <div class="reveal">
             <span class="chapter-badge">FAITH IN ACTION</span>
-            <h2 class="playfair" style="color:white;">Community Outreach</h2>
+            <h2>Community Outreach</h2>
             <p class="outreach-desc">Our worship extends beyond the concert grounds. Every year, Aseda Praise partners with local institutions like the Apinto Government Hospital to bring tangible healing and hope to the community.</p>
         </div>
         
@@ -954,56 +929,56 @@
         </div>
     </section>
 
-    <!-- Point 9: Media Hub (YouTube Thumbnail Cards for High Performance) -->
+    <!-- Media Hub (Dynamic Click-to-Load YouTube iFrames) -->
     <section class="main-video" id="media">
         <div class="reveal">
             <span class="chapter-badge">MEDIA HUB</span>
-            <h2 class="playfair" style="font-size: clamp(2.1rem, 4vw, 3.8rem); color: white; margin-bottom: 1.8rem;">Highlights & Video Clips</h2>
+            <h2>Highlights &amp; Video Clips</h2>
         </div>
 
         <div class="vid-grid reveal">
             <div>
-                <a href="https://www.youtube.com/watch?v=1W4pLw93xqI" target="_blank" rel="noopener" class="thumb-card" aria-label="Watch Massive Crowd Video">
+                <div class="thumb-card" data-video-id="1W4pLw93xqI" onclick="loadYouTubeVideo(this, '1W4pLw93xqI')" role="button" tabindex="0" aria-label="Play Massive Crowd Video">
                     <img src="https://img.youtube.com/vi/1W4pLw93xqI/hqdefault.jpg" alt="Massive Crowd at Aseda Praise 2026" loading="lazy">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
-                </a>
+                </div>
                 <div class="thumb-caption">Massive Crowd at Aseda Praise</div>
             </div>
 
             <div>
-                <a href="https://www.youtube.com/watch?v=fMbN4ejx-QA" target="_blank" rel="noopener" class="thumb-card" aria-label="Watch Arrival of Ministers Video">
+                <div class="thumb-card" data-video-id="fMbN4ejx-QA" onclick="loadYouTubeVideo(this, 'fMbN4ejx-QA')" role="button" tabindex="0" aria-label="Play Arrival of Ministers Video">
                     <img src="https://img.youtube.com/vi/fMbN4ejx-QA/hqdefault.jpg" alt="Arrival of Ministers for Aseda Praise 2026" loading="lazy">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
-                </a>
+                </div>
                 <div class="thumb-caption">Arrival of Ministers</div>
             </div>
 
             <div>
-                <a href="https://www.youtube.com/watch?v=2KjBHujXc70" target="_blank" rel="noopener" class="thumb-card" aria-label="Watch Ten Thousand Hearts Video Clip">
+                <div class="thumb-card" data-video-id="2KjBHujXc70" onclick="loadYouTubeVideo(this, '2KjBHujXc70')" role="button" tabindex="0" aria-label="Play Ten Thousand Hearts Video Clip">
                     <img src="https://img.youtube.com/vi/2KjBHujXc70/hqdefault.jpg" alt="Ten Thousand Hearts One Voice Clip" loading="lazy">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
-                </a>
+                </div>
                 <div class="thumb-caption">Ten Thousand Hearts, One Voice</div>
             </div>
 
             <div>
-                <a href="https://www.youtube.com/watch?v=WXVQr9k0ixU" target="_blank" rel="noopener" class="thumb-card" aria-label="Watch Stage Set Video Clip">
+                <div class="thumb-card" data-video-id="WXVQr9k0ixU" onclick="loadYouTubeVideo(this, 'WXVQr9k0ixU')" role="button" tabindex="0" aria-label="Play Stage Set Video Clip">
                     <img src="https://img.youtube.com/vi/WXVQr9k0ixU/hqdefault.jpg" alt="The Stage is Set for Aseda Praise 2026" loading="lazy">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
-                </a>
+                </div>
                 <div class="thumb-caption">The Stage is Set</div>
             </div>
         </div>
     </section>
 
-    <!-- Point 14: Gallery Section (2-Column Compact Mobile Grid) -->
+    <!-- Gallery Section (2-Column Mobile Masonry & Compact Album Link) -->
     <section class="gallery" id="gallery">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2rem;">
             <div>
                 <span class="chapter-badge">MEMORIES</span>
-                <h2 class="playfair reveal" style="margin: 0; font-size: clamp(2.1rem, 4vw, 3.8rem); color: white;">Ten Thousand Hearts</h2>
+                <h2 class="playfair reveal" style="margin: 0;">Ten Thousand Hearts</h2>
             </div>
-            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-btn reveal">View Full 2026 Google Album &rarr;</a>
+            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="gallery-album-link reveal">View full album &rarr;</a>
         </div>
         
         <div class="masonry reveal" id="gallery-grid">
@@ -1017,61 +992,23 @@
         <img id="lb-img" src="" alt="Aseda Praise celebration photograph">
     </div>
 
-    <!-- Contact & Connect Section -->
-    <section class="contact-section" id="contact">
-        <div class="contact-box reveal">
-            <span class="chapter-badge">CONNECT WITH US</span>
-            <h2 class="playfair" style="color: white; font-size: 2rem; margin-bottom: 0.8rem;">Aseda Praise Official</h2>
-            <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.2rem;">
-                Tarkwa &bull; Western Region &bull; Ghana
-            </p>
-            <p style="color: var(--bronze); font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px;">
-                ANNUAL EASTER GOSPEL THANKSGIVING PROGRAMME
-            </p>
-        </div>
-    </section>
-
-    <!-- Social Links Strip with SVG Icons -->
-    <div class="social-strip">
-        <a href="https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA" target="_blank" rel="noopener" class="social-link-item" aria-label="Official YouTube Channel">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            <span>YOUTUBE</span>
-        </a>
-        <a href="https://www.instagram.com/aseda.praise/" target="_blank" rel="noopener" class="social-link-item" aria-label="Official Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            <span>INSTAGRAM</span>
-        </a>
-        <a href="https://www.facebook.com/asedapraisetarkwa/" target="_blank" rel="noopener" class="social-link-item" aria-label="Official Facebook Page">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            <span>FACEBOOK</span>
-        </a>
-        <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener" class="social-link-item" aria-label="Official Google Photos Album">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/></svg>
-            <span>GOOGLE ALBUM</span>
-        </a>
-    </div>
-
-    <!-- Footer -->
+    <!-- Compact Minimal Footer -->
     <footer>
-        <img src="assets/images/aseda_official_logo.png" alt="Aseda Praise Logo" loading="lazy"><br>
-        <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: white; margin-bottom: 0.5rem;">Aseda Praise</div>
-        <p style="color: var(--bronze); font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; margin-bottom: 1rem;">TEN THOUSAND HEARTS, ONE VOICE</p>
+        <div class="footer-brand">Aseda Praise</div>
+        <div class="footer-tagline">TEN THOUSAND HEARTS, ONE VOICE</div>
+        <div class="footer-location">Tarkwa &bull; Western Region &bull; Ghana</div>
 
-        <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#ministers">Ministers</a>
-            <a href="#impact">Impact</a>
-            <a href="#media">Media</a>
-            <a href="#gallery">Gallery</a>
+        <div class="footer-socials">
+            <a href="https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA" target="_blank" rel="noopener">YouTube</a> &bull;
+            <a href="https://www.instagram.com/aseda.praise/" target="_blank" rel="noopener">Instagram</a> &bull;
+            <a href="https://www.facebook.com/asedapraisetarkwa/" target="_blank" rel="noopener">Facebook</a> &bull;
+            <a href="https://photos.app.goo.gl/xn1EABDmveX4TNsQ9" target="_blank" rel="noopener">Google Album</a>
         </div>
 
-        <div style="margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.4);">
-            &copy; 2026 Aseda Praise. All rights reserved. &bull; Tarkwa, Western Region, Ghana
-        </div>
+        <div class="footer-copy">&copy; 2026 Aseda Praise. All rights reserved.</div>
     </footer>
 
-    <!-- JavaScript Data Engine & Logic -->
+    <!-- JavaScript Engine -->
     <script>
         const ASEDA_CONFIG = {
             galleryImages: [
@@ -1100,6 +1037,12 @@
                 div.addEventListener('click', () => openLightbox(`assets/images/${img}`));
                 grid.appendChild(div);
             });
+        }
+
+        // Dynamic Click-to-Load YouTube Video Player Handler
+        function loadYouTubeVideo(element, videoId) {
+            element.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>`;
+            element.onclick = null;
         }
 
         // Lightbox Functions
