@@ -214,7 +214,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Fix 1: Latest Edition Section & Understated Status Metadata */
+        /* Latest Edition Section */
         .spotlight {
             background: var(--darker-navy);
             padding: 5rem var(--side-padding);
@@ -243,7 +243,7 @@
         }
         .cinema-vid iframe { width: 100%; height: 100%; }
 
-        /* Fix 2: About Section & Clean Factual Copy */
+        /* About Section */
         .about {
             background: var(--cream);
             color: var(--navy);
@@ -260,7 +260,7 @@
         }
         .about-grid {
             display: grid;
-            grid-template-columns: 1.3fr 0.9fr;
+            grid-template-columns: 1.25fr 0.95fr;
             gap: 3.5rem;
             align-items: start;
             margin-bottom: 3rem;
@@ -291,41 +291,69 @@
             margin: 0;
         }
 
-        /* Fix 4: Clean 5-Year & 100% Free Statistics */
+        /* Refined Editorial Stats Cards Component */
         .about-stats-grid {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.1rem;
         }
         .stat-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(27, 32, 112, 0.12);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
             display: flex;
             align-items: center;
-            gap: 1.4rem;
-            border-bottom: 1px solid rgba(27, 32, 112, 0.12);
-            padding-bottom: 1rem;
+            gap: 1.5rem;
+            box-shadow: 0 10px 30px rgba(27, 32, 112, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 35px rgba(27, 32, 112, 0.08);
+        }
+        .stat-card.highlight-card {
+            background: var(--navy);
+            border: none;
+            color: white;
+            box-shadow: 0 12px 35px rgba(27, 32, 112, 0.2);
         }
         .stat-num {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             line-height: 1;
-            color: var(--navy);
-            min-width: 110px;
+            color: var(--orange-red);
+            min-width: 105px;
         }
-        .highlight-card .stat-num { color: var(--orange-red); }
+        .highlight-card .stat-num { color: var(--bronze); }
+        .stat-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
         .stat-label {
             font-family: 'Inter', sans-serif;
-            font-size: 0.88rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--navy);
         }
+        .highlight-card .stat-label { color: white; }
+        .stat-sub {
+            font-size: 0.8rem;
+            color: rgba(27, 32, 112, 0.7);
+            font-weight: 500;
+        }
+        .highlight-card .stat-sub { color: rgba(255, 255, 255, 0.7); }
+
         .about-banner {
             position: relative;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             height: 400px;
             margin-top: 1rem;
+            box-shadow: 0 20px 50px rgba(27, 32, 112, 0.12);
         }
         .about-banner img {
             width: 100%;
@@ -355,7 +383,7 @@
             font-style: italic;
         }
 
-        /* Fix 5: Gospel Ministers Section (3-Column Desktop Grid, Visible Performers) */
+        /* Gospel Ministers Section */
         .ministers { background: var(--dark); padding: 5rem var(--side-padding); }
         .ministers h2 { font-size: var(--font-title); font-style: italic; margin-bottom: 2.2rem; color: white; }
         .minister-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
@@ -377,7 +405,7 @@
         .m-info h3 { font-size: 1.6rem; margin-bottom: 0.2rem; }
         .m-info p { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
         
-        /* Fix 3: Visionaries Section (Clean Copy, Duplicate Free Phrase Removed) */
+        /* Visionaries Section */
         .visionaries {
             background: #0b0e28;
             padding: 5.5rem var(--side-padding);
@@ -466,7 +494,7 @@
             color: white;
         }
 
-        /* Fix 6: Media Hub (Thumbnails Preserved) */
+        /* Media Hub */
         .main-video { background: var(--dark); padding: 5rem var(--side-padding); }
         .main-video h2 { font-size: var(--font-title); color: white; margin-bottom: 2rem; }
         .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.8rem; }
@@ -515,7 +543,7 @@
             color: rgba(255,255,255,0.9);
         }
 
-        /* Fix 7: Memories / Gallery Section (6 Curated Photos Directly Visible) */
+        /* Gallery Section */
         .gallery { background: var(--darkest); padding: 5rem var(--side-padding); }
         .gallery h2 { font-size: var(--font-title); color: white; }
         .masonry { column-count: 3; column-gap: 1.2rem; }
@@ -536,7 +564,7 @@
             color: var(--orange-red);
         }
 
-        /* Lightbox — Strictly Scoped Close Control */
+        /* Lightbox */
         .lightbox {
             display: none; position: fixed; inset: 0; z-index: 9000;
             background: rgba(6,8,32,0.95); backdrop-filter: blur(20px);
@@ -562,7 +590,7 @@
         }
         .lb-close:hover { opacity: 1; }
 
-        /* Fix 8: Compact Minimal Footer (No Exposed Close Characters) */
+        /* Compact Minimal Footer */
         footer {
             background: var(--dark);
             padding: 3.5rem var(--side-padding) 2.5rem;
@@ -620,7 +648,7 @@
                 background-position: 60% center;
             }
 
-            .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .about-banner { height: 240px; }
             
             /* Ministers Mobile Horizontal Carousel */
@@ -662,8 +690,8 @@
             }
             .hero h1 { font-size: clamp(2.3rem, 8.5vw, 3.6rem); }
             .hero-content { margin-top: 1.5rem; }
-            .stat-card { padding: 0.8rem 0; gap: 1rem; }
-            .stat-num { font-size: 2.3rem; min-width: 75px; }
+            .stat-card { padding: 1rem 1.2rem; flex-direction: row; gap: 1rem; }
+            .stat-num { font-size: 2.4rem; min-width: 85px; }
             .vis-hero-frame { height: 220px; }
             .banner-caption { padding: 1rem 1.2rem; }
             .banner-caption .caption-title { font-size: 1.15rem; }
@@ -773,7 +801,7 @@
         </div>
     </section>
 
-    <!-- Fix 1: Latest Edition & Understated Completed Status Metadata -->
+    <!-- Latest Edition & Understated Completed Status Metadata -->
     <section class="spotlight" id="latest-edition">
         <div class="spotlight-container">
             <div class="reveal">
@@ -792,7 +820,7 @@
         </div>
     </section>
 
-    <!-- Fix 2 & 4: About Section (Clean Copy, Fixed 5-Year Statistic) -->
+    <!-- About Section with Upgraded Stats Cards Component & Free Entry for All -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-header reveal">
@@ -818,15 +846,24 @@
                 <div class="about-stats-grid reveal">
                     <div class="stat-card">
                         <span class="stat-num">10,000+</span>
-                        <span class="stat-label">Worshippers Gathered</span>
+                        <div class="stat-meta">
+                            <span class="stat-label">Worshippers</span>
+                            <span class="stat-sub">Gathered in Worship</span>
+                        </div>
                     </div>
                     <div class="stat-card">
                         <span class="stat-num">5 YEARS</span>
-                        <span class="stat-label">OF ASEDA PRAISE</span>
+                        <div class="stat-meta">
+                            <span class="stat-label">Of Aseda Praise</span>
+                            <span class="stat-sub">Anniversary Milestone</span>
+                        </div>
                     </div>
                     <div class="stat-card highlight-card">
                         <span class="stat-num">100%</span>
-                        <span class="stat-label">FREE &bull; OPEN TO ALL</span>
+                        <div class="stat-meta">
+                            <span class="stat-label">Free Entry For All</span>
+                            <span class="stat-sub">Open Community Worship</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -841,7 +878,7 @@
         </div>
     </section>
 
-    <!-- Fix 5: Gospel Ministers Section (Clean 3-Column Desktop Grid) -->
+    <!-- Gospel Ministers Section -->
     <section class="ministers" id="ministers">
         <div class="reveal">
             <span class="chapter-badge">ANOINTED VOICES</span>
@@ -873,7 +910,7 @@
         </div>
     </section>
 
-    <!-- Fix 3: Visionaries Section (Duplicate 100% Free Removed) -->
+    <!-- Visionaries Section -->
     <section class="visionaries" id="founders">
         <div class="vis-container reveal">
             <span class="chapter-badge">THE VISIONARIES</span>
@@ -927,7 +964,7 @@
         </div>
     </section>
 
-    <!-- Fix 6: Media Hub (Click-to-Load Thumbnails Preserved) -->
+    <!-- Media Hub -->
     <section class="main-video" id="media">
         <div class="reveal">
             <span class="chapter-badge">MEDIA HUB</span>
@@ -969,7 +1006,7 @@
         </div>
     </section>
 
-    <!-- Fix 7: Memories / Gallery Section (6 Curated Photos Directly Visible) -->
+    <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2rem;">
             <div>
@@ -984,13 +1021,13 @@
         </div>
     </section>
 
-    <!-- Lightbox Overlay (Strictly Scoped Close Button) -->
+    <!-- Lightbox Overlay -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Preview" onclick="closeLightbox()">
         <span class="lb-close" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</span>
         <img id="lb-img" src="" alt="Aseda Praise celebration photograph">
     </div>
 
-    <!-- Fix 8: Compact Minimal Footer (No Exposed Close Characters) -->
+    <!-- Compact Minimal Footer -->
     <footer>
         <div class="footer-brand">Aseda Praise</div>
         <div class="footer-tagline">TEN THOUSAND HEARTS, ONE VOICE</div>
