@@ -120,54 +120,92 @@
             50% { opacity: 1; }
         }
 
-        /* Header Navigation — Translucent Frosted Glass */
+        /* Header Navigation — Ultra-Clean Frosted Glass Blur on Scroll */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
             padding: 1.4rem max(var(--side-padding), env(safe-area-inset-left));
             padding-top: max(1.4rem, env(safe-area-inset-top));
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
-            transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+            background: transparent;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
+
+        /* Scrolled Glassmorphic Navbar State (Subtle Opacity + High Blur) */
         nav.scrolled {
-            background: rgba(8, 9, 26, 0.35);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            padding-bottom: 0.95rem;
+            background: rgba(13, 16, 64, 0.28);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            padding-top: max(0.9rem, env(safe-area-inset-top));
+            padding-bottom: 0.9rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
         }
-        .logo-area { display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.05rem; color: white; text-decoration: none; cursor: pointer; }
-        .logo-area img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 12px rgba(229, 82, 42, 0.3); }
+
+        .logo-area { 
+            display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.05rem; color: white; text-decoration: none; cursor: pointer;
+            padding: 0.35rem 0.8rem;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .logo-area:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .logo-area img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 12px rgba(229, 82, 42, 0.35); }
         .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; letter-spacing: 2px; }
 
-        .nav-links { display: flex; gap: 2.2rem; align-items: center; }
-        .nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500; transition: color 0.2s; }
+        .nav-links { 
+            display: flex; gap: 2rem; align-items: center;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0.55rem 1.6rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .nav-links a { color: rgba(255,255,255,0.92); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600; transition: color 0.2s; }
         .nav-links a:hover { color: var(--bronze); }
 
-        /* Hamburger & Mobile Menu Overlay */
+        /* Glassmorphic Hamburger Menu Button */
         .hamburger {
             display: none;
-            background: none;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
             color: white;
-            font-size: 1.7rem;
+            font-size: 1.4rem;
             cursor: pointer;
             z-index: 1001;
-            padding: 0.4rem;
-            min-width: 44px;
-            min-height: 44px;
+            width: 46px;
+            height: 46px;
             align-items: center;
             justify-content: center;
             touch-action: manipulation;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            transition: background 0.3s, transform 0.2s;
         }
+        .hamburger:hover {
+            background: rgba(229, 82, 42, 0.85);
+            transform: scale(1.05);
+        }
+
+        /* Frosted Glass Mobile Menu Drawer Overlay */
         .mobile-menu-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(8, 9, 26, 0.35);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
+            background: rgba(8, 9, 26, 0.45);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
             z-index: 999;
             flex-direction: column;
             justify-content: center;
@@ -1734,12 +1772,21 @@
 
         hamburgerBtn.addEventListener('click', toggleMobileMenu);
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
+        // Navbar Scroll Effect & Immediate Glass Activation Trigger
+        function updateNavbarScroll() {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        }, { passive: true });
+            if (nav) {
+                if (window.scrollY > 12) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', updateNavbarScroll, { passive: true });
+        document.addEventListener('DOMContentLoaded', updateNavbarScroll);
+        window.addEventListener('load', updateNavbarScroll);
 
         // Dynamic Scroll Parallax & Interactive Mouse Tilt on Hero Photo Background
         const heroSection = document.getElementById('home');
