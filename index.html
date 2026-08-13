@@ -146,7 +146,7 @@
         }
         .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
-        /* Hero Section & Slow Fresh Visit Zoom + Parallax */
+        /* Hero Section & Fresh Visit Zoom + Parallax */
         .hero {
             height: 88vh; height: 88dvh; min-height: 520px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
@@ -214,7 +214,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Latest Edition Section */
+        /* Fix 1: Latest Edition Section & Understated Status Metadata */
         .spotlight {
             background: var(--darker-navy);
             padding: 5rem var(--side-padding);
@@ -222,7 +222,14 @@
             margin-top: -1px;
         }
         .spotlight-container { max-width: 1200px; margin: 0 auto; }
-        .spotlight h2 { font-size: var(--font-title); color: white; margin-bottom: 0.3rem; }
+        .spotlight h2 { font-size: var(--font-title); color: white; margin-bottom: 0.1rem; }
+        .status-meta {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.88rem;
+            letter-spacing: 2px;
+            color: var(--bronze);
+            margin-bottom: 0.6rem;
+        }
         
         .cinema-vid { 
             width: 100%; 
@@ -236,7 +243,7 @@
         }
         .cinema-vid iframe { width: 100%; height: 100%; }
 
-        /* About Section */
+        /* Fix 2: About Section & Clean Factual Copy */
         .about {
             background: var(--cream);
             color: var(--navy);
@@ -283,6 +290,8 @@
             line-height: 1.4;
             margin: 0;
         }
+
+        /* Fix 4: Clean 5-Year & 100% Free Statistics */
         .about-stats-grid {
             display: flex;
             flex-direction: column;
@@ -346,10 +355,10 @@
             font-style: italic;
         }
 
-        /* Gospel Ministers Section */
+        /* Fix 5: Gospel Ministers Section (3-Column Desktop Grid, Visible Performers) */
         .ministers { background: var(--dark); padding: 5rem var(--side-padding); }
         .ministers h2 { font-size: var(--font-title); font-style: italic; margin-bottom: 2.2rem; color: white; }
-        .minister-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+        .minister-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
         .m-card { 
             position: relative; 
             aspect-ratio: 3/4; 
@@ -367,9 +376,8 @@
         .m-info { position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 2; }
         .m-info h3 { font-size: 1.6rem; margin-bottom: 0.2rem; }
         .m-info p { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
-        .card-headliner { grid-column: 1 / -1; aspect-ratio: auto; height: 55vh; max-height: 480px; }
-
-        /* Visionaries Section */
+        
+        /* Fix 3: Visionaries Section (Clean Copy, Duplicate Free Phrase Removed) */
         .visionaries {
             background: #0b0e28;
             padding: 5.5rem var(--side-padding);
@@ -458,7 +466,7 @@
             color: white;
         }
 
-        /* Media Hub */
+        /* Fix 6: Media Hub (Thumbnails Preserved) */
         .main-video { background: var(--dark); padding: 5rem var(--side-padding); }
         .main-video h2 { font-size: var(--font-title); color: white; margin-bottom: 2rem; }
         .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.8rem; }
@@ -507,12 +515,13 @@
             color: rgba(255,255,255,0.9);
         }
 
-        /* Gallery Section */
+        /* Fix 7: Memories / Gallery Section (6 Curated Photos Directly Visible) */
         .gallery { background: var(--darkest); padding: 5rem var(--side-padding); }
         .gallery h2 { font-size: var(--font-title); color: white; }
         .masonry { column-count: 3; column-gap: 1.2rem; }
         .gal-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; }
-        .gal-item img { width: 100%; display: block; }
+        .gal-item img { width: 100%; display: block; transition: transform 0.4s ease; }
+        .gal-item:hover img { transform: scale(1.03); }
 
         .gallery-album-link {
             color: var(--bronze);
@@ -527,7 +536,7 @@
             color: var(--orange-red);
         }
 
-        /* Lightbox */
+        /* Lightbox — Strictly Scoped Close Control */
         .lightbox {
             display: none; position: fixed; inset: 0; z-index: 9000;
             background: rgba(6,8,32,0.95); backdrop-filter: blur(20px);
@@ -553,7 +562,7 @@
         }
         .lb-close:hover { opacity: 1; }
 
-        /* Compact Minimal Footer */
+        /* Fix 8: Compact Minimal Footer (No Exposed Close Characters) */
         footer {
             background: var(--dark);
             padding: 3.5rem var(--side-padding) 2.5rem;
@@ -614,7 +623,7 @@
             .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
             .about-banner { height: 240px; }
             
-            /* Ministers Mobile Horizontal Carousel & Hidden Scrollbar */
+            /* Ministers Mobile Horizontal Carousel */
             .minister-grid {
                 display: flex;
                 overflow-x: auto;
@@ -634,10 +643,6 @@
                 scroll-snap-align: start;
                 height: 380px;
                 aspect-ratio: auto;
-            }
-            .card-headliner {
-                flex: 0 0 82vw;
-                height: 380px;
             }
 
             /* Visionaries Mobile Frame */
@@ -768,12 +773,13 @@
         </div>
     </section>
 
-    <!-- Latest Edition & Featured Broadcast -->
+    <!-- Fix 1: Latest Edition & Understated Completed Status Metadata -->
     <section class="spotlight" id="latest-edition">
         <div class="spotlight-container">
             <div class="reveal">
                 <span class="chapter-badge">LATEST EDITION</span>
                 <h2 class="playfair">Aseda Praise 2026</h2>
+                <div class="status-meta">2026 EDITION &bull; COMPLETED</div>
                 <p style="max-width: 600px; color: rgba(255,255,255,0.8); font-size: var(--font-body); margin-top: 0.4rem;">
                     Five years of gratitude, worship and community.
                 </p>
@@ -786,7 +792,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Fix 2 & 4: About Section (Clean Copy, Fixed 5-Year Statistic) -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-header reveal">
@@ -797,7 +803,7 @@
             <div class="about-grid">
                 <div class="about-main reveal">
                     <p class="lead-p">
-                        For five years, Aseda Praise has brought thousands together in Tarkwa for an Easter experience of worship, thanksgiving and community.
+                        For five years, Aseda Praise has brought thousands together in Tarkwa each Easter for worship, thanksgiving and community.
                     </p>
 
                     <div class="styled-quote">
@@ -816,11 +822,11 @@
                     </div>
                     <div class="stat-card">
                         <span class="stat-num">5 YEARS</span>
-                        <span class="stat-label">Anniversary Editions</span>
+                        <span class="stat-label">OF ASEDA PRAISE</span>
                     </div>
                     <div class="stat-card highlight-card">
                         <span class="stat-num">100%</span>
-                        <span class="stat-label">Free Admission For All</span>
+                        <span class="stat-label">FREE &bull; OPEN TO ALL</span>
                     </div>
                 </div>
             </div>
@@ -835,7 +841,7 @@
         </div>
     </section>
 
-    <!-- Gospel Ministers Section -->
+    <!-- Fix 5: Gospel Ministers Section (Clean 3-Column Desktop Grid) -->
     <section class="ministers" id="ministers">
         <div class="reveal">
             <span class="chapter-badge">ANOINTED VOICES</span>
@@ -843,7 +849,7 @@
         </div>
 
         <div class="minister-grid reveal">
-            <div class="m-card card-headliner">
+            <div class="m-card">
                 <img src="assets/images/aseda_gp_good_shot.jpg" alt="Obaapa Christy performing on stage at Aseda Praise" loading="lazy">
                 <div class="m-info">
                     <h3 class="playfair">Obaapa Christy</h3>
@@ -867,7 +873,7 @@
         </div>
     </section>
 
-    <!-- Visionaries Section -->
+    <!-- Fix 3: Visionaries Section (Duplicate 100% Free Removed) -->
     <section class="visionaries" id="founders">
         <div class="vis-container reveal">
             <span class="chapter-badge">THE VISIONARIES</span>
@@ -879,7 +885,7 @@
             </div>
 
             <div class="vis-body-text">
-                <p>Driven by a shared vision to impact their community through faith and action, our founders established Aseda Praise as a beacon of hope and gratitude in the Western Region, ensuring that the annual experience remains 100% free for all.</p>
+                <p>Driven by a shared vision to impact their community through faith and action, our founders established Aseda Praise as a beacon of hope and gratitude in the Western Region.</p>
             </div>
 
             <div class="vis-quote">
@@ -921,7 +927,7 @@
         </div>
     </section>
 
-    <!-- Media Hub -->
+    <!-- Fix 6: Media Hub (Click-to-Load Thumbnails Preserved) -->
     <section class="main-video" id="media">
         <div class="reveal">
             <span class="chapter-badge">MEDIA HUB</span>
@@ -963,7 +969,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Fix 7: Memories / Gallery Section (6 Curated Photos Directly Visible) -->
     <section class="gallery" id="gallery">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2rem;">
             <div>
@@ -978,13 +984,13 @@
         </div>
     </section>
 
-    <!-- Lightbox Overlay -->
+    <!-- Lightbox Overlay (Strictly Scoped Close Button) -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Preview" onclick="closeLightbox()">
         <span class="lb-close" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</span>
         <img id="lb-img" src="" alt="Aseda Praise celebration photograph">
     </div>
 
-    <!-- Compact Minimal Footer -->
+    <!-- Fix 8: Compact Minimal Footer (No Exposed Close Characters) -->
     <footer>
         <div class="footer-brand">Aseda Praise</div>
         <div class="footer-tagline">TEN THOUSAND HEARTS, ONE VOICE</div>
@@ -1005,17 +1011,11 @@
         const ASEDA_CONFIG = {
             galleryImages: [
                 'aseda_gp_obaapa_crowd.jpg', 'aseda_gp_engagement.jpg', 'aseda_gp_yvonne.jpg',
-                'aseda_gp_extra_1.jpg', 'aseda_gp_extra_2.jpg', 'aseda_gp_extra_3.jpg',
-                'aseda_gp_extra_4.jpg', 'aseda_gp_extra_5.jpg', 'aseda_gp_extra_6.jpg',
-                'aseda_gp_extra_7.jpg', 'aseda_gp_extra_8.jpg', 'aseda_gp_extra_9.jpg',
-                'aseda_gp_extra_10.jpg',
                 'aseda_official_photo_1.jpg', 'aseda_official_photo_2.jpg', 'aseda_official_photo_3.jpg',
                 'aseda_official_photo_4.jpg', 'aseda_official_photo_5.jpg', 'aseda_official_photo_6.jpg',
                 'aseda_official_photo_7.jpg', 'aseda_official_photo_8.jpg', 'aseda_official_photo_9.jpg',
                 'aseda_official_photo_10.jpg', 'aseda_official_photo_11.jpg', 'aseda_official_photo_12.jpg',
-                'aseda_official_photo_13.jpg', 'aseda_official_photo_14.jpg', 'aseda_official_photo_15.jpg',
-                'aseda_official_photo_16.jpg', 'aseda_official_photo_17.jpg', 'aseda_official_photo_18.jpg',
-                'aseda_official_photo_19.jpg', 'aseda_official_photo_20.jpg'
+                'aseda_official_photo_13.jpg', 'aseda_official_photo_14.jpg', 'aseda_official_photo_15.jpg'
             ]
         };
 
@@ -1102,14 +1102,9 @@
                 const heroHeight = heroSection.offsetHeight || 600;
 
                 if (scrollY <= heroHeight + 100) {
-                    // Scroll Parallax offset (translates vertically as user scrolls down)
                     const scrollParallaxY = scrollY * 0.38;
-
-                    // Smooth lerp for mouse motion
                     mouseX += (targetMouseX - mouseX) * 0.08;
                     mouseY += (targetMouseY - mouseY) * 0.08;
-
-                    // Combine scroll parallax + mouse parallax
                     const totalY = scrollParallaxY + mouseY;
                     heroBg.style.transform = `translate3d(${mouseX}px, ${totalY}px, 0px) scale(${1 + scrollY * 0.0003})`;
                 }
@@ -1119,7 +1114,6 @@
                 }
             }
 
-            // Start loop on scroll
             window.addEventListener('scroll', () => {
                 if (!isTicking) {
                     isTicking = true;
@@ -1130,7 +1124,6 @@
                 }
             }, { passive: true });
 
-            // Mouse move handler for desktop pointer devices
             if (matchMedia('(pointer: fine)').matches) {
                 heroSection.addEventListener('mousemove', (e) => {
                     const rect = heroSection.getBoundingClientRect();
