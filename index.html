@@ -23,7 +23,7 @@
 
     <link rel="canonical" href="https://elson222.github.io/aseda-praise/">
     
-    <!-- Preload Hero Image Above the Fold -->
+    <!-- Preload Hero Photography Above the Fold -->
     <link rel="preload" as="image" href="assets/images/aseda_stage_obaapa_christy.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables */
+        /* CSS Design Tokens */
         :root {
             --navy: #1B2070;
             --orange-red: #E5522A;
@@ -44,8 +44,8 @@
             --side-padding: 7vw;
 
             /* Editorial Typography Scale */
-            --font-hero: clamp(2.5rem, 8.5vw, 6.5rem);
-            --font-title: clamp(1.85rem, 4.5vw, 3.6rem);
+            --font-hero: clamp(2.4rem, 8vw, 6.2rem);
+            --font-title: clamp(1.8rem, 4.5vw, 3.4rem);
             --font-body: 1.05rem;
             --font-eyebrow: 0.75rem;
             --font-support: 0.9rem;
@@ -68,7 +68,7 @@
         .bronze { color: var(--bronze); }
         .orange { color: var(--orange-red); }
 
-        /* Focus Rings for Accessibility */
+        /* Accessibility Focus Rings */
         a:focus-visible, button:focus-visible {
             outline: 2px solid var(--bronze);
             outline-offset: 4px;
@@ -85,7 +85,7 @@
             transform: translateY(0);
         }
 
-        /* Floating Minimal Header Navigation */
+        /* Header Navigation — Eager Logo, Floating, Quiet */
         nav {
             position: fixed; top: 0; left: 0; width: 100%;
             padding: 1.4rem var(--side-padding);
@@ -146,11 +146,11 @@
         }
         .mobile-menu-overlay a:hover { color: var(--orange-red); }
 
-        /* Hero Section — Art-Directed Position (Singer positioned in right third on mobile) */
+        /* Poster Hero — Singer Positioned Cleanly in Right Third */
         .hero {
             height: 88vh; height: 88dvh; min-height: 520px; position: relative;
             display: flex; align-items: center; padding: 0 var(--side-padding);
-            background: url('assets/images/aseda_stage_obaapa_christy.jpg') 82% center/cover no-repeat;
+            background: url('assets/images/aseda_stage_obaapa_christy.jpg') 84% center/cover no-repeat;
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -186,7 +186,7 @@
         }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-12px);} 60% {transform: translateY(-6px);} }
 
-        /* Pure Eyebrow Labels (Container-Free, Pill-Free) */
+        /* Task 1: Clean Eyebrow Labels (Number-Free, Pill-Free) */
         .chapter-badge {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 0.95rem;
@@ -218,7 +218,7 @@
         }
         .cinema-vid iframe { width: 100%; height: 100%; }
 
-        /* About Section (Pure Editorial Layout, Pill-Free) */
+        /* About Section */
         .about {
             background: var(--cream);
             color: var(--navy);
@@ -328,7 +328,7 @@
             font-style: italic;
         }
 
-        /* Gospel Ministers Section (Clear Visible Performers, No Dark Obscuring Gradients) */
+        /* Gospel Ministers Section */
         .ministers { background: var(--dark); padding: 5rem var(--side-padding); }
         .ministers h2 { font-size: var(--font-title); font-style: italic; margin-bottom: 2.2rem; color: white; }
         .minister-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
@@ -351,15 +351,15 @@
         .m-info p { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bronze); }
         .card-headliner { grid-column: 1 / -1; aspect-ratio: auto; height: 55vh; max-height: 480px; }
 
-        /* Visionaries Section — Pure Editorial, ZERO Text Overlay on Photograph, ZERO Pill Badges */
+        /* Task 2 & 3: Visionaries Section (Single Clean Hierarchy, No Duplication, No Marketing Pills) */
         .visionaries {
             background: #0b0e28;
             padding: 5.5rem var(--side-padding);
             color: white;
             position: relative;
         }
-        .vis-container { max-width: 960px; margin: 0 auto; }
-        .vis-container h2 { font-size: var(--font-title); color: white; margin-bottom: 0.2rem; max-width: 700px; }
+        .vis-container { max-width: 920px; margin: 0 auto; }
+        .vis-container h2 { font-size: var(--font-title); color: white; margin-bottom: 0.2rem; }
         .vis-subtitle { color: var(--bronze); font-family:'Bebas Neue',sans-serif; letter-spacing:2.5px; font-size:1.1rem; margin-bottom: 1.8rem; }
         
         .vis-hero-frame {
@@ -405,7 +405,7 @@
             margin-top: 0.6rem;
         }
 
-        /* Outreach / Impact Section (Editorial List, Pill-Free) */
+        /* Task 4: Outreach Section (Clean Editorial List, Pill-Free) */
         .outreach { background: var(--darker-navy); padding: 5rem var(--side-padding); text-align: center; }
         .outreach h2 { font-size: var(--font-title); color: white; margin-bottom: 1rem; }
         .outreach-desc { max-width: 620px; margin: 0 auto 2.2rem; font-size: var(--font-body); line-height: 1.7; color: rgba(255,255,255,0.85); }
@@ -440,7 +440,7 @@
             color: white;
         }
 
-        /* Media Hub with Dynamic Click-to-Load YouTube iFrames */
+        /* Task 5: Media Hub (Dynamic Click-to-Load YouTube iFrames) */
         .main-video { background: var(--dark); padding: 5rem var(--side-padding); }
         .main-video h2 { font-size: var(--font-title); color: white; margin-bottom: 2rem; }
         .vid-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.8rem; }
@@ -489,7 +489,7 @@
             color: rgba(255,255,255,0.9);
         }
 
-        /* Gallery (2-Column Mobile Masonry & Simple Link) */
+        /* Gallery Section */
         .gallery { background: var(--darkest); padding: 5rem var(--side-padding); }
         .gallery h2 { font-size: var(--font-title); color: white; }
         .masonry { column-count: 3; column-gap: 1.2rem; }
@@ -535,7 +535,7 @@
         }
         .lb-close:hover { opacity: 1; }
 
-        /* Point 26: Compact Minimal Footer */
+        /* Compact Minimal Footer */
         footer {
             background: var(--dark);
             padding: 3.5rem var(--side-padding) 2.5rem;
@@ -568,7 +568,7 @@
 
         .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; max-width: 600px; margin: 0 auto; }
 
-        /* Media Queries across 320px / 360px / 375px / 390px / 430px / 768px / 1024px */
+        /* Media Queries Across Devices */
         @media(min-width: 769px) {
             .hero-overline {
                 flex-direction: row;
@@ -590,7 +590,7 @@
             .hamburger { display: flex; }
 
             .hero {
-                background-position: 80% center;
+                background-position: 84% center;
             }
 
             .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
@@ -629,9 +629,9 @@
 
         @media(max-width: 480px) {
             .hero {
-                background-position: 84% center;
+                background-position: 86% center;
             }
-            .hero h1 { font-size: clamp(2.4rem, 8.5vw, 3.8rem); }
+            .hero h1 { font-size: clamp(2.3rem, 8.5vw, 3.6rem); }
             .hero-content { margin-top: 1.5rem; }
             .stat-card { padding: 0.8rem 0; gap: 1rem; }
             .stat-num { font-size: 2.3rem; min-width: 75px; }
@@ -644,7 +644,7 @@
             .hero {
                 background-position: 88% center;
             }
-            .hero h1 { font-size: 2.3rem; }
+            .hero h1 { font-size: 2.2rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -711,7 +711,7 @@
         </button>
     </nav>
 
-    <!-- Quiet & Concise Mobile Menu Overlay -->
+    <!-- Quiet Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
         <a href="#home" onclick="closeMobileMenu()">Home</a>
         <a href="#about" onclick="closeMobileMenu()">About</a>
@@ -721,7 +721,7 @@
         <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
     </div>
 
-    <!-- Art-Directed Poster Hero (88dvh peak, right-third focal composition) -->
+    <!-- Task 6: Art-Directed Poster Hero (88dvh peak, right-third focal composition) -->
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
@@ -770,7 +770,7 @@
             <div class="about-grid">
                 <div class="about-main reveal">
                     <p class="lead-p">
-                        What started as a simple gathering of gratitude has grown into the Western Region's most anticipated annual spiritual event. For five incredible years, Aseda Praise has brought together thousands to lift one unified voice in worship.
+                        For five years, Aseda Praise has brought thousands together in Tarkwa for an Easter experience of worship, thanksgiving and community.
                     </p>
 
                     <div class="styled-quote">
@@ -808,11 +808,11 @@
         </div>
     </section>
 
-    <!-- Gospel Ministers Section (Horizontal Swipe Carousel on Mobile) -->
+    <!-- Gospel Ministers Section -->
     <section class="ministers" id="ministers">
         <div class="reveal">
-            <span class="chapter-badge">GOSPEL MINISTERS</span>
-            <h2>Anointed Voices</h2>
+            <span class="chapter-badge">ANOINTED VOICES</span>
+            <h2>Gospel Ministers</h2>
         </div>
 
         <div class="minister-grid reveal">
@@ -840,7 +840,7 @@
         </div>
     </section>
 
-    <!-- Visionaries Section (Pure Editorial Layout, ZERO Overlay Text on Photograph, ZERO Pills) -->
+    <!-- Task 2 & 3: Visionaries Section (Clean Single Hierarchy, Zero Duplication, Zero Marketing Badges) -->
     <section class="visionaries" id="founders">
         <div class="vis-container reveal">
             <span class="chapter-badge">THE VISIONARIES</span>
@@ -862,7 +862,7 @@
         </div>
     </section>
 
-    <!-- Outreach Section (Visual Editorial Numbered List, Pill-Free) -->
+    <!-- Task 4: Outreach Section (Clean Editorial List, Pill-Free) -->
     <section class="outreach" id="impact">
         <div class="reveal">
             <span class="chapter-badge">FAITH IN ACTION</span>
@@ -894,7 +894,7 @@
         </div>
     </section>
 
-    <!-- Media Hub (Dynamic Click-to-Load YouTube iFrames) -->
+    <!-- Task 5: Media Hub (Dynamic Click-to-Load YouTube iFrames) -->
     <section class="main-video" id="media">
         <div class="reveal">
             <span class="chapter-badge">MEDIA HUB</span>
@@ -936,7 +936,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section (2-Column Mobile Masonry & Compact Album Link) -->
+    <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2rem;">
             <div>
