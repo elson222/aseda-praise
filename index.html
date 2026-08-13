@@ -32,7 +32,7 @@
             background-color: var(--dark);
             color: #ffffff;
             overflow-x: hidden;
-            cursor: none;
+
         }
 
         h1, h2, h3, .playfair { font-family: 'Playfair Display', serif; }
@@ -40,29 +40,7 @@
         .bronze { color: var(--bronze); }
         .orange { color: var(--orange-red); }
 
-        /* Custom Cursor */
-        .cursor-dot, .cursor-outline {
-            position: fixed;
-            top: 0; left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .cursor-dot {
-            width: 8px; height: 8px;
-            background-color: white;
-        }
-        .cursor-outline {
-            width: 44px; height: 44px;
-            border: 1px solid rgba(255,255,255,0.5);
-            transition: width 0.2s, height 0.2s;
-        }
-        .cursor-outline.hover {
-            width: 60px; height: 60px;
-            border-color: var(--orange-red);
-            background-color: rgba(229, 82, 42, 0.1);
-        }
+
         
         /* Scroll Animations */
         .reveal {
@@ -117,13 +95,7 @@
         .stroke-text { -webkit-text-stroke: 1.5px white; color: transparent; display: block; }
         .hero-subtitle { font-size: 1.5rem; font-style: italic; max-width: 600px; }
         
-        .countdown {
-            position: absolute; bottom: 3rem; left: var(--side-padding); z-index: 2;
-            display: flex; gap: 2rem;
-        }
-        .cd-box { display: flex; flex-direction: column; align-items: center; }
-        .cd-num { font-size: 4rem; line-height: 1; color: var(--bronze); }
-        .cd-label { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+
 
         .scroll-indicator {
             position: absolute; bottom: 3rem; right: var(--side-padding); z-index: 2;
@@ -202,10 +174,33 @@
         .masonry { column-count: 3; column-gap: 1.5rem; }
         .gal-item { break-inside: avoid; margin-bottom: 1.5rem; position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
         .gal-item img { width: 100%; display: block; transition: transform 0.5s; }
-        .gal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(229,82,42,0.8); opacity: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s; }
-        .gal-item:hover .gal-overlay { opacity: 1; }
-        .gal-item:hover img { transform: scale(1.05); }
-        .gal-caption { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-style: italic; }
+        .gal-item:hover img { transform: scale(1.07); }
+
+        /* Lightbox */
+        .lightbox {
+            display: none; position: fixed; inset: 0; z-index: 9000;
+            background: rgba(6,8,32,0.92); backdrop-filter: blur(18px) saturate(0.5);
+            align-items: center; justify-content: center;
+            cursor: zoom-out;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox img {
+            max-width: 90vw; max-height: 88vh;
+            object-fit: contain; border-radius: 4px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+            animation: lbPop 0.25s cubic-bezier(0.22,1,0.36,1);
+        }
+        @keyframes lbPop {
+            from { transform: scale(0.88); opacity: 0; }
+            to   { transform: scale(1);    opacity: 1; }
+        }
+        .lb-close {
+            position: fixed; top: 1.5rem; right: 2rem;
+            font-size: 2rem; color: white; cursor: pointer;
+            line-height: 1; z-index: 9001; opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .lb-close:hover { opacity: 1; }
 
         /* Footer */
         .social-strip { background: var(--navy); display: flex; justify-content: center; gap: 4rem; padding: 4rem 0; }
@@ -217,8 +212,7 @@
         @media(max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 3.5rem; }
-            .countdown { gap: 1rem; }
-            .cd-num { font-size: 2.5rem; }
+
             .about-grid, .vis-content, .vid-grid { grid-template-columns: 1fr; }
             .stat-bar { flex-direction: column; gap: 1.5rem; border: none; }
             .stat { border-right: none; border-bottom: 1px solid rgba(27,32,112,0.2); padding-bottom: 1.5rem; }
@@ -256,8 +250,7 @@
 </head>
 <body>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+
 
     <nav id="navbar">
         <div class="logo-area">
@@ -284,12 +277,7 @@
             </h1>
             <p class="hero-subtitle">Ghana's most powerful annual gospel concert. Free entry. Open to all.</p>
         </div>
-        <div class="countdown bebas" id="countdown">
-            <div class="cd-box"><span class="cd-num" id="days">00</span><span class="cd-label">Days</span></div>
-            <div class="cd-box"><span class="cd-num" id="hours">00</span><span class="cd-label">Hours</span></div>
-            <div class="cd-box"><span class="cd-num" id="mins">00</span><span class="cd-label">Mins</span></div>
-            <div class="cd-box"><span class="cd-num" id="secs">00</span><span class="cd-label">Secs</span></div>
-        </div>
+
         <div class="scroll-indicator">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
         </div>
@@ -352,13 +340,7 @@
                     <p>Gospel Minister</p>
                 </div>
             </div>
-            <div class="m-card hover-target">
-                <img src="assets/images/aseda_official_photo_5.jpg" alt="Ohemaa Mercy" loading="lazy">
-                <div class="m-info">
-                    <h3 class="playfair">Ohemaa Mercy</h3>
-                    <p>Worship Leader</p>
-                </div>
-            </div>
+
         </div>
     </section>
 
@@ -436,23 +418,26 @@
                     'aseda_official_photo_19.jpg', 'aseda_official_photo_20.jpg'
                 ];
                 imgs.forEach(img => {
-                    document.write(`
-                        <div class="gal-item hover-target">
-                            <img src="assets/images/${img}" alt="Gallery image" loading="lazy">
-                            <div class="gal-overlay">
-                                <span class="gal-caption text-white">Aseda Praise · Tarkwa</span>
-                            </div>
-                        </div>
-                    `);
+                    const div = document.createElement('div');
+                    div.className = 'gal-item';
+                    div.innerHTML = `<img src="assets/images/${img}" alt="Aseda Praise" loading="lazy">`;
+                    div.addEventListener('click', () => openLightbox(`assets/images/${img}`));
+                    document.querySelector('.masonry').appendChild(div);
                 });
             </script>
         </div>
     </section>
 
+    <!-- Lightbox overlay -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lb-close" onclick="closeLightbox()">&times;</span>
+        <img id="lb-img" src="" alt="Aseda Praise">
+    </div>
+
     <div class="social-strip">
-        <a href="#" class="hover-target">YOUTUBE</a>
-        <a href="#" class="hover-target">INSTAGRAM</a>
-        <a href="#" class="hover-target">FACEBOOK</a>
+        <a href="https://www.youtube.com/channel/UCEx6CVwi11sMM8e5juAkksA" target="_blank" rel="noopener">YOUTUBE</a>
+        <a href="https://www.instagram.com/aseda.praise/" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://www.facebook.com/asedapraisetarkwa/" target="_blank" rel="noopener">FACEBOOK</a>
     </div>
 
     <footer>
@@ -462,20 +447,17 @@
     </footer>
 
     <script>
-        // Custom Cursor
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
-        });
-        document.querySelectorAll('.hover-target, a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
-        });
+        // Lightbox
+        function openLightbox(src) {
+            document.getElementById('lb-img').src = src;
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
         // Navbar scroll
         window.addEventListener('scroll', () => {
@@ -494,24 +476,7 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Countdown
-        const targetDate = new Date("2026-11-20T17:00:00+00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-            
-            if (distance < 0) return;
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById("days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("mins").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("secs").innerText = seconds.toString().padStart(2, '0');
-        }, 1000);
+
     </script>
 </body>
 </html>
