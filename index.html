@@ -589,8 +589,9 @@
             .nav-links { display: none; }
             .hamburger { display: flex; }
 
+            /* Mobile Focal Position: Position singer (at ~60% X of source photo) to the right third of the mobile screen */
             .hero {
-                background-position: 18% center;
+                background-position: 60% center;
             }
 
             .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
@@ -635,7 +636,7 @@
 
         @media(max-width: 480px) {
             .hero {
-                background-position: 15% center;
+                background-position: 58% center;
             }
             .hero h1 { font-size: clamp(2.3rem, 8.5vw, 3.6rem); }
             .hero-content { margin-top: 1.5rem; }
@@ -648,7 +649,7 @@
 
         @media(max-width: 375px) {
             .hero {
-                background-position: 12% center;
+                background-position: 57% center;
             }
             .hero h1 { font-size: 2.2rem; }
         }
