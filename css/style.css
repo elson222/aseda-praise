@@ -646,7 +646,7 @@ nav.scrolled .hamburger { color: #08091a !important; }
 
 .sponsors-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
@@ -673,6 +673,16 @@ nav.scrolled .hamburger { color: #08091a !important; }
     letter-spacing: 2.5px;
     color: var(--orange-red);
     margin-bottom: 0.6rem;
+    display: block;
+}
+
+.sponsor-location-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 2.5px;
+    color: var(--navy);
+    opacity: 0.8;
+    margin-top: 1rem;
     display: block;
 }
 
