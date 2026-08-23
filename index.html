@@ -1260,7 +1260,7 @@
 
     <!-- Header Navigation — Eager Logo, Floating, Quiet -->
     <nav id="navbar" aria-label="Main Navigation">
-        <a href="#" class="logo-area" aria-label="Aseda Praise Home">
+        <a href="./" class="logo-area" aria-label="Aseda Praise Home">
             <img src="assets/images/aseda_official_logo.png" alt="Aseda Praise Official Logo">
             <span class="logo-text">ASEDA PRAISE</span>
         </a>
@@ -1281,7 +1281,7 @@
 
     <!-- Quiet Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
-        <a href="#home" onclick="closeMobileMenu()">Home</a>
+        <a href="./" onclick="closeMobileMenu()">Home</a>
         <a href="#about" onclick="closeMobileMenu()">About</a>
         <a href="#ministers" onclick="closeMobileMenu()">Ministers</a>
         <a href="#sponsors" onclick="closeMobileMenu()">Partners</a>
@@ -1742,6 +1742,27 @@
         }
 
         hamburgerBtn.addEventListener('click', toggleMobileMenu);
+
+        // Smooth Home Navigation & URL Hash Clean-up (removes #home from address bar)
+        function cleanUrlHash() {
+            if (window.location.hash === '#home' || window.location.hash === '#') {
+                if (history.replaceState) {
+                    history.replaceState(null, null, window.location.pathname + window.location.search);
+                }
+            }
+        }
+        cleanUrlHash();
+        window.addEventListener('load', cleanUrlHash);
+
+        document.querySelectorAll('a[href="./"], a[href="#home"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (history.pushState) {
+                    history.pushState(null, null, window.location.pathname + window.location.search);
+                }
+            });
+        });
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
