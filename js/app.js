@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroParallax();
     initMinisterCarousel();
     initMediaTheater();
-    initKeyboardAccessibility();
+    initEventDelegation();
 });
 
 // 1. URL Hash Cleaner (Removes #home from address bar gracefully)
@@ -46,7 +46,7 @@ function initNavbarScroll() {
     }, { passive: true });
 }
 
-// 3. Accessible Mobile Menu Drawer
+// 3. Accessible Mobile Menu Drawer with Focus Management
 let lastFocusedElement = null;
 
 function initMobileMenu() {
@@ -91,7 +91,6 @@ function initHeroParallax() {
     const heroBg = document.getElementById('hero-bg');
     if (!heroSection || !heroBg) return;
 
-    // Check user motion preferences & viewport width
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobileViewport = window.innerWidth <= 768;
 
@@ -152,48 +151,11 @@ function initHeroParallax() {
     renderHeroParallax();
 }
 
-// 5. Gospel Ministers Auto-Swipe Carousel
+// 5. Gospel Ministers Carousel (100% User-Controlled Manual Swipe, Zero Auto-Swipe)
 function initMinisterCarousel() {
     const ministerCarousel = document.getElementById('minister-carousel');
     const dots = document.querySelectorAll('.c-dot');
     if (!ministerCarousel) return;
-
-    let currentIndex = 0;
-    let autoSwipeTimer = null;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function scrollToMinister(index) {
-        const cards = ministerCarousel.querySelectorAll('.m-card');
-        if (!cards.length) return;
-
-        currentIndex = index % cards.length;
-        const targetCard = cards[currentIndex];
-        
-        ministerCarousel.scrollTo({
-            left: targetCard.offsetLeft - 16,
-            behavior: prefersReducedMotion ? 'auto' : 'smooth'
-        });
-
-        dots.forEach((dot, idx) => {
-            dot.classList.toggle('active', idx === currentIndex);
-        });
-    }
-
-    function startAutoSwipe() {
-        // Respect reduced motion & only run on small screens if requested
-        if (!autoSwipeTimer && window.innerWidth <= 768 && !prefersReducedMotion) {
-            autoSwipeTimer = setInterval(() => {
-                scrollToMinister(currentIndex + 1);
-            }, 4500);
-        }
-    }
-
-    function stopAutoSwipe() {
-        if (autoSwipeTimer) {
-            clearInterval(autoSwipeTimer);
-            autoSwipeTimer = null;
-        }
-    }
 
     ministerCarousel.addEventListener('scroll', () => {
         const cards = ministerCarousel.querySelectorAll('.m-card');
@@ -211,28 +173,30 @@ function initMinisterCarousel() {
             dot.classList.toggle('active', idx === activeIdx);
         });
     }, { passive: true });
-
-    ministerCarousel.addEventListener('touchstart', stopAutoSwipe, { passive: true });
-    ministerCarousel.addEventListener('touchend', () => setTimeout(startAutoSwipe, 5000), { passive: true });
-    
-    startAutoSwipe();
-    window.addEventListener('resize', () => {
-        stopAutoSwipe();
-        startAutoSwipe();
-    });
 }
 
-// 6. Media Theater Lightbox Engine with Full Accessibility
+// 6. Media Theater Lightbox Engine with Strict Focus Trap & Safe DOM Instantiation
 const MEDIA_PLAYLIST = [
-    { type: 'video', target: '8Lu8u8ZSbog', caption: 'Aseda Praise 2026 Official Full Program Broadcast' },
+    { type: 'video', target: '8Lu8u8ZSbog', caption: 'Aseda Praise 2026 Official Full Broadcast' },
+    { type: 'video', target: '1W4pLw93xqI', caption: 'Massive Crowd at Aseda Praise' },
+    { type: 'video', target: 'fMbN4ejx-QA', caption: 'Arrival of Ministers for Aseda Praise' },
+    { type: 'video', target: '2KjBHujXc70', caption: 'Ten Thousand Hearts, One Voice' },
+    { type: 'video', target: 'WXVQr9k0ixU', caption: 'The Stage is Set for Aseda Praise' },
+    { type: 'video', target: 'GGSFWt3NRoU', caption: "Dedication of Tarkwa Apinto Children's Ward" },
+    { type: 'image', target: 'assets/images/aseda_gp_good_shot.jpg', caption: 'Obaapa Christy · Headline Minister' },
+    { type: 'image', target: 'assets/images/aseda_joe_mettle.jpg', caption: 'Joe Mettle · Worship Leader' },
+    { type: 'image', target: 'assets/images/aseda_acp_kofi_sarpong.jpg', caption: 'ACP Kofi Sarpong · Gospel Minister' },
+    { type: 'image', target: 'assets/images/aseda_founders.jpg', caption: 'Mr. Evans Ghartey & Mr. Frederick Lomotey · Founders' },
     { type: 'image', target: 'assets/images/aseda_gp_dancing.jpg', caption: 'Uniting Hearts in Praise & Worship · Tarkwa' },
-    { type: 'image', target: 'assets/images/aseda_founders.jpg', caption: 'Visionaries & Co-Founders Evans Ghartey and Frederick Lomotey' },
-    { type: 'image', target: 'assets/images/aseda_stage_obaapa_christy.jpg', caption: 'Obaapa Christy Performing Live at Aseda Praise in Tarkwa' },
-    { type: 'image', target: 'assets/images/aseda_joe_mettle.jpg', caption: 'Minister Joe Mettle Leading Anointed Worship' },
-    { type: 'image', target: 'assets/images/aseda_acp_kofi_sarpong.jpg', caption: 'ACP Kofi Sarpong Ministering in Praise' },
-    { type: 'image', target: 'assets/images/aseda_gp_engagement.jpg', caption: 'Crowd of Thousands Worshipping Together in Tarkwa' },
-    { type: 'image', target: 'assets/images/aseda_official_photo_1.jpg', caption: 'Altar of Praise & Thanksgiving · Aseda Praise 2026' },
-    { type: 'image', target: 'assets/images/aseda_official_photo_2.jpg', caption: 'Hands Raised in Worship · Tarkwa Community' }
+    { type: 'image', target: 'assets/images/aseda_gp_obaapa_crowd.jpg', caption: 'Worshippers Engaging with Obaapa Christy' },
+    { type: 'image', target: 'assets/images/aseda_gp_engagement.jpg', caption: 'Crowd Engagement & Worship Moments' },
+    { type: 'image', target: 'assets/images/aseda_gp_yvonne.jpg', caption: 'Gospel Minister Performing Live' },
+    { type: 'image', target: 'assets/images/aseda_official_photo_1.jpg', caption: 'Aseda Praise Celebration Photography' },
+    { type: 'image', target: 'assets/images/aseda_official_photo_2.jpg', caption: 'Stage Worship Atmosphere' },
+    { type: 'image', target: 'assets/images/aseda_official_photo_3.jpg', caption: 'Annual Easter Thanksgiving Moments' },
+    { type: 'image', target: 'assets/images/aseda_gp_extra_1.jpg', caption: 'Worshippers Gathering' },
+    { type: 'image', target: 'assets/images/aseda_gp_extra_2.jpg', caption: 'Festival Praise' },
+    { type: 'image', target: 'assets/images/aseda_gp_extra_3.jpg', caption: 'Community Praise Atmosphere' }
 ];
 
 let currentMediaIdx = 0;
@@ -243,13 +207,11 @@ function initMediaTheater() {
         lbLastFocusedElement = document.activeElement;
         const lb = document.getElementById('lightbox');
         const stage = document.getElementById('lb-media-stage');
-        const captionEl = document.getElementById('lb-caption-title');
-        const counterEl = document.getElementById('lb-counter');
 
         if (!lb || !stage) return;
 
-        if (playlistIndex !== null && playlistIndex >= 0 && playlistIndex < MEDIA_PLAYLIST.length) {
-            currentMediaIdx = playlistIndex;
+        if (playlistIndex !== null && playlistIndex !== undefined && playlistIndex >= 0 && playlistIndex < MEDIA_PLAYLIST.length) {
+            currentMediaIdx = parseInt(playlistIndex, 10);
         } else {
             const foundIdx = MEDIA_PLAYLIST.findIndex(item => item.target === target);
             currentMediaIdx = foundIdx !== -1 ? foundIdx : 0;
@@ -271,7 +233,7 @@ function initMediaTheater() {
 
         lb.classList.remove('open');
         lb.setAttribute('aria-hidden', 'true');
-        stage.innerHTML = ''; // Stop any playing video
+        stage.replaceChildren(); // Safe clean clearance without innerHTML
         document.body.style.overflow = '';
 
         if (lbLastFocusedElement && typeof lbLastFocusedElement.focus === 'function') {
@@ -292,35 +254,109 @@ function initMediaTheater() {
 
         if (!item || !stage) return;
 
+        // Clear stage safely using modern DOM replaceChildren
+        stage.replaceChildren();
+
         if (item.type === 'video') {
-            // Privacy-enhanced YouTube embed
-            stage.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${item.target}?autoplay=1&rel=0" title="${item.caption}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube-nocookie.com/embed/${item.target}?autoplay=1&rel=0`;
+            iframe.title = item.caption;
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+            stage.appendChild(iframe);
         } else {
-            stage.innerHTML = `<img src="${item.target}" alt="${item.caption}" loading="eager">`;
+            const img = document.createElement('img');
+            img.src = item.target;
+            img.alt = item.caption;
+            img.loading = "eager";
+            stage.appendChild(img);
         }
 
         if (captionEl) captionEl.textContent = item.caption;
         if (counterEl) counterEl.textContent = `${currentMediaIdx + 1} / ${MEDIA_PLAYLIST.length}`;
     }
 
-    document.addEventListener('keydown', e => { 
-        const lb = document.getElementById('lightbox');
-        if (lb && lb.classList.contains('open')) {
-            if (e.key === 'Escape') closeLightbox(); 
-            if (e.key === 'ArrowRight') stepMediaTheater(1);
-            if (e.key === 'ArrowLeft') stepMediaTheater(-1);
-        }
-    });
-}
+    // Keyboard Navigation & Strict Modal Focus Trap
+    const lb = document.getElementById('lightbox');
+    if (lb) {
+        lb.addEventListener('keydown', e => { 
+            if (!lb.classList.contains('open')) return;
 
-// 7. Keyboard Accessibility Handler for Buttons & Interactive Cards
-function initKeyboardAccessibility() {
-    document.querySelectorAll('button, [role="button"]').forEach(btn => {
-        btn.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === 'Escape') {
                 e.preventDefault();
-                btn.click();
+                closeLightbox();
+                return;
+            } 
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                stepMediaTheater(1);
+                return;
+            }
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                stepMediaTheater(-1);
+                return;
+            }
+
+            // Strict Tab Focus Trap
+            if (e.key === 'Tab') {
+                const focusables = lb.querySelectorAll('button:not([disabled]), [tabindex="0"]');
+                if (!focusables.length) return;
+
+                const firstEl = focusables[0];
+                const lastEl = focusables[focusables.length - 1];
+
+                if (e.shiftKey) {
+                    if (document.activeElement === firstEl) {
+                        e.preventDefault();
+                        lastEl.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastEl) {
+                        e.preventDefault();
+                        firstEl.focus();
+                    }
+                }
             }
         });
+    }
+}
+
+// 7. Event Delegation Engine (Zero Inline onclick Event Handlers)
+function initEventDelegation() {
+    document.addEventListener('click', (e) => {
+        const actionBtn = e.target.closest('[data-action]');
+        if (actionBtn) {
+            const action = actionBtn.dataset.action;
+            if (action === 'close-mobile-menu') {
+                closeMobileMenu();
+            } else if (action === 'close-lightbox') {
+                closeLightbox();
+            } else if (action === 'prev-media') {
+                stepMediaTheater(-1);
+            } else if (action === 'next-media') {
+                stepMediaTheater(1);
+            }
+            return;
+        }
+
+        const mediaBtn = e.target.closest('[data-media-type]');
+        if (mediaBtn) {
+            const type = mediaBtn.dataset.mediaType;
+            const target = mediaBtn.dataset.mediaTarget || mediaBtn.dataset.mediaId;
+            const caption = mediaBtn.dataset.mediaCaption || '';
+            const idx = mediaBtn.dataset.mediaIndex ? parseInt(mediaBtn.dataset.mediaIndex, 10) : null;
+            openMediaTheater(type, target, caption, idx);
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            const targetBtn = e.target.closest('[data-action], [data-media-type]');
+            if (targetBtn && targetBtn !== document.activeElement) {
+                e.preventDefault();
+                targetBtn.click();
+            }
+        }
     });
 }

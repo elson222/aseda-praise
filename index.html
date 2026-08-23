@@ -107,15 +107,14 @@
             }
           ],
           "performer": [
-            { "@type": "MusicGroup", "name": "Obaapa Christy" },
-            { "@type": "MusicGroup", "name": "Joe Mettle" },
-            { "@type": "MusicGroup", "name": "ACP Kofi Sarpong" }
+            { "@type": "Person", "name": "Obaapa Christy" },
+            { "@type": "Person", "name": "Joe Mettle" },
+            { "@type": "Person", "name": "ACP Kofi Sarpong" }
           ],
           "offers": {
             "@type": "Offer",
             "price": "0",
-            "priceCurrency": "GHS",
-            "availability": "https://schema.org/InStock"
+            "priceCurrency": "GHS"
           }
         },
         {
@@ -167,13 +166,13 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
-        <a href="./" onclick="closeMobileMenu()">Home</a>
-        <a href="#about" onclick="closeMobileMenu()">About</a>
-        <a href="#ministers" onclick="closeMobileMenu()">Ministers</a>
-        <a href="#sponsors" onclick="closeMobileMenu()">Partners</a>
-        <a href="#impact" onclick="closeMobileMenu()">Impact</a>
-        <a href="#media" onclick="closeMobileMenu()">Media</a>
-        <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+        <a href="./" data-action="close-mobile-menu">Home</a>
+        <a href="#about" data-action="close-mobile-menu">About</a>
+        <a href="#ministers" data-action="close-mobile-menu">Ministers</a>
+        <a href="#sponsors" data-action="close-mobile-menu">Partners</a>
+        <a href="#impact" data-action="close-mobile-menu">Impact</a>
+        <a href="#media" data-action="close-mobile-menu">Media</a>
+        <a href="#gallery" data-action="close-mobile-menu">Gallery</a>
     </div>
 
     <!-- Art-Directed Hero Section -->
@@ -209,7 +208,7 @@
             </div>
 
             <!-- Featured Broadcast Trigger Button -->
-            <button type="button" class="cinema-vid" onclick="openMediaTheater('video', '8Lu8u8ZSbog', 'Aseda Praise 2026 Official Full Broadcast')" aria-label="Play Aseda Praise 2026 Official Full Program Broadcast">
+            <button type="button" class="cinema-vid" data-media-type="video" data-media-id="8Lu8u8ZSbog" data-media-caption="Aseda Praise 2026 Official Full Broadcast" aria-label="Play Aseda Praise 2026 Official Full Program Broadcast">
                 <img src="https://img.youtube.com/vi/8Lu8u8ZSbog/hqdefault.jpg" alt="Aseda Praise 2026 Official Broadcast Poster" loading="lazy" decoding="async" width="1200" height="675">
                 <div class="play-btn-overlay">
                     <div class="play-icon"></div>
@@ -264,7 +263,7 @@
                 </div>
             </div>
 
-            <button type="button" class="about-banner" onclick="openMediaTheater('image', 'assets/images/aseda_gp_dancing.jpg', 'Uniting Hearts in Praise & Worship · Tarkwa')" aria-label="Enlarge photograph of Aseda Praise Worshippers in Tarkwa">
+            <button type="button" class="about-banner" data-media-type="image" data-media-target="assets/images/aseda_gp_dancing.jpg" data-media-caption="Uniting Hearts in Praise & Worship · Tarkwa" aria-label="Enlarge photograph of Aseda Praise Worshippers in Tarkwa">
                 <img src="assets/images/aseda_gp_dancing.jpg" alt="Aseda Praise Worshippers praising during concert in Tarkwa" loading="lazy" decoding="async" width="1200" height="420">
                 <div class="banner-caption">
                     <span class="caption-tag">TARKWA, WESTERN REGION</span>
@@ -282,21 +281,21 @@
         </div>
 
         <div class="minister-grid" id="minister-carousel">
-            <button type="button" class="m-card" onclick="openMediaTheater('image', 'assets/images/aseda_gp_good_shot.jpg', 'Obaapa Christy · Headline Minister')" aria-label="Enlarge photo of Obaapa Christy">
+            <button type="button" class="m-card" data-media-type="image" data-media-target="assets/images/aseda_gp_good_shot.jpg" data-media-caption="Obaapa Christy · Headline Minister" data-media-index="6" aria-label="Enlarge photo of Obaapa Christy">
                 <img src="assets/images/aseda_gp_good_shot.jpg" alt="Obaapa Christy performing live on stage at Aseda Praise" loading="lazy" decoding="async" width="400" height="533">
                 <div class="m-info">
                     <h3 class="playfair">Obaapa Christy</h3>
                     <p>Headline Minister</p>
                 </div>
             </button>
-            <button type="button" class="m-card" onclick="openMediaTheater('image', 'assets/images/aseda_joe_mettle.jpg', 'Joe Mettle · Worship Leader')" aria-label="Enlarge photo of Joe Mettle">
+            <button type="button" class="m-card" data-media-type="image" data-media-target="assets/images/aseda_joe_mettle.jpg" data-media-caption="Joe Mettle · Worship Leader" data-media-index="7" aria-label="Enlarge photo of Joe Mettle">
                 <img src="assets/images/aseda_joe_mettle.jpg" alt="Joe Mettle leading worship at Aseda Praise Tarkwa" loading="lazy" decoding="async" width="400" height="533">
                 <div class="m-info">
                     <h3 class="playfair">Joe Mettle</h3>
                     <p>Worship Leader</p>
                 </div>
             </button>
-            <button type="button" class="m-card" onclick="openMediaTheater('image', 'assets/images/aseda_acp_kofi_sarpong.jpg', 'ACP Kofi Sarpong · Gospel Minister')" aria-label="Enlarge photo of ACP Kofi Sarpong">
+            <button type="button" class="m-card" data-media-type="image" data-media-target="assets/images/aseda_acp_kofi_sarpong.jpg" data-media-caption="ACP Kofi Sarpong · Gospel Minister" data-media-index="8" aria-label="Enlarge photo of ACP Kofi Sarpong">
                 <img src="assets/images/aseda_acp_kofi_sarpong.jpg" alt="ACP Kofi Sarpong ministering in praise at Aseda Praise" loading="lazy" decoding="async" width="400" height="533">
                 <div class="m-info">
                     <h3 class="playfair">ACP Kofi Sarpong</h3>
@@ -322,7 +321,7 @@
                 <p class="vis-subtitle">FOUNDERS &amp; LEAD SPONSORS</p>
             </div>
 
-            <button type="button" class="vis-hero-frame" onclick="openMediaTheater('image', 'assets/images/aseda_founders.jpg', 'Mr. Evans Ghartey & Mr. Frederick Lomotey · Founders')" aria-label="Enlarge photo of Mr. Evans Ghartey and Mr. Frederick Lomotey">
+            <button type="button" class="vis-hero-frame" data-media-type="image" data-media-target="assets/images/aseda_founders.jpg" data-media-caption="Mr. Evans Ghartey & Mr. Frederick Lomotey · Founders" data-media-index="9" aria-label="Enlarge photo of Mr. Evans Ghartey and Mr. Frederick Lomotey">
                 <img src="assets/images/aseda_founders.jpg" alt="Co-founders Evans Ghartey and Frederick Lomotey on stage at Aseda Praise" loading="lazy" decoding="async" width="920" height="440">
             </button>
 
@@ -376,9 +375,9 @@
             <p class="outreach-desc">Our worship extends beyond the concert grounds. Every year, Aseda Praise carries out tangible outreach initiatives at <strong>Apinto Government Hospital</strong> in Tarkwa — renovating facilities, donating medical equipment, and providing free health screenings for the community.</p>
         </div>
         
-        <button type="button" class="video-wrapper" onclick="openMediaTheater('video', 'GGSFWt3NRoU', 'Dedication of Tarkwa Apinto Children\'s Ward')" aria-label="Play Apinto Children's Ward Dedication Video">
+        <div class="video-wrapper">
             <iframe src="https://www.youtube-nocookie.com/embed/GGSFWt3NRoU" title="Dedication of Tarkwa Apinto Children's Ward" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </button>
+        </div>
 
         <div class="impact-list">
             <div class="impact-item">
@@ -405,7 +404,7 @@
 
         <div class="vid-grid">
             <div>
-                <button type="button" class="thumb-card" onclick="openMediaTheater('video', '1W4pLw93xqI', 'Massive Crowd at Aseda Praise')" aria-label="Play Massive Crowd Video">
+                <button type="button" class="thumb-card" data-media-type="video" data-media-id="1W4pLw93xqI" data-media-caption="Massive Crowd at Aseda Praise" data-media-index="1" aria-label="Play Massive Crowd Video">
                     <img src="https://img.youtube.com/vi/1W4pLw93xqI/hqdefault.jpg" alt="Massive Crowd gathering at Aseda Praise in Tarkwa" loading="lazy" decoding="async" width="480" height="270">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
                 </button>
@@ -413,7 +412,7 @@
             </div>
 
             <div>
-                <button type="button" class="thumb-card" onclick="openMediaTheater('video', 'fMbN4ejx-QA', 'Arrival of Ministers for Aseda Praise')" aria-label="Play Arrival of Ministers Video">
+                <button type="button" class="thumb-card" data-media-type="video" data-media-id="fMbN4ejx-QA" data-media-caption="Arrival of Ministers for Aseda Praise" data-media-index="2" aria-label="Play Arrival of Ministers Video">
                     <img src="https://img.youtube.com/vi/fMbN4ejx-QA/hqdefault.jpg" alt="Arrival of Gospel Ministers for Aseda Praise" loading="lazy" decoding="async" width="480" height="270">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
                 </button>
@@ -421,7 +420,7 @@
             </div>
 
             <div>
-                <button type="button" class="thumb-card" onclick="openMediaTheater('video', '2KjBHujXc70', 'Ten Thousand Hearts, One Voice')" aria-label="Play Ten Thousand Hearts Video Clip">
+                <button type="button" class="thumb-card" data-media-type="video" data-media-id="2KjBHujXc70" data-media-caption="Ten Thousand Hearts, One Voice" data-media-index="3" aria-label="Play Ten Thousand Hearts Video Clip">
                     <img src="https://img.youtube.com/vi/2KjBHujXc70/hqdefault.jpg" alt="Ten Thousand Hearts One Voice Worship Highlight" loading="lazy" decoding="async" width="480" height="270">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
                 </button>
@@ -429,7 +428,7 @@
             </div>
 
             <div>
-                <button type="button" class="thumb-card" onclick="openMediaTheater('video', 'WXVQr9k0ixU', 'The Stage is Set for Aseda Praise')" aria-label="Play Stage Set Video Clip">
+                <button type="button" class="thumb-card" data-media-type="video" data-media-id="WXVQr9k0ixU" data-media-caption="The Stage is Set for Aseda Praise" data-media-index="4" aria-label="Play Stage Set Video Clip">
                     <img src="https://img.youtube.com/vi/WXVQr9k0ixU/hqdefault.jpg" alt="The Stage is Set for Aseda Praise 2026 Concert" loading="lazy" decoding="async" width="480" height="270">
                     <div class="play-btn-overlay"><div class="play-icon"></div></div>
                 </button>
@@ -443,36 +442,36 @@
         <div class="gallery-header">
             <div>
                 <span class="chapter-badge">MEMORIES</span>
-                <h2 class="playfair" style="margin: 0;">Ten Thousand Hearts</h2>
+                <h2 class="playfair">Ten Thousand Hearts</h2>
             </div>
         </div>
         
         <div class="masonry" id="gallery-grid">
-            <button type="button" class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_gp_obaapa_crowd.jpg', 'Worshippers Engaging with Obaapa Christy', 11)" aria-label="Enlarge photo of Worshippers engaging with Obaapa Christy">
+            <button type="button" class="gal-item" data-media-type="image" data-media-target="assets/images/aseda_gp_obaapa_crowd.jpg" data-media-caption="Worshippers Engaging with Obaapa Christy" data-media-index="11" aria-label="Enlarge photo of Worshippers engaging with Obaapa Christy">
                 <img src="assets/images/aseda_gp_obaapa_crowd.jpg" alt="Worshippers engaging with Obaapa Christy during live performance" loading="lazy" decoding="async" width="600" height="450">
             </button>
-            <button type="button" class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_gp_engagement.jpg', 'Crowd Engagement & Worship Moments', 12)" aria-label="Enlarge photo of Crowd Engagement & Worship Moments">
+            <button type="button" class="gal-item" data-media-type="image" data-media-target="assets/images/aseda_gp_engagement.jpg" data-media-caption="Crowd Engagement & Worship Moments" data-media-index="12" aria-label="Enlarge photo of Crowd Engagement & Worship Moments">
                 <img src="assets/images/aseda_gp_engagement.jpg" alt="Crowd engagement and deep worship moments at Aseda Praise" loading="lazy" decoding="async" width="600" height="450">
             </button>
-            <button type="button" class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_gp_yvonne.jpg', 'Gospel Minister Performing Live', 13)" aria-label="Enlarge photo of Gospel Minister Performing Live">
+            <button type="button" class="gal-item" data-media-type="image" data-media-target="assets/images/aseda_gp_yvonne.jpg" data-media-caption="Gospel Minister Performing Live" data-media-index="13" aria-label="Enlarge photo of Gospel Minister Performing Live">
                 <img src="assets/images/aseda_gp_yvonne.jpg" alt="Gospel minister performing live during worship session" loading="lazy" decoding="async" width="600" height="450">
             </button>
-            <button type="button" class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_official_photo_1.jpg', 'Aseda Praise Celebration Photography', 14)" aria-label="Enlarge photo of Aseda Praise Celebration Photography">
+            <button type="button" class="gal-item" data-media-type="image" data-media-target="assets/images/aseda_official_photo_1.jpg" data-media-caption="Aseda Praise Celebration Photography" data-media-index="14" aria-label="Enlarge photo of Aseda Praise Celebration Photography">
                 <img src="assets/images/aseda_official_photo_1.jpg" alt="Aseda Praise celebration stage photography in Tarkwa" loading="lazy" decoding="async" width="600" height="450">
             </button>
-            <button type="button" class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_official_photo_2.jpg', 'Stage Worship Atmosphere', 15)" aria-label="Enlarge photo of Stage Worship Atmosphere">
+            <button type="button" class="gal-item" data-media-type="image" data-media-target="assets/images/aseda_official_photo_2.jpg" data-media-caption="Stage Worship Atmosphere" data-media-index="15" aria-label="Enlarge photo of Stage Worship Atmosphere">
                 <img src="assets/images/aseda_official_photo_2.jpg" alt="Stage worship atmosphere illuminated at Aseda Praise" loading="lazy" decoding="async" width="600" height="450">
             </button>
-            <button type="button" class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_official_photo_3.jpg', 'Annual Easter Thanksgiving Moments', 16)" aria-label="Enlarge photo of Annual Easter Thanksgiving Moments">
+            <button type="button" class="gal-item" data-media-type="image" data-media-target="assets/images/aseda_official_photo_3.jpg" data-media-caption="Annual Easter Thanksgiving Moments" data-media-index="16" aria-label="Enlarge photo of Annual Easter Thanksgiving Moments">
                 <img src="assets/images/aseda_official_photo_3.jpg" alt="Annual Easter thanksgiving moments captured in Tarkwa" loading="lazy" decoding="async" width="600" height="450">
             </button>
-            <button type="button" class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_gp_extra_1.jpg', 'Worshippers Gathering', 17)" aria-label="Enlarge photo of Worshippers Gathering">
+            <button type="button" class="gal-item" data-media-type="image" data-media-target="assets/images/aseda_gp_extra_1.jpg" data-media-caption="Worshippers Gathering" data-media-index="17" aria-label="Enlarge photo of Worshippers Gathering">
                 <img src="assets/images/aseda_gp_extra_1.jpg" alt="Worshippers gathering together during Easter gospel concert" loading="lazy" decoding="async" width="600" height="450">
             </button>
-            <button type="button" class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_gp_extra_2.jpg', 'Festival Praise', 18)" aria-label="Enlarge photo of Festival Praise">
+            <button type="button" class="gal-item" data-media-type="image" data-media-target="assets/images/aseda_gp_extra_2.jpg" data-media-caption="Festival Praise" data-media-index="18" aria-label="Enlarge photo of Festival Praise">
                 <img src="assets/images/aseda_gp_extra_2.jpg" alt="Festival praise and thanksgiving celebration in Western Region" loading="lazy" decoding="async" width="600" height="450">
             </button>
-            <button type="button" class="gal-item" onclick="openMediaTheater('image', 'assets/images/aseda_gp_extra_3.jpg', 'Community Praise Atmosphere', 19)" aria-label="Enlarge photo of Community Praise Atmosphere">
+            <button type="button" class="gal-item" data-media-type="image" data-media-target="assets/images/aseda_gp_extra_3.jpg" data-media-caption="Community Praise Atmosphere" data-media-index="19" aria-label="Enlarge photo of Community Praise Atmosphere">
                 <img src="assets/images/aseda_gp_extra_3.jpg" alt="Community praise atmosphere at Aseda Praise grounds" loading="lazy" decoding="async" width="600" height="450">
             </button>
         </div>
@@ -484,10 +483,10 @@
 
     <!-- Accessible Lightbox Modal Dialog -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media Theater Showcase" aria-hidden="true">
-        <button class="lb-close" id="lb-close-btn" onclick="closeLightbox()" aria-label="Close Media Theater Dialog" type="button">&times;</button>
+        <button class="lb-close" id="lb-close-btn" data-action="close-lightbox" aria-label="Close Media Theater Dialog" type="button">&times;</button>
         
-        <button class="lb-nav-btn lb-prev" onclick="stepMediaTheater(-1)" aria-label="Previous Media Item" type="button">&#10094;</button>
-        <button class="lb-nav-btn lb-next" onclick="stepMediaTheater(1)" aria-label="Next Media Item" type="button">&#10095;</button>
+        <button class="lb-nav-btn lb-prev" id="lb-prev-btn" data-action="prev-media" aria-label="Previous Media Item" type="button">&#10094;</button>
+        <button class="lb-nav-btn lb-next" id="lb-next-btn" data-action="next-media" aria-label="Next Media Item" type="button">&#10095;</button>
 
         <div class="lb-media-stage" id="lb-media-stage">
             <!-- Dynamically populated with active photo or video -->

@@ -846,6 +846,7 @@ nav.scrolled .hamburger { color: #08091a !important; }
 .gallery-header {
     display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2.2rem;
 }
+.gallery-header h2 { margin: 0; }
 
 /* Masonry Grid Layout */
 .masonry { 

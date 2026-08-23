@@ -1,5 +1,14 @@
+# ==============================================================================
+# Security Hardening & Edge Response Headers for asedapraise.com
+# 
+# NOTE ON DEPLOYMENT:
+# - Cloudflare Pages: Automatically parses and applies this _headers file.
+# - Cloudflare Proxied Custom Domain (GitHub Pages behind Cloudflare):
+#   Apply these same headers using Cloudflare Transform Rules -> Modify Response Header
+#   or Cloudflare Workers for edge response header injection.
+# ==============================================================================
+
 /*
-  # Security Hardening & Edge Headers for asedapraise.com
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
